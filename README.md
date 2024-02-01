@@ -6,6 +6,10 @@ years in the Insomniac Core tools group. I don’t hear other programmers refer 
 it, so I want to introduce it to you. I call it a binary relation. It’s an
 associative container with a reverse look-up.
 
+![](Bijection.svg.png)
+
+ 
+
 The Missing Container
 ---------------------
 
