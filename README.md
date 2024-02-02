@@ -1,5 +1,5 @@
-Binary Relations
-----------------
+Binary Relations Are Everywhere
+-------------------------------
 
 There is a data structure I that has served me very well for the last seven
 years in the Insomniac Core tools group. I don’t hear other programmers refer to

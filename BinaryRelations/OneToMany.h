@@ -110,7 +110,7 @@ namespace BinaryRelations
             m_LeftToRight.clear();
         }
 
-        void unite(const OneToMany<LeftType, RightType> other)
+        void merge(const OneToMany<LeftType, RightType> other)
         {
             for (auto pair : other)
             {
@@ -193,7 +193,7 @@ namespace BinaryRelations
             }
         };
 
-        Iterator begin()
+        Iterator begin() const
         {
             Iterator it;
             it.LeftIterator = m_LeftToRight.constKeyValueBegin();
@@ -205,7 +205,7 @@ namespace BinaryRelations
             return it;
         }
 
-        Iterator end()
+        Iterator end() const
         {
             Iterator it;
             it.LeftIterator = m_LeftToRight.constKeyValueEnd();

@@ -103,4 +103,18 @@ private slots:
     {
         m_VehicleToPassengers.clear();
     }
+
+    void Merge()
+    {
+        OneToMany<ObjectId, ObjectId> other;
+        other.insert(kToyota, kZeke);
+        other.insert(kToyota, kXena);
+        m_VehicleToPassengers.merge(other);
+
+        QVERIFY(m_VehicleToPassengers.contains(kChevy, kJill));
+        QVERIFY(!m_VehicleToPassengers.contains(kChevy, kZeke));
+        QVERIFY(m_VehicleToPassengers.contains(kToyota, kZeke));
+        QVERIFY(m_VehicleToPassengers.contains(kToyota, kSean));
+        QVERIFY(m_VehicleToPassengers.contains(kToyota, kXena));
+    }
 };
