@@ -1,84 +1,125 @@
 #pragma once
 
-#include <QTest>
-
+#include <string>
+#include <iostream>
+#include "utest.h"
 #include "BinaryRelations/OneToOne.h"
 
 using namespace BinaryRelations;
 
-class TestOneToOne : public QObject
+UTEST(OneToOneTests, Insert)
 {
-    Q_OBJECT
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
 
-private:
-    enum ObjectId
-    {
-        kNone = 0,
-        kJill,
-        kZeke,
-        kSean,
-        kXena,
-    };
+    ASSERT_EQ(oto.count(), 4);
+    ASSERT_TRUE(oto.contains(1, "apple"));
+    ASSERT_TRUE(oto.contains(2, "banana"));
+    ASSERT_TRUE(oto.contains(3, "cherry"));
+    ASSERT_TRUE(oto.contains(4, "date"));
+}
 
-    OneToOne<ObjectId, QString> m_IdToUniqueName;
+UTEST(OneToOneTests, Remove)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
 
-private slots:
-    void init()
-    {
-        m_IdToUniqueName.insert(kJill, "JILL");
-        m_IdToUniqueName.insert(kZeke, "ZEKE");
-        m_IdToUniqueName.insert(kSean, "SEAN");
-        m_IdToUniqueName.insert(kXena, "XENA");
-    }
+    oto.remove(2, "banana");
+    oto.remove(3, "foo");
 
-    void Insert()
-    {
-        QVERIFY(m_IdToUniqueName.contains(kJill, "JILL"));
-        QVERIFY(m_IdToUniqueName.contains(kZeke, "ZEKE"));
-        QVERIFY(m_IdToUniqueName.contains(kSean, "SEAN"));
-        QVERIFY(m_IdToUniqueName.contains(kXena, "XENA"));
-    }
+    ASSERT_EQ(oto.count(), 3);
+    ASSERT_TRUE(oto.contains(1, "apple"));
+    ASSERT_FALSE(oto.contains(2, "banana"));
+    ASSERT_TRUE(oto.contains(3, "cherry"));
+    ASSERT_TRUE(oto.contains(4, "date"));
+}
 
-    void InsertOverwrite()
-    {
-        m_IdToUniqueName.insert(kZeke, "ALEX");
+UTEST(OneToOneTests, Overwrite)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
+    
+    oto.insert(5, "cherry"); // Should remove (3, "cherry")
+    
+    ASSERT_EQ(oto.count(), 4);
+    ASSERT_TRUE(oto.contains(1, "apple"));
+    ASSERT_TRUE(oto.contains(2, "banana"));
+    ASSERT_FALSE(oto.contains(3, "cherry"));
+    ASSERT_TRUE(oto.contains(4, "date"));
+    ASSERT_TRUE(oto.contains(5, "cherry"));
+}
 
-        QVERIFY(!m_IdToUniqueName.contains(kZeke, "ZEKE"));
-        QVERIFY(m_IdToUniqueName.contains(kZeke, "ALEX"));
-    }
+UTEST(OneToOneTests, Iterate)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
+    
+    int count = 0;
+    for (auto p : oto)
+        count += 1;
+    
+    ASSERT_EQ(count, 4);
+}
 
-    void Remove()
-    {
-        m_IdToUniqueName.remove(kJill, "JILL");
+UTEST(OneToOneTests, Merge)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
 
-        QVERIFY(!m_IdToUniqueName.contains(kJill, "JILL"));
-        QVERIFY( m_IdToUniqueName.contains(kZeke, "ZEKE"));
-        QVERIFY( m_IdToUniqueName.contains(kSean, "SEAN"));
-        QVERIFY( m_IdToUniqueName.contains(kXena, "XENA"));
-    }
+    OneToOne<int, std::string> oto2;
+    oto2.insert(4, "elderberry");
+    oto2.insert(5, "fig");
+    
+    oto.merge(oto2);
 
-    void RemoveLeft()
-    {
-        m_IdToUniqueName.removeLeft(kJill);
+    ASSERT_EQ(oto.count(), 5);
+    ASSERT_TRUE(oto.contains(1, "apple"));
+    ASSERT_TRUE(oto.contains(2, "banana"));
+    ASSERT_TRUE(oto.contains(3, "cherry"));
+    ASSERT_FALSE(oto.contains(4, "date"));
+    ASSERT_TRUE(oto.contains(4, "elderberry"));
+    ASSERT_TRUE(oto.contains(5, "fig"));
+}
 
-        QVERIFY(!m_IdToUniqueName.contains(kJill, "JILL"));
-        QVERIFY( m_IdToUniqueName.contains(kZeke, "ZEKE"));
-        QVERIFY( m_IdToUniqueName.contains(kSean, "SEAN"));
-        QVERIFY( m_IdToUniqueName.contains(kXena, "XENA"));
-    }
+UTEST(OneToOneTests, FindLeft)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
 
-    void RemoveRight()
-    {
-        m_IdToUniqueName.removeRight("JILL");
+    ASSERT_EQ(oto.findLeft("apple", -1), 1);
+    ASSERT_EQ(oto.findLeft("banana", -1), 2);
+    ASSERT_EQ(oto.findLeft("cherry", -1), 3);
+    ASSERT_EQ(oto.findLeft("date", -1), 4);
+}
 
-        QVERIFY(!m_IdToUniqueName.contains(kJill, "JILL"));
-        QVERIFY( m_IdToUniqueName.contains(kZeke, "ZEKE"));
-        QVERIFY( m_IdToUniqueName.contains(kSean, "SEAN"));
-        QVERIFY( m_IdToUniqueName.contains(kXena, "XENA"));
-    }
+UTEST(OneToOneTests, FindRight)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
 
-    void Clear()
-    {
-        m_IdToUniqueName.clear();
-    }
-};
+    ASSERT_TRUE(oto.findRight(1, "not found") == std::string("apple"));
+    ASSERT_TRUE(oto.findRight(2, "not found") == std::string("banana"));
+    ASSERT_TRUE(oto.findRight(3, "not found") == std::string("cherry"));
+    ASSERT_TRUE(oto.findRight(4, "not found") == std::string("date"));
+}

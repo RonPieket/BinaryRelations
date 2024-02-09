@@ -1,14 +1,12 @@
-#include <QCoreApplication>
-#include <QTest>
+#include <string>
+#include "utest.h"
+#include "BinaryRelations/SortedVector.h"
+#include "BinaryRelations/OneToMany.h"
+#include "BinaryRelations/OneToOne.h"
+#include "BinaryRelations/ManyToMany.h"
 
-#include "TestOneToOne.h"
 #include "TestOneToMany.h"
+#include "TestOneToOne.h"
+#include "TestManyToMany.h"
 
-int main(int argc, char *argv[])
-{
-    int status = 0;
-    status |= QTest::qExec(new TestOneToOne, argc, argv);
-    status |= QTest::qExec(new TestOneToMany, argc, argv);
-
-    return status;
-}
+UTEST_MAIN();

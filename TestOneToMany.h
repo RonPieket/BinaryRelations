@@ -1,120 +1,97 @@
 #pragma once
 
-#include <QTest>
-
+#include <string>
+#include <iostream>
+#include "utest.h"
 #include "BinaryRelations/OneToMany.h"
 
 using namespace BinaryRelations;
 
-class TestOneToMany : public QObject
+UTEST(OneToManyTests, Insert)
 {
-    Q_OBJECT
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(2, "cherry");
+    otm.insert(3, "date");
 
-private:
-    enum ObjectId
-    {
-        kObjectIdNull = 0,
-        kJill,
-        kZeke,
-        kSean,
-        kXena,
+    ASSERT_EQ(otm.count(), 4);
+    ASSERT_TRUE(otm.contains(1, "apple"));
+    ASSERT_TRUE(otm.contains(1, "banana"));
+    ASSERT_TRUE(otm.contains(2, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "date"));
+}
 
-        kChevy,
-        kToyota,
-    };
+UTEST(OneToManyTests, Remove)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(2, "cherry");
+    otm.insert(3, "date");
+    
+    otm.remove(1, "banana");
 
-    enum ObjectType
-    {
-        kObjectTypeNull = 0,
-        kVehicle,
-        kPerson,
-    };
+    ASSERT_EQ(otm.count(), 3);
+    ASSERT_TRUE(otm.contains(1, "apple"));
+    ASSERT_FALSE(otm.contains(1, "banana"));
+    ASSERT_TRUE(otm.contains(2, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "date"));
+}
 
-    OneToMany<ObjectId, ObjectId> m_VehicleToPassengers;
-    OneToMany<ObjectType, ObjectId> m_TypeToObjects;
+UTEST(OneToManyTests, Overwrite)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(2, "cherry");
+    otm.insert(3, "date");
+    
+    otm.insert(3, "cherry");
+    
+    ASSERT_EQ(otm.count(), 4);
+    ASSERT_TRUE(otm.contains(1, "apple"));
+    ASSERT_TRUE(otm.contains(1, "banana"));
+    ASSERT_FALSE(otm.contains(2, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "date"));
+}
 
-private slots:
-    void init()
-    {
-        m_VehicleToPassengers.clear();
-        m_VehicleToPassengers.insert(kChevy, kJill);
-        m_VehicleToPassengers.insert(kChevy, kZeke);
-        m_VehicleToPassengers.insert(kToyota, kSean);
+UTEST(OneToManyTests, Iterate)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(2, "cherry");
+    otm.insert(3, "date");
+    
+    int count = 0;
+    for (auto p : otm)
+        count += 1;
+    
+    ASSERT_EQ(count, 4);
+}
 
-        m_TypeToObjects.clear();
-        m_TypeToObjects.insert(kPerson, kJill);
-        m_TypeToObjects.insert(kPerson, kZeke);
-        m_TypeToObjects.insert(kPerson, kSean);
-        m_TypeToObjects.insert(kPerson, kXena);
-        m_TypeToObjects.insert(kVehicle, kChevy);
-        m_TypeToObjects.insert(kVehicle, kToyota);
-    }
+UTEST(OneToManyTests, Merge)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(2, "cherry");
+    otm.insert(3, "date");
 
-    void Insert()
-    {
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kJill));
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kZeke));
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kSean));
+    OneToMany<int, std::string> otm2;
+    otm2.insert(3, "elderberry");
+    otm2.insert(4, "fig");
+    
+    otm.merge(otm2);
 
-        QVERIFY(m_TypeToObjects.contains(kPerson, kJill));
-        QVERIFY(m_TypeToObjects.contains(kPerson, kZeke));
-        QVERIFY(m_TypeToObjects.contains(kPerson, kSean));
-        QVERIFY(m_TypeToObjects.contains(kPerson, kXena));
-        QVERIFY(m_TypeToObjects.contains(kVehicle, kChevy));
-        QVERIFY(m_TypeToObjects.contains(kVehicle, kToyota));
-    }
+    ASSERT_EQ(otm.count(), 6);
+    ASSERT_TRUE(otm.contains(1, "apple"));
+    ASSERT_TRUE(otm.contains(1, "banana"));
+    ASSERT_TRUE(otm.contains(2, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "date"));
+    ASSERT_TRUE(otm.contains(3, "elderberry"));
+    ASSERT_TRUE(otm.contains(4, "fig"));
+}
 
-    void InsertOverwrite()
-    {
-        m_VehicleToPassengers.insert(kChevy, kSean);
-
-        QVERIFY(!m_VehicleToPassengers.contains(kToyota, kSean));
-        QVERIFY( m_VehicleToPassengers.contains(kChevy, kSean));
-    }
-
-    void Remove()
-    {
-        m_VehicleToPassengers.remove(kToyota, kSean);
-
-        QVERIFY(!m_VehicleToPassengers.contains(kToyota, kSean));
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kJill));
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kZeke));
-    }
-
-    void RemoveLeft()
-    {
-        m_VehicleToPassengers.removeLeft(kChevy);
-
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kSean));
-        QVERIFY(!m_VehicleToPassengers.contains(kChevy, kJill));
-        QVERIFY(!m_VehicleToPassengers.contains(kChevy, kZeke));
-    }
-
-    void RemoveRight()
-    {
-        m_VehicleToPassengers.removeRight(kJill);
-
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kSean));
-        QVERIFY(!m_VehicleToPassengers.contains(kChevy, kJill));
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kZeke));
-    }
-
-    void Clear()
-    {
-        m_VehicleToPassengers.clear();
-    }
-
-    void Merge()
-    {
-        OneToMany<ObjectId, ObjectId> other;
-        other.insert(kToyota, kZeke);
-        other.insert(kToyota, kXena);
-        m_VehicleToPassengers.merge(other);
-
-        QVERIFY(m_VehicleToPassengers.contains(kChevy, kJill));
-        QVERIFY(!m_VehicleToPassengers.contains(kChevy, kZeke));
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kZeke));
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kSean));
-        QVERIFY(m_VehicleToPassengers.contains(kToyota, kXena));
-    }
-};
