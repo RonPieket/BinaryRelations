@@ -1,5 +1,5 @@
-Binary relations are everywhere
--------------------------------
+Binary relations
+================
 
 There is a data structure I that has served me very well for many years in the
 Insomniac Core tools group. I don’t hear other programmers refer to it, so I
@@ -32,7 +32,7 @@ areas.
 
 So in the world editor then, every object in the world is represented by a
 handle. They need to be organized at the global level. For example, objects can
-be stuck together in a parent-to-children relationship. A parent object has any
+be connected in a parent-to-children relationship. A parent object has any
 number of children. Each child has exactly one parent. This is a binary
 relation. And each child may itself be a parent and have children. Typically,
 this is kind of relationship is expressed in the object data itself. Every
@@ -65,6 +65,21 @@ class World
 
 With this data structure, you can look up the parent handle for any object, and
 get a vector of handles of its children.
+
+Binary relations are everywhere
+-------------------------------
+
+Once you get the hang of storing relationships outside the object, you will find
+uses for it everywhere. For example, game objects can be member of multiple
+groups. That’s a many-to-many. Given the group’s Handle, you can look up its
+member game objects. And when you have a game object, you can look up a vector
+of the groups it belongs to.
+
+Perhaps a more surprising example is this. Say you have an object type to
+classify people, vehicles, and buildings. This is also an opportunity to use a
+binary relation. In this case it’s a one-to-many. Given an object handle, you
+can look up what type it is. Given an object type, you can get a list of all
+objects of that type.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class World
