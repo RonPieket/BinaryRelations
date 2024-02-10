@@ -10,9 +10,13 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
-A quick refresher, before we go on. There are four kinds of binary relations
-(between sets of discrete elements). They are: one-to-one, one-to-many,
-many-to-one, and many-to-many. Since one-to-many and many-to-one are
+A quick refresher, before we go on. A binary relation is a collection of pairs
+of elements. Each pair represents a relation between one element on the left and
+one on the right. For example, on the left in the image below, the one-to-one
+relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
+
+There are four kinds of binary relations. They are: one-to-one, one-to-many,
+many-to-one, and many-to-many. Because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
 
@@ -22,67 +26,55 @@ Real world examples
 -------------------
 
 The real world examples come from my experience as a game tools programmer,
-specifically for the world editor. I’m certain that these data structures will
-be useful in other areas.
+specifically as a programmer for the world editor. So I will use that as an
+example. I’m certain that these data structures will be useful in many other
+areas.
 
-So in the world editor then, we have a project. A project has any number of
-worlds. That’s our first binary relation: project-to-worlds, which is a
-one-to-many relation. Every project has any number of worlds. But every world
-belongs to only one project. So project-to-worlds is one-to-many. Every world is
-composed of zones. This is world-to-zones, which is another one-to-many. And
-every zone has any number of game objects, another one-to-many.
+So in the world editor then, every object in the world is represented by a
+handle. They need to be organized at the global level. For example, objects can
+be stuck together in a parent-to-children relationship. A parent object has any
+number of children. Each child has exactly one parent. This is a binary
+relation. And each child may itself be a parent and have children. Typically,
+this is kind of relationship is expressed in the object data itself. Every
+object that is a child contains a handle to a parent. And each parent contains
+an array of handles to its children.
 
-Game objects are organized in a parent-to-children fashion.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+class GameObject
+{
+    Handle m_Parent;
+    std::vector<Handle> m_Children;
+    ...
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Reverse look-ups are common
----------------------------
+This organization requires that when a parent-child relation is modified, you
+need to update both the `m_Parent` of the child, as well as the `m_Children`
+vector of the parent. This kind of connection is a one-to-many binary relation.
+With binary relations, the relationship between parents and children is stored
+outside of the object data structure, in its own container. All parent-to-child
+relationships are stored in one container at lives alongside the game objects.
 
-A versatile hammer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+class World
+{
+    OneToMany<Handle, Handle> m_ParentToChildren;
+    ...
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Reverse look-ups where you didn’t expect them
----------------------------------------------
+With this data structure, you can look up the parent handle for any object, and
+get a vector of handles of its children.
 
-Attributes, groups, classification.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+class World
+{
+    OneToMany<Handle, Handle> m_ParentToChildren;
+    OneToMany<ZoneId, Handle> m_ZoneToObjects;
+    OneToMany<ObjectType, Handle> m_TypeToObjects;
 
-Three kinds of binary relations
--------------------------------
-
-The three kinds of binary relations are: one-to-one, one-to-many, and
-many-to-many. The many-to-one binary relation is just the inverse of a
-one-to-many, so it is omitted.
-
-Use cases
----------
-
--   ParentToChildren
-
--   TypeToNodes
-
--   ZoneToNodes
-
--   AssetToNodes
-
--   SelectionToNodes
-
- 
-
-Multiple, simultaneous hierarchies. Trees. Flags. Attributes.
-
- 
-
-Binary relations for tree hierarchies
--------------------------------------
-
-Binary relations for grouping by attribute
-------------------------------------------
-
-Filtering by attribute combination
-----------------------------------
-
-Implementation with sorted vectors, a compromise
-------------------------------------------------
-
-Sorted vectors and set operations
----------------------------------
-
- 
+    ManyToMany<Handle, Handle> m_GroupToObjects;
+    ManyToMany<QuestId, Handle> m_QuestToGroups;
+    ...
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
