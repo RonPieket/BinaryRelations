@@ -7,7 +7,7 @@
 
 using namespace BinaryRelations;
 
-UTEST(OneToManyTests, Insert)
+UTEST(TestOneToMany, Insert)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -22,7 +22,7 @@ UTEST(OneToManyTests, Insert)
     ASSERT_TRUE(otm.contains(3, "date"));
 }
 
-UTEST(OneToManyTests, Remove)
+UTEST(TestOneToMany, Remove)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -39,7 +39,7 @@ UTEST(OneToManyTests, Remove)
     ASSERT_TRUE(otm.contains(3, "date"));
 }
 
-UTEST(OneToManyTests, Overwrite)
+UTEST(TestOneToMany, Overwrite)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -57,7 +57,7 @@ UTEST(OneToManyTests, Overwrite)
     ASSERT_TRUE(otm.contains(3, "date"));
 }
 
-UTEST(OneToManyTests, Iterate)
+UTEST(TestOneToMany, Iterate)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -72,7 +72,7 @@ UTEST(OneToManyTests, Iterate)
     ASSERT_EQ(count, 4);
 }
 
-UTEST(OneToManyTests, FindRight)
+UTEST(TestOneToMany, FindRight)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -88,7 +88,7 @@ UTEST(OneToManyTests, FindRight)
     ASSERT_EQ(count, 3);
 }
 
-UTEST(OneToManyTests, Merge)
+UTEST(TestOneToMany, Merge)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");

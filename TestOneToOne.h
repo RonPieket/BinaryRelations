@@ -7,7 +7,7 @@
 
 using namespace BinaryRelations;
 
-UTEST(OneToOneTests, Insert)
+UTEST(TestOneToOne, Insert)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -22,7 +22,7 @@ UTEST(OneToOneTests, Insert)
     ASSERT_TRUE(oto.contains(4, "date"));
 }
 
-UTEST(OneToOneTests, Remove)
+UTEST(TestOneToOne, Remove)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -40,7 +40,7 @@ UTEST(OneToOneTests, Remove)
     ASSERT_TRUE(oto.contains(4, "date"));
 }
 
-UTEST(OneToOneTests, Overwrite)
+UTEST(TestOneToOne, Overwrite)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -58,7 +58,7 @@ UTEST(OneToOneTests, Overwrite)
     ASSERT_TRUE(oto.contains(5, "cherry"));
 }
 
-UTEST(OneToOneTests, Iterate)
+UTEST(TestOneToOne, Iterate)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -73,7 +73,7 @@ UTEST(OneToOneTests, Iterate)
     ASSERT_EQ(count, 4);
 }
 
-UTEST(OneToOneTests, Merge)
+UTEST(TestOneToOne, Merge)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -96,7 +96,7 @@ UTEST(OneToOneTests, Merge)
     ASSERT_TRUE(oto.contains(5, "fig"));
 }
 
-UTEST(OneToOneTests, FindLeft)
+UTEST(TestOneToOne, FindLeft)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -110,7 +110,7 @@ UTEST(OneToOneTests, FindLeft)
     ASSERT_EQ(oto.findLeft("date", -1), 4);
 }
 
-UTEST(OneToOneTests, FindRight)
+UTEST(TestOneToOne, FindRight)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");

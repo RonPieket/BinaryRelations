@@ -55,7 +55,7 @@ public:
         m_RightToLeft[right] = left;
     }
 
-    void insert(const OneToMany<LeftType, RightType> &other)
+    void insert(const OneToMany<LeftType, RightType>& other)
     {
         for (auto pair : other)
         {

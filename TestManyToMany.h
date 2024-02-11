@@ -7,7 +7,7 @@
 
 using namespace BinaryRelations;
 
-UTEST(ManyToManyTests, Insert)
+UTEST(TestManyToMany, Insert)
 {
     ManyToMany<int, std::string> m2m;
     m2m.insert(1, "apple");
@@ -22,7 +22,7 @@ UTEST(ManyToManyTests, Insert)
     ASSERT_TRUE(m2m.contains(3, "cherry"));
 }
 
-UTEST(ManyToManyTests, Remove)
+UTEST(TestManyToMany, Remove)
 {
     ManyToMany<int, std::string> m2m;
     m2m.insert(1, "apple");
@@ -39,7 +39,7 @@ UTEST(ManyToManyTests, Remove)
     ASSERT_TRUE(m2m.contains(3, "cherry"));
 }
 
-UTEST(ManyToManyTests, Iterate)
+UTEST(TestManyToMany, Iterate)
 {
     ManyToMany<int, std::string> m2m;
     m2m.insert(1, "apple");
@@ -54,7 +54,7 @@ UTEST(ManyToManyTests, Iterate)
     ASSERT_EQ(count, 4);
 }
 
-UTEST(ManyToManyTests, FindLeft)
+UTEST(TestManyToMany, FindLeft)
 {
     ManyToMany<int, std::string> mtm;
     mtm.insert(1, "apple");
@@ -73,7 +73,7 @@ UTEST(ManyToManyTests, FindLeft)
     ASSERT_EQ(count, 2);
 }
 
-UTEST(ManyToManyTests, FindRight)
+UTEST(TestManyToMany, FindRight)
 {
     ManyToMany<int, std::string> mtm;
     mtm.insert(1, "apple");
@@ -92,7 +92,7 @@ UTEST(ManyToManyTests, FindRight)
     ASSERT_EQ(count, 3);
 }
 
-UTEST(ManyToManyTests, Merge)
+UTEST(TestManyToMany, Merge)
 {
     ManyToMany<int, std::string> m2m;
     m2m.insert(1, "apple");
