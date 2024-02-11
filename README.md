@@ -163,23 +163,12 @@ const std::vector<LeftType>* findLeft(const RightType &right) const
 Efficiency
 ----------
 
-The efficiency for lookup such as `FindLeft` and `FindRight` is constant time.
-All operations on a OneToOne are also constant.
+The efficiency for lookup such as `FindLeft()` and `FindRight()` is constant
+time. All operations on a OneToOne are also constant.
 
 Things get more complicated with OneToMany and ManyToMany. They maintain sorted
 arrays. Insertion and removal of elements in a table involves shifting
 everything between the point of insertion/removal and the end of the array. We
 built several AAA games with this tech, without running into performance issues.
-However, depending on the number elements in the array, and your CPU time
-budget, you may want to consider an optimization.
-
-To optimize mass insertion into a large OneToMany or ManyToMany, you can collect
-all your changes in a temporary, much smaller relation, and `insert()` them into
-the main relation in one operation. Merging is much more efficient than
-individual insertions.
-
-To optimize mass removal from a OneToMany or ManyToMany, you can collect all the
-relations you want to remove in a temporary relation, and `remove()` them in one
-go. For large operations, this is more efficient than individual removals.
-
- 
+However, depending on the number elements in the array, the frequency of
+changes, and your CPU time budget, you may want to consider alternatives.
