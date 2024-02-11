@@ -19,12 +19,12 @@ one on the right. For example, on the left in the illustration below, the
 one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and
 (D, 2).
 
+![](ThreeKindsOfBinaryRelation.png)
+
 There are four kinds of binary relations. They are: one-to-one, one-to-many,
 many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
-
-![](ThreeKindsOfBinaryRelation.png)
 
 Real world examples
 -------------------
@@ -146,18 +146,18 @@ LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
 std::vector<RightType>* findRight(const LeftType &left) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The API for OneToOne is the same, except for `findLeft`:
+The API for OneToOne is the same, except for `findRight`:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToOne:
 
-RightType findRight(const RightType &right, const LeftType &notFoundValue) const
+RightType findRight(const LeftType &left, const RightType &notFoundValue) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-And ManyToMany is the same as OneToMany, except for `findRight`:
+And ManyToMany is the same as OneToMany, except for `findLeft`:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ManyToMany:
 
-std::vector<LeftType>* findleft(const RightType &right) const
+const std::vector<LeftType>* findLeft(const RightType &right) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
