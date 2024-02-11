@@ -14,12 +14,13 @@ specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
 A quick refresher, before we go on. A binary relation is a collection of pairs
-of elements. Each pair represents a relation between one element on the left and
-one on the right. For example, on the left in the image below, the one-to-one
-relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
+of members. Each pair represents a relation between one member on the left and
+one on the right. For example, on the left in the illustration below, the
+one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and
+(D, 2).
 
 There are four kinds of binary relations. They are: one-to-one, one-to-many,
-many-to-one, and many-to-many. Because one-to-many and many-to-one are
+many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
 
@@ -41,8 +42,8 @@ one-to-many. And each child may itself be a parent and have children. So we have
 a hierarchy tree.
 
 Typically, this is kind of relationship is expressed in the object data itself.
-Every object that is a child contains a handle to a parent. And each parent
-contains an array of handles to its children.
+Every object that is a child contains a handle (or pointer) to a parent. And
+each parent contains an array of handles (or pointers) to its children.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class GameObject
@@ -94,8 +95,8 @@ class World
     OneToMany<Handle, Handle>     m_ParentToChildren;
     OneToMany<ZoneId, Handle>     m_ZoneToObjects;
     OneToMany<ObjectType, Handle> m_TypeToObjects;
-    OneToMany<AssetInfo, Handle>  m_AssetToNodes;
-    OneToMany<AssetInfo, Handle>  m_ZoneToNodes;
+    OneToMany<AssetInfo, Handle>  m_AssetToObjects;
+    OneToMany<AssetInfo, Handle>  m_ZoneToObjects;
     OneToMany<Handle, Handle>     m_SuperToSubNodes;
     OneToMany<AssetType, Handle>  m_AssetTypeToNodes;
     ...
@@ -105,12 +106,58 @@ class World
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The implementation
-------------------
+The API
+-------
 
 The library consists of three C++ header files: OneToOne.h, OneToMany.h, and
 ManyToMany.h. There are no dependencies between these files, so you can
 `#include` any combination. A fourth header file SortedVector.h is used by all
 other .h files.
 
-The library relies on the STL.
+Each binary relation type is a template, with type arguments `LeftType` and
+`RightType`. Both types need to be small, hashable, and immutable. I recommend
+that you only use simple types, such as `int` and `enum`,  and possibly
+`std::string`.
+
+This is the entire OneToMany API:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OneToMany:
+
+void     insert(const Pair &pair)
+void     insert(const LeftType &left, const RightType &right)
+void     remove(const Pair &pair)
+void     remove(const LeftType &left, const RightType &right)
+void     removeLeft(const LeftType &left)
+void     removeRight(const RightType &right)
+void     clear()
+void     merge(const OneToMany<LeftType, RightType> other)
+bool     contains(const Pair &pair) const
+bool     contains(const LeftType &left, const RightType &right) const
+bool     containsLeft(const LeftType &left) const
+bool     containsRight(const RightType &right) const
+int      countLeft() const
+int      countRight() const
+int      count() const
+Iterator begin() const
+Iterator end() const
+
+LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
+std::vector<RightType>* findRight(const LeftType &left) const
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The API for OneToOne is the same, except for `findLeft`:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+OneToOne:
+
+RightType findRight(const RightType &right, const LeftType &notFoundValue) const
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+And ManyToMany is the same as OneToMany, except for `findRight`:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ManyToMany:
+
+std::vector<LeftType>* findleft(const RightType &right) const
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

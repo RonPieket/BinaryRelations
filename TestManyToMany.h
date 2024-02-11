@@ -54,6 +54,44 @@ UTEST(ManyToManyTests, Iterate)
     ASSERT_EQ(count, 4);
 }
 
+UTEST(ManyToManyTests, FindLeft)
+{
+    ManyToMany<int, std::string> mtm;
+    mtm.insert(1, "apple");
+    mtm.insert(1, "banana");
+    mtm.insert(1, "cherry");
+    mtm.insert(2, "date");
+    mtm.insert(3, "date");
+
+    int count = 0;
+    for (auto p : *mtm.findLeft("date"))
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+    
+    ASSERT_EQ(count, 2);
+}
+
+UTEST(ManyToManyTests, FindRight)
+{
+    ManyToMany<int, std::string> mtm;
+    mtm.insert(1, "apple");
+    mtm.insert(1, "banana");
+    mtm.insert(1, "cherry");
+    mtm.insert(2, "date");
+    mtm.insert(3, "elderberry");
+
+    int count = 0;
+    for (auto p : *mtm.findRight(1))
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 3);
+}
+
 UTEST(ManyToManyTests, Merge)
 {
     ManyToMany<int, std::string> m2m;

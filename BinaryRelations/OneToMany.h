@@ -9,6 +9,7 @@ template <typename LeftType, typename RightType> class OneToMany
 {
     std::unordered_map<LeftType, std::vector<RightType> *> m_LeftToRight;
     std::unordered_map<RightType, LeftType> m_RightToLeft;
+    std::vector<RightType> m_EmptyRightVector;
 
 public:
     struct Pair
@@ -143,18 +144,18 @@ public:
         return m_RightToLeft.contains(right);
     }
 
-    std::vector<RightType>* findRight(const LeftType &left) const
+    const std::vector<RightType>* findRight(const LeftType &left) const
     {
-        auto l2r_it = m_LeftToRight.constFind(left);
+        auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it == m_LeftToRight.end())
-            return std::vector<RightType>();
+            return &m_EmptyRightVector;
 
         return l2r_it->second;
     }
 
     LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
     {
-        auto r2l_it = m_RightToLeft.constFind(right);
+        auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
             return notFoundValue;
 

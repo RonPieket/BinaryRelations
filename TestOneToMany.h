@@ -64,12 +64,28 @@ UTEST(OneToManyTests, Iterate)
     otm.insert(1, "banana");
     otm.insert(2, "cherry");
     otm.insert(3, "date");
-    
+
     int count = 0;
     for (auto p : otm)
         count += 1;
     
     ASSERT_EQ(count, 4);
+}
+
+UTEST(OneToManyTests, FindRight)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(1, "cherry");
+    otm.insert(2, "date");
+    otm.insert(3, "elderberry");
+
+    int count = 0;
+    for (auto p : *otm.findRight(1))
+        count += 1;
+    
+    ASSERT_EQ(count, 3);
 }
 
 UTEST(OneToManyTests, Merge)
