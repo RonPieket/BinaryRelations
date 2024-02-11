@@ -4,7 +4,7 @@ Binary relations are everywhere
 What is this?
 -------------
 
-This is a small library (header files only) that adds three new container types
+This is a small C++ library (header files only) that adds three new container types
 that help you organize and query data in memory.
 
 Intro
