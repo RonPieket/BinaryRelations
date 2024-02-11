@@ -1,10 +1,11 @@
 Binary relations are everywhere
 ===============================
 
-What is it?
------------
+What is this?
+-------------
 
-This is a library to help you organize and query your data in memory.
+This is a small library (header files only) that adds three new container types
+that help you organize and query data in memory.
 
 Intro
 -----
