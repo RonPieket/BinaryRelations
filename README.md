@@ -1,6 +1,11 @@
 Binary relations are everywhere
 ===============================
 
+What is it?
+-----------
+
+This is a library to help you organize and query your data in memory.
+
 Intro
 -----
 
@@ -124,10 +129,12 @@ OneToMany:
 
 void     insert(const Pair &pair)
 void     insert(const LeftType &left, const RightType &right)
+void     insert(const OneToMany<LeftType, RightType> &other)
 void     remove(const Pair &pair)
 void     remove(const LeftType &left, const RightType &right)
 void     removeLeft(const LeftType &left)
 void     removeRight(const RightType &right)
+void     remove(const OneToMany<LeftType, RightType> &other)
 void     clear()
 void     merge(const OneToMany<LeftType, RightType> other)
 bool     contains(const Pair &pair) const
@@ -144,18 +151,24 @@ LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
 const std::vector<RightType>* findRight(const LeftType &left) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The API for OneToOne is the same, except for `findRight`:
+The API for OneToOne is the same, except for:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToOne:
 
+void     insert(const OneToOne<LeftType, RightType> &other)
+void     remove(const OneToOne<LeftType, RightType> &other)
+
 RightType findRight(const LeftType &left, const RightType &notFoundValue) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-And ManyToMany is the same as OneToMany, except for `findLeft`:
+And ManyToMany is the same as OneToMany, except for:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ManyToMany:
+
+void     insert(const ManyToMany<LeftType, RightType> &other)
+void     remove(const ManyToMany<LeftType, RightType> &other)
 
 const std::vector<LeftType>* findLeft(const RightType &right) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,7 +180,7 @@ The efficiency for lookup such as `FindLeft()` and `FindRight()` is constant
 time. All operations on a OneToOne are also constant.
 
 Things get more complicated with OneToMany and ManyToMany. They maintain sorted
-arrays. Insertion and removal of elements in a table involves shifting
+arrays. Insertion and removal of elements in an array involves shifting
 everything between the point of insertion/removal and the end of the array. We
 built several AAA games with this tech, without running into performance issues.
 However, depending on the number elements in the array, the frequency of
