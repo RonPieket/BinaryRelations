@@ -88,18 +88,26 @@ public:
         }
     }
 
-    void clear()
-    {
-        m_RightToLeft.clear();
-        m_LeftToRight.clear();
-    }
-
-    void merge(const OneToOne<LeftType, RightType> other)
+    void insert(const OneToMany<LeftType, RightType> other)
     {
         for (auto pair : other)
         {
             insert(pair);
         }
+    }
+
+    void remove(const OneToMany<LeftType, RightType> other)
+    {
+        for (auto pair : other)
+        {
+            remove(pair);
+        }
+    }
+
+    void clear()
+    {
+        m_RightToLeft.clear();
+        m_LeftToRight.clear();
     }
 
     bool contains(const Pair &pair) const

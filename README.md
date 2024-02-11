@@ -13,11 +13,10 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
-A quick refresher, before we go on. A binary relation is a collection of pairs
-of members. Each pair represents a relation between one member on the left and
-one on the right. For example, on the left in the illustration below, the
-one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and
-(D, 2).
+A quick refresher, before we go on. A binary relation is a collection of pairs.
+Each pair represents a relation between one member on the left and one on the
+right. For example, in the illustration below, the one-to-one relation consists
+of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
 
 ![](ThreeKindsOfBinaryRelation.png)
 
@@ -82,10 +81,9 @@ members. And when you have a game object, you can get a list of the groups it
 belongs to.
 
 Perhaps a more surprising example is this. Say you have an object type to
-classify people, vehicles, and buildings. This is also an opportunity to use a
-binary relation. In this case it’s a one-to-many. Given an object handle, you
-can look up what type it is. Given an object type, you can get a list of all
-objects of that type.
+classify people, vehicles, and buildings. This, too, is a binary relation. In
+this case it’s a one-to-many. Given an object handle, you can look up what type
+it is. Given an object type, you can get a list of all objects of that type.
 
 Here are some more use cases:
 
@@ -97,8 +95,8 @@ class World
     OneToMany<ObjectType, Handle> m_TypeToObjects;
     OneToMany<AssetInfo, Handle>  m_AssetToObjects;
     OneToMany<AssetInfo, Handle>  m_ZoneToObjects;
-    OneToMany<Handle, Handle>     m_SuperToSubNodes;
-    OneToMany<AssetType, Handle>  m_AssetTypeToNodes;
+    OneToMany<Handle, Handle>     m_PrefabToObjects;
+    OneToMany<AssetType, Handle>  m_AssetTypeToObjects;
     ...
     ManyToMany<Handle, Handle>    m_GroupsToObjects;
     ManyToMany<QuestId, Handle>   m_QuestsToGroups;
@@ -109,14 +107,14 @@ class World
 The API
 -------
 
-The library consists of three C++ header files: OneToOne.h, OneToMany.h, and
-ManyToMany.h. There are no dependencies between these files, so you can
-`#include` any combination. A fourth header file SortedVector.h is used by all
-other .h files.
+The library is located in the BinaryRelations directory. It consists of three
+C++ header files: OneToOne.h, OneToMany.h, and ManyToMany.h. There are no
+dependencies between these files, so you can `#include` any combination. A
+fourth header file SortedVector.h is used by all other .h files.
 
 Each binary relation type is a template, with type arguments `LeftType` and
 `RightType`. Both types need to be small, hashable, and immutable. I recommend
-that you only use simple types, such as `int` and `enum`,  and possibly
+that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
 This is the entire OneToMany API:
@@ -143,7 +141,7 @@ Iterator begin() const
 Iterator end() const
 
 LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
-std::vector<RightType>* findRight(const LeftType &left) const
+const std::vector<RightType>* findRight(const LeftType &left) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The API for OneToOne is the same, except for `findRight`:
@@ -161,3 +159,27 @@ ManyToMany:
 
 const std::vector<LeftType>* findLeft(const RightType &right) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Efficiency
+----------
+
+The efficiency for lookup such as `FindLeft` and `FindRight` is constant time.
+All operations on a OneToOne are also constant.
+
+Things get more complicated with OneToMany and ManyToMany. They maintain sorted
+arrays. Insertion and removal of elements in a table involves shifting
+everything between the point of insertion/removal and the end of the array. We
+built several AAA games with this tech, without running into performance issues.
+However, depending on the number elements in the array, and your CPU time
+budget, you may want to consider an optimization.
+
+To optimize mass insertion into a large OneToMany or ManyToMany, you can collect
+all your changes in a temporary, much smaller relation, and `insert()` them into
+the main relation in one operation. Merging is much more efficient than
+individual insertions.
+
+To optimize mass removal from a OneToMany or ManyToMany, you can collect all the
+relations you want to remove in a temporary relation, and `remove()` them in one
+go. For large operations, this is more efficient than individual removals.
+
+ 
