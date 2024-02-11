@@ -88,7 +88,7 @@ public:
         }
     }
 
-    void insert(const OneToMany<LeftType, RightType> other)
+    void insert(const OneToOne<LeftType, RightType> &other)
     {
         for (auto pair : other)
         {
@@ -96,11 +96,11 @@ public:
         }
     }
 
-    void remove(const OneToMany<LeftType, RightType> other)
+    void remove(const OneToOne<LeftType, RightType> &other)
     {
         for (auto pair : other)
         {
-            remove(pair);
+            remove( pair);
         }
     }
 

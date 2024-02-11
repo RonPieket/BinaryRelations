@@ -100,7 +100,7 @@ UTEST(OneToManyTests, Merge)
     otm2.insert(3, "elderberry");
     otm2.insert(4, "fig");
     
-    otm.merge(otm2);
+    otm.insert(otm2);
 
     ASSERT_EQ(otm.count(), 6);
     ASSERT_TRUE(otm.contains(1, "apple"));

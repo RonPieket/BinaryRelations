@@ -149,7 +149,7 @@ public:
         }
     }
 
-    void insert(const ManyToMany<LeftType, RightType> other)
+    void insert(const ManyToMany<LeftType, RightType>& other)
     {
         for (auto pair : other)
         {
@@ -157,7 +157,7 @@ public:
         }
     }
 
-    void remove(const ManyToMany<LeftType, RightType> other)
+    void remove(const ManyToMany<LeftType, RightType>& other)
     {
         for (auto pair : other)
         {

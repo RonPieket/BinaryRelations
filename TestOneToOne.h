@@ -85,7 +85,7 @@ UTEST(OneToOneTests, Merge)
     oto2.insert(4, "elderberry");
     oto2.insert(5, "fig");
     
-    oto.merge(oto2);
+    oto.insert(oto2);
 
     ASSERT_EQ(oto.count(), 5);
     ASSERT_TRUE(oto.contains(1, "apple"));

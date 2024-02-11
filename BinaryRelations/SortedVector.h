@@ -49,31 +49,57 @@ template <typename T> int removeFromSortedVector(std::vector<T> *vector, const T
 }
 
 template <typename T>
-void mergeSortedVectors(std::vector<T> *vectorInA, std::vector<T> *vectorInB, std::vector<T> *vectorOut)
+void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector)
 {
-    typename std::vector<T>::const_iterator itInA = vectorInA->cbegin();
-    typename std::vector<T>::const_iterator itInB = vectorInB->cbegin();
+    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator insertIt = insertVector->cbegin();
 
-    vectorOut->clear();
-    vectorOut->reserve(vectorInA->count() + vectorInB->count());
+    outVector->clear();
+    outVector->reserve(sourceVector->count() + insertVector->count());
 
-    while (itInA != vectorInA->cend() && itInB != vectorInB->cend())
+    while (sourceIt != sourceVector->cend() && insertIt != insertVector->cend())
     {
-        if (*itInA == *itInB)
+        if (*sourceIt == *insertIt)
         {
-            vectorOut->append(*itInA++);
-            itInB++;
+            outVector->append(*sourceIt++);
+            insertIt++;
         }
-        else if (*itInA < *itInB)
-            vectorOut->append(*itInA++);
+        else if (*sourceIt < *insertIt)
+            outVector->append(*sourceIt++);
         else
-            vectorOut->append(*itInB++);
+            outVector->append(*insertIt++);
     }
 
-    while (itInA != vectorInA->cend())
-        vectorOut->append(*itInA++);
+    while (sourceIt != sourceVector->cend())
+        outVector->append(*sourceIt++);
 
-    while (itInB != vectorInB->cend())
-        vectorOut->append(*itInB++);
+    while (insertIt != insertVector->cend())
+        outVector->append(*insertIt++);
+}
+
+template <typename T>
+void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *removeVector, std::vector<T> *outVector)
+{
+    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator removeIt = removeVector->cbegin();
+
+    outVector->clear();
+    outVector->reserve(std::max(sourceVector->count(), removeVector->count()));
+
+    while (sourceIt != sourceVector->cend() && removeIt != removeVector->cend())
+    {
+        if (*sourceIt == *removeIt)
+        {
+            sourceIt++;
+            removeIt++;
+        }
+        else if (*sourceIt < *removeIt)
+            outVector->append(*sourceIt++);
+        else
+            outVector->append(*removeIt++);
+    }
+
+    while (sourceIt != sourceVector->cend())
+        outVector->append(*sourceIt++);
 }
 } // namespace BinaryRelations

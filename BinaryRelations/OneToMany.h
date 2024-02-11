@@ -55,6 +55,14 @@ public:
         m_RightToLeft[right] = left;
     }
 
+    void insert(const OneToMany<LeftType, RightType> &other)
+    {
+        for (auto pair : other)
+        {
+            insert(pair);
+        }
+    }
+
     void remove(const Pair &pair)
     {
         remove(pair.left, pair.right);
@@ -109,15 +117,7 @@ public:
         remove(r2l_it->second, right);
     }
 
-    void insert(const OneToMany<LeftType, RightType> other)
-    {
-        for (auto pair : other)
-        {
-            insert(pair);
-        }
-    }
-
-    void remove(const OneToMany<LeftType, RightType> other)
+    void remove(const OneToMany<LeftType, RightType> &other)
     {
         for (auto pair : other)
         {

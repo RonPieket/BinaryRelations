@@ -105,7 +105,7 @@ UTEST(ManyToManyTests, Merge)
     m2m2.insert(4, "fig");
     m2m2.insert(1, "apple");
 
-    m2m.merge(m2m2);
+    m2m.insert(m2m2);
 
     ASSERT_EQ(m2m.count(), 6);
     ASSERT_TRUE(m2m.contains(1, "apple"));
