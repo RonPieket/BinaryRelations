@@ -7,6 +7,9 @@ What is this?
 This is a small C++ library (a single header file) that adds three new
 associative container types that help you organize and query data in memory.
 
+[Click here for the full
+documentation.](https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html)
+
 Intro
 -----
 
@@ -126,8 +129,7 @@ Each binary relation type is a template, with type arguments `LeftType` and
 recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
-This is the entire OneToMany API. [Click here for the full
-documentation](https://ronpieket.github.io/BinaryRelations).
+This is the entire OneToMany API. [Click here for the full documentation.]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToMany:
