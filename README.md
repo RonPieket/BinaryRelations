@@ -127,7 +127,7 @@ recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
 This is the entire OneToMany API. [Click here for the full
-documentation](ronpieket.github.io/BinaryRelations).
+documentation](https://ronpieket.github.io/BinaryRelations).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToMany:

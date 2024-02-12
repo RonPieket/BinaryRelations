@@ -323,7 +323,7 @@ public:
     /**
      @brief Find all right values that are paired with this left value.
      If nothing is found, you will get an empty array.
-     This works well with range-based for.
+     This works well with range-based-for.
      @param left The left side of the pair to look for.
      @return The vector of right values.
      */
@@ -380,7 +380,7 @@ public:
     }
 
     /**
-     @brief A range-based for compatible iterator.
+     @brief A range-based-for compatible iterator.
      */
     class Iterator
     {
@@ -428,7 +428,7 @@ public:
     };
 
     /**
-     @brief Required member to get range-based for.
+     @brief Required member to get range-based-for.
      @return an Iterator set to the first pair in the set.
      */
     Iterator begin() const
@@ -445,7 +445,7 @@ public:
     }
 
     /**
-     @brief Required member to get range-based for.
+     @brief Required member to get range-based-for.
      @return an Iterator set to one after the last pair in the set.
      */
     Iterator end() const
@@ -704,7 +704,7 @@ public:
     }
 
     /**
-     @brief A range-based for compatible iterator.
+     @brief A range-based-for compatible iterator.
      */
     class Iterator
     {
@@ -746,7 +746,7 @@ public:
     };
 
     /**
-     @brief Required member to get range-based for.
+     @brief Required member to get range-based-for.
      @return an Iterator set to the first pair in the set.
      */
     Iterator begin() const
@@ -763,7 +763,7 @@ public:
     }
 
     /**
-     @brief Required member to get range-based for.
+     @brief Required member to get range-based-for.
      @return an Iterator set to one after the last pair in the set.
      */
     Iterator end() const
