@@ -106,8 +106,8 @@ void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *remove
 // ----------------------------------------------------------------------------
 
 /**
- @img html \image html binary-relations-one-to-many.png
  A one-to-many set of (left, right) pairs. The left side can have any number of right counterparts. The right side can only be in a pair with one left side.
+ @img html \image html binary-relations-one-to-many.png
  */
 template <typename LeftType, typename RightType> class OneToMany
 {
@@ -138,7 +138,7 @@ public:
     /**
      @brief Insert a pair into the set.
      The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
-     @param pair The (left, right) pair to insert.
+     @param pair The pair to insert.
      */
     void insert(const Pair &pair)
     {
@@ -146,7 +146,7 @@ public:
     }
 
     /**
-     @brief Insert a (left, right) pair into the set.
+     @brief Insert a pair into the set.
      The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
      @param left The left side of the pair to add.
      @param right The right side of the pair to add.
@@ -187,9 +187,9 @@ public:
     }
 
     /**
-     @brief Remove a (left, right) pair from the set.
+     @brief Remove a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param pair The (left, right) pair to remove.
+     @param pair The pair to remove.
      */
     void remove(const Pair &pair)
     {
@@ -262,7 +262,7 @@ public:
     }
 
     /**
-     @brief Remove multiple (left, right) pairs from the set.
+     @brief Remove multiple pairs from the set.
      @param other The set of pairs to remove.
      */
     void remove(const OneToMany<LeftType, RightType> &other)
@@ -274,7 +274,7 @@ public:
     }
 
     /**
-     @brief Remove all pais=rs from the set.
+     @brief Remove all pairs from the set.
      */
     void clear()
     {
@@ -282,27 +282,51 @@ public:
         m_LeftToRight.clear();
     }
 
+    /**
+     @brief Test whether a given pair is in the set.
+     @param pair The pair to look for.
+     */
     bool contains(const Pair &pair) const
     {
         return contains(pair.left, pair.right);
     }
 
+    /**
+     @brief Test whether a given pair is in the set.
+     @param left The left side of the pair to look for.
+     @param right The right side of the pair to look for.
+     */
     bool contains(const LeftType &left, const RightType &right) const
     {
         auto r2l_it = m_RightToLeft.find(right);
         return r2l_it != m_RightToLeft.cend() && r2l_it->second == left;
     }
 
+    /**
+     @brief Test whether any pair in the set has this left value.
+     @param left The left side of the pair to look for.
+     */
     bool containsLeft(const LeftType &left) const
     {
         return m_LeftToRight.contains(left);
     }
 
+    /**
+     @brief Test whether any pair in the set has this right value.
+     @param right The right side of the pair to look for.
+     */
     bool containsRight(const RightType &right) const
     {
         return m_RightToLeft.contains(right);
     }
 
+    /**
+     @brief Find all right values that are paired with this left value.
+     If nothing is found, you will get an empty array.
+     This works well with range-based for.
+     @param left The left side of the pair to look for.
+     @return The vector of right values.
+     */
     const std::vector<RightType>* findRight(const LeftType &left) const
     {
         auto l2r_it = m_LeftToRight.find(left);
@@ -312,6 +336,13 @@ public:
         return l2r_it->second;
     }
 
+    /**
+     @brief Find the single left value that is paired with this right value.
+     If nothing is found, you will get the notFoundValue.
+     @param right The right side of the pair to look for.
+     @param notFoundValue The value to return if no matching pair is found.
+     @return The singular left value.
+     */
     LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
     {
         auto r2l_it = m_RightToLeft.find(right);
@@ -321,23 +352,41 @@ public:
         return r2l_it->second;
     }
 
+    /**
+     @brief Count the number of left values in the set.
+     @return The number of left values in the set.
+     */
     int countLeft() const
     {
         return (int)m_LeftToRight.size();
     }
 
+    /**
+     @brief Count the number of right values in the set.
+     @return The number of right values in the set.
+     */
     int countRight() const
     {
         return (int)m_RightToLeft.size();
     }
 
+    /**
+     @brief Count the number of pairs in the set.
+     @return The number of pairs in the set.
+     */
     int count() const
     {
         return (int)m_RightToLeft.size();
     }
 
+    /**
+     @brief A range-based for compatible iterator.
+     */
     class Iterator
     {
+        /**
+         @cond
+         */
       public:
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it;
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it_end;
@@ -373,8 +422,15 @@ public:
             }
             return *this;
         }
+        /**
+         @endcond
+         */
     };
 
+    /**
+     @brief Required member to get range-based for.
+     @return an Iterator set to the first pair in the set.
+     */
     Iterator begin() const
     {
         Iterator it;
@@ -388,6 +444,10 @@ public:
         return it;
     }
 
+    /**
+     @brief Required member to get range-based for.
+     @return an Iterator set to one after the last pair in the set.
+     */
     Iterator end() const
     {
         Iterator it;
@@ -398,6 +458,10 @@ public:
 
 // ----------------------------------------------------------------------------
 
+/**
+ A many-to-many set of (left, right) pairs. Any combination of (left, right) is allowed. All pairs are stored.
+ @img html \image html binary-relations-many-to-many.png
+ */
 template <typename LeftType, typename RightType> class ManyToMany
 {
     std::unordered_map<LeftType, std::vector<RightType> *> m_LeftToRight;
@@ -630,11 +694,18 @@ public:
         return m_RightToLeft.count();
     }
 
+    /**
+     @brief Count the number of pairs in the set.
+     @return The number of pairs in the set.
+     */
     int count() const
     {
         return m_Count;
     }
 
+    /**
+     @brief A range-based for compatible iterator.
+     */
     class Iterator
     {
       public:
@@ -674,6 +745,10 @@ public:
         }
     };
 
+    /**
+     @brief Required member to get range-based for.
+     @return an Iterator set to the first pair in the set.
+     */
     Iterator begin() const
     {
         Iterator it;
@@ -687,6 +762,10 @@ public:
         return it;
     }
 
+    /**
+     @brief Required member to get range-based for.
+     @return an Iterator set to one after the last pair in the set.
+     */
     Iterator end() const
     {
         Iterator it;
@@ -697,6 +776,10 @@ public:
 
 // ----------------------------------------------------------------------------
 
+/**
+ A one-to-one set of (left, right) pairs. Any left or right value can only be paired with one counterpart.
+ @img html \image html binary-relations-one-to-one.png
+ */
 template <typename LeftType, typename RightType> class OneToOne
 {
     std::unordered_map<LeftType, RightType> m_LeftToRight;

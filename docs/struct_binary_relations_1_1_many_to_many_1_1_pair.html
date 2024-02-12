@@ -10,11 +10,14 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -50,6 +53,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('struct_binary_relations_1_1_many_to_many_1_1_pair.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,11 +91,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>BinaryRelations</b></li><li class="navelem"><a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a></li><li class="navelem"><a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -87,26 +102,131 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a274e9fbfe88b3d9187bc30083ab9435f" id="r_a274e9fbfe88b3d9187bc30083ab9435f"><td class="memItemLeft" align="right" valign="top"><a id="a274e9fbfe88b3d9187bc30083ab9435f" name="a274e9fbfe88b3d9187bc30083ab9435f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Pair</b> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> left, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> right)</td></tr>
+<tr class="memitem:a274e9fbfe88b3d9187bc30083ab9435f" id="r_a274e9fbfe88b3d9187bc30083ab9435f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a274e9fbfe88b3d9187bc30083ab9435f">Pair</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> left, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> right)</td></tr>
 <tr class="separator:a274e9fbfe88b3d9187bc30083ab9435f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad16676a2a239d5d247ec6fe46ac6bb8f" id="r_ad16676a2a239d5d247ec6fe46ac6bb8f"><td class="memItemLeft" align="right" valign="top"><a id="ad16676a2a239d5d247ec6fe46ac6bb8f" name="ad16676a2a239d5d247ec6fe46ac6bb8f"></a>
-<a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>left</b></td></tr>
+<tr class="memitem:ad16676a2a239d5d247ec6fe46ac6bb8f" id="r_ad16676a2a239d5d247ec6fe46ac6bb8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad16676a2a239d5d247ec6fe46ac6bb8f">left</a></td></tr>
 <tr class="separator:ad16676a2a239d5d247ec6fe46ac6bb8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c559e5cc2530e24ae1df20f28a9940" id="r_a96c559e5cc2530e24ae1df20f28a9940"><td class="memItemLeft" align="right" valign="top"><a id="a96c559e5cc2530e24ae1df20f28a9940" name="a96c559e5cc2530e24ae1df20f28a9940"></a>
-<a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>right</b></td></tr>
+<tr class="memitem:a96c559e5cc2530e24ae1df20f28a9940" id="r_a96c559e5cc2530e24ae1df20f28a9940"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96c559e5cc2530e24ae1df20f28a9940">right</a></td></tr>
 <tr class="separator:a96c559e5cc2530e24ae1df20f28a9940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a>&gt;<br />
+struct BinaryRelations::ManyToMany&lt; LeftType, RightType &gt;::Pair</div>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00474">474</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a274e9fbfe88b3d9187bc30083ab9435f" name="a274e9fbfe88b3d9187bc30083ab9435f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274e9fbfe88b3d9187bc30083ab9435f">&#9670;&#160;</a></span>Pair() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::Pair::Pair </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a></td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a></td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00478">478</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="aa0e2cfece24a9f60a6c2f247ed109821" name="aa0e2cfece24a9f60a6c2f247ed109821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0e2cfece24a9f60a6c2f247ed109821">&#9670;&#160;</a></span>Pair() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::Pair::Pair </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00481">481</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad16676a2a239d5d247ec6fe46ac6bb8f" name="ad16676a2a239d5d247ec6fe46ac6bb8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16676a2a239d5d247ec6fe46ac6bb8f">&#9670;&#160;</a></span>left</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::Pair::left</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00476">476</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a96c559e5cc2530e24ae1df20f28a9940" name="a96c559e5cc2530e24ae1df20f28a9940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c559e5cc2530e24ae1df20f28a9940">&#9670;&#160;</a></span>right</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::Pair::right</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00477">477</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/Users/rpieket/Dropbox/Projects/BinaryRelations/BinaryRelations/<a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>BinaryRelations</b></li><li class="navelem"><a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a></li><li class="navelem"><a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>
