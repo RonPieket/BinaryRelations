@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "utest.h"
-#include "BinaryRelations/OneToMany.h"
+#include "BinaryRelations/BinaryRelations.h"
 
 using namespace BinaryRelations;
 
