@@ -4,8 +4,8 @@ Binary relations are everywhere
 What is this?
 -------------
 
-This is a small C++ library (header files only) that adds three new container types
-that help you organize and query data in memory.
+This is a small C++ library (a single header file) that adds three new container
+types that help you organize and query data in memory.
 
 Intro
 -----
@@ -35,9 +35,9 @@ Real world examples
 -------------------
 
 The real world examples come from my experience as a game tools programmer,
-specifically as a programmer of the world editor. So I will use that as an
-example. I’m certain that these data structures will be useful in many other
-areas.
+specifically as a programmer of the Insomniac world editor. So I will use that
+as an example. I’m certain that these data structures will be useful in many
+other areas.
 
 So in the world editor then, every object in the world is represented by a
 handle. They need to be organized at the global level. For example, objects can
@@ -77,6 +77,10 @@ class World
 With this data structure, you can look up the parent handle for any object, and
 get a list of handles of its children.
 
+This is a key concept, and I want to emphasize it here. Relations between
+objects (such as parent-child) are not stored in the objects, but in a separate
+worldwide relationship table.
+
 Binary relations are everywhere
 -------------------------------
 
@@ -113,14 +117,13 @@ class World
 The API
 -------
 
-The library is located in the BinaryRelations directory. It consists of three
-C++ header files: OneToOne.h, OneToMany.h, and ManyToMany.h. There are no
-dependencies between these files, so you can `#include` any combination. A
-fourth header file SortedVector.h is used by all other .h files.
+The library is located in the BinaryRelations directory. It consists of a single
+C++ header file. There are three class templates that you need to know of. The
+classes are: OneToMany, ManyToMany, and OneToOne.
 
 Each binary relation type is a template, with type arguments `LeftType` and
-`RightType`. Both types need to be small, hashable, and immutable. I recommend
-that you only use simple types, such as `int` and `enum`, and possibly
+`RightType`. **Both types need to be small, hashable, and immutable.** I
+recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
 This is the entire OneToMany API:
