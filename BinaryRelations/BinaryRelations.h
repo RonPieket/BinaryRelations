@@ -8,14 +8,14 @@ namespace BinaryRelations
 {
 // -------- Manipulate vector with unique sorted elements --------
 
-template <typename T> int countInSortedVector(const std::vector<T> *vector, const T &value)
+template <typename T> int countInSortedVector(const std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::const_iterator it = std::lower_bound(vector->cbegin(), vector->cend(), value);
     return it != vector->cend() && *it == value ? 1 : 0;
 }
 
 template <typename T>
-typename std::vector<T>::const_iterator findInSortedVector(const std::vector<T> *vector, const T &value)
+typename std::vector<T>::const_iterator findInSortedVector(const std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::const_iterator it = std::lower_bound(vector->cbegin(), vector->cend(), value);
     if (it != vector->cend() && *it == value)
@@ -24,7 +24,7 @@ typename std::vector<T>::const_iterator findInSortedVector(const std::vector<T> 
         return vector->cend();
 }
 
-template <typename T> int insertIntoSortedVector(std::vector<T> *vector, const T &value)
+template <typename T> int insertIntoSortedVector(std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::iterator it = std::lower_bound(vector->begin(), vector->end(), value);
     if (it != vector->end() && *it == value)
@@ -36,7 +36,7 @@ template <typename T> int insertIntoSortedVector(std::vector<T> *vector, const T
     }
 }
 
-template <typename T> int removeFromSortedVector(std::vector<T> *vector, const T &value)
+template <typename T> int removeFromSortedVector(std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::iterator it = std::lower_bound(vector->begin(), vector->end(), value);
     if (it != vector->end() && *it == value)
@@ -49,7 +49,7 @@ template <typename T> int removeFromSortedVector(std::vector<T> *vector, const T
 }
 
 template <typename T>
-void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector)
+void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector) noexcept
 {
     typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
     typename std::vector<T>::const_iterator insertIt = insertVector->cbegin();
@@ -78,7 +78,7 @@ void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insert
 }
 
 template <typename T>
-void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *removeVector, std::vector<T> *outVector)
+void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *removeVector, std::vector<T> *outVector) noexcept
 {
     typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
     typename std::vector<T>::const_iterator removeIt = removeVector->cbegin();
@@ -107,7 +107,7 @@ void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *remove
 
 /**
  A one-to-many set of (left, right) pairs. The left side can have any number of right counterparts. The right side can only be in a pair with one left side.
- @img html \image html binary-relations-one-to-many.png
+ @image html binary-relations-one-to-many.png "one-to-many"
  */
 template <typename LeftType, typename RightType> class OneToMany
 {
@@ -123,35 +123,36 @@ public:
     {
         LeftType left;
         RightType right;
-        Pair(LeftType left, RightType right) : left(left), right(right)
-        {
-        }
+        Pair(LeftType left, RightType right)
+        : left(left), right(right)
+        {}
         Pair()
-        {
-        }
+        {}
     };
 
-    OneToMany()
-    {
-    }
+    /**
+     @brief Default constructor.
+     */
+    OneToMany() noexcept
+    {}
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
      @param pair The pair to insert.
      */
-    void insert(const Pair &pair)
+    void insert(const Pair &pair) noexcept
     {
         insert(pair.left, pair.right);
     }
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
      @param left The left side of the pair to add.
      @param right The right side of the pair to add.
      */
-    void insert(const LeftType &left, const RightType &right)
+    void insert(const LeftType &left, const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it != m_RightToLeft.end())
@@ -175,10 +176,10 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
-     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
      @param other The OneToMany to add.
      */
-    void insert(const OneToMany<LeftType, RightType>& other)
+    void insert(const OneToMany<LeftType, RightType>& other) noexcept
     {
         for (auto pair : other)
         {
@@ -191,7 +192,7 @@ public:
      If there is no matching pair in the set, nothing happens.
      @param pair The pair to remove.
      */
-    void remove(const Pair &pair)
+    void remove(const Pair &pair) noexcept
     {
         remove(pair.left, pair.right);
     }
@@ -202,7 +203,7 @@ public:
      @param left The left side of the pair to remove.
      @param right The right side of the pair to remove.
      */
-    void remove(const LeftType &left, const RightType &right)
+    void remove(const LeftType &left, const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
@@ -231,7 +232,7 @@ public:
      If there is no matching pair in the set, nothing happens.
      @param left The left side of the pairs to remove.
      */
-    void removeLeft(const LeftType &left)
+    void removeLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it == m_LeftToRight.end())
@@ -253,7 +254,7 @@ public:
      If there is no matching pair in the set, nothing happens.
      @param right The right side of the pairs to remove.
      */
-    void removeRight(const RightType &right)
+    void removeRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
@@ -265,7 +266,7 @@ public:
      @brief Remove multiple pairs from the set.
      @param other The set of pairs to remove.
      */
-    void remove(const OneToMany<LeftType, RightType> &other)
+    void remove(const OneToMany<LeftType, RightType> &other) noexcept
     {
         for (auto pair : other)
         {
@@ -276,7 +277,7 @@ public:
     /**
      @brief Remove all pairs from the set.
      */
-    void clear()
+    void clear() noexcept
     {
         m_RightToLeft.clear();
         m_LeftToRight.clear();
@@ -286,7 +287,7 @@ public:
      @brief Test whether a given pair is in the set.
      @param pair The pair to look for.
      */
-    bool contains(const Pair &pair) const
+    bool contains(const Pair &pair) const noexcept
     {
         return contains(pair.left, pair.right);
     }
@@ -296,7 +297,7 @@ public:
      @param left The left side of the pair to look for.
      @param right The right side of the pair to look for.
      */
-    bool contains(const LeftType &left, const RightType &right) const
+    bool contains(const LeftType &left, const RightType &right) const noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         return r2l_it != m_RightToLeft.cend() && r2l_it->second == left;
@@ -306,7 +307,7 @@ public:
      @brief Test whether any pair in the set has this left value.
      @param left The left side of the pair to look for.
      */
-    bool containsLeft(const LeftType &left) const
+    bool containsLeft(const LeftType &left) const noexcept
     {
         return m_LeftToRight.contains(left);
     }
@@ -315,7 +316,7 @@ public:
      @brief Test whether any pair in the set has this right value.
      @param right The right side of the pair to look for.
      */
-    bool containsRight(const RightType &right) const
+    bool containsRight(const RightType &right) const noexcept
     {
         return m_RightToLeft.contains(right);
     }
@@ -327,7 +328,7 @@ public:
      @param left The left side of the pair to look for.
      @return The vector of right values.
      */
-    const std::vector<RightType>* findRight(const LeftType &left) const
+    const std::vector<RightType>* findRight(const LeftType &left) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it == m_LeftToRight.end())
@@ -343,7 +344,7 @@ public:
      @param notFoundValue The value to return if no matching pair is found.
      @return The singular left value.
      */
-    LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
+    LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
@@ -356,7 +357,7 @@ public:
      @brief Count the number of left values in the set.
      @return The number of left values in the set.
      */
-    int countLeft() const
+    int countLeft() const noexcept
     {
         return (int)m_LeftToRight.size();
     }
@@ -365,7 +366,7 @@ public:
      @brief Count the number of right values in the set.
      @return The number of right values in the set.
      */
-    int countRight() const
+    int countRight() const noexcept
     {
         return (int)m_RightToLeft.size();
     }
@@ -374,7 +375,7 @@ public:
      @brief Count the number of pairs in the set.
      @return The number of pairs in the set.
      */
-    int count() const
+    int count() const noexcept
     {
         return (int)m_RightToLeft.size();
     }
@@ -431,7 +432,7 @@ public:
      @brief Required member to get range-based-for.
      @return an Iterator set to the first pair in the set.
      */
-    Iterator begin() const
+    Iterator begin() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cbegin();
@@ -448,7 +449,7 @@ public:
      @brief Required member to get range-based-for.
      @return an Iterator set to one after the last pair in the set.
      */
-    Iterator end() const
+    Iterator end() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cend();
@@ -459,8 +460,8 @@ public:
 // ----------------------------------------------------------------------------
 
 /**
- A many-to-many set of (left, right) pairs. Any combination of (left, right) is allowed. All pairs are stored.
- @img html \image html binary-relations-many-to-many.png
+ A many-to-many set of (left, right) pairs.
+ @image html binary-relations-many-to-many.png "many-to-many"
  */
 template <typename LeftType, typename RightType> class ManyToMany
 {
@@ -471,6 +472,9 @@ template <typename LeftType, typename RightType> class ManyToMany
     int m_Count;
 
 public:
+    /**
+    @brief A pair of (left, right) values.
+     */
     struct Pair
     {
         LeftType left;
@@ -483,20 +487,28 @@ public:
         }
     };
 
-    ManyToMany() : m_Count(0)
-    {
-    }
+    /**
+     @brief Default constructor.
+     */
+    ManyToMany() noexcept
+    : m_Count(0)
+    {}
 
-    ManyToMany(const ManyToMany &other) : m_Count(0), m_RightToLeft(other.m_RightToLeft), m_LeftToRight(other.m_LeftToRight)
-    {
-    }
-
-    void insert(const Pair &pair)
+    /**
+     @brief Insert a pair into the set.
+     @param pair The pair to insert.
+     */
+    void insert(const Pair &pair) noexcept
     {
         insert(pair.left, pair.right);
     }
 
-    void insert(const LeftType &left, const RightType &right)
+    /**
+     @brief Insert a pair into the set.
+     @param left The left side of the pair to add.
+     @param right The right side of the pair to add.
+     */
+    void insert(const LeftType &left, const RightType &right) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -524,12 +536,35 @@ public:
         m_Count += 1;
     }
 
-    void remove(const Pair &pair)
+    /**
+     @brief Insert multiple  pairs into the set.
+     @param other The OneToMany to add.
+     */
+    void insert(const ManyToMany<LeftType, RightType>& other) noexcept
+    {
+        for (auto pair : other)
+        {
+            insert(pair);
+        }
+    }
+
+    /**
+     @brief Remove a pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param pair The pair to remove.
+     */
+    void remove(const Pair &pair) noexcept
     {
         remove(pair.left, pair.right);
     }
 
-    void remove(const LeftType &left, const RightType &right)
+    /**
+     @brief Remove a pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pair to remove.
+     @param right The right side of the pair to remove.
+     */
+    void remove(const LeftType &left, const RightType &right) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -560,7 +595,12 @@ public:
         }
     }
 
-    void removeLeft(const LeftType &left)
+    /**
+     @brief Remove all pairs with the given left value.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pairs to remove.
+     */
+    void removeLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.constFind(left);
         if (l2r_it != m_LeftToRight.end())
@@ -583,7 +623,12 @@ public:
         }
     }
 
-    void removeRight(const RightType &right)
+    /**
+     @brief Remove the pair with the given right value.
+     If there is no matching pair in the set, nothing happens.
+     @param right The right side of the pairs to remove.
+     */
+    void removeRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.constFind(right);
         if (r2l_it != m_RightToLeft.end())
@@ -606,15 +651,11 @@ public:
         }
     }
 
-    void insert(const ManyToMany<LeftType, RightType>& other)
-    {
-        for (auto pair : other)
-        {
-            insert(pair);
-        }
-    }
-
-    void remove(const ManyToMany<LeftType, RightType>& other)
+    /**
+     @brief Remove multiple pairs from the set.
+     @param other The set of pairs to remove.
+     */
+    void remove(const ManyToMany<LeftType, RightType>& other) noexcept
     {
         for (auto pair : other)
         {
@@ -622,18 +663,30 @@ public:
         }
     }
 
-    void clear()
+    /**
+     @brief Remove all pairs from the set.
+     */
+    void clear() noexcept
     {
         m_RightToLeft.clear();
         m_LeftToRight.clear();
     }
 
-    bool contains(const Pair &pair) const
+    /**
+     @brief Test whether a given pair is in the set.
+     @param pair The pair to look for.
+     */
+    bool contains(const Pair &pair) const noexcept
     {
         return contains(pair.left, pair.right);
     }
 
-    bool contains(const LeftType &left, const RightType &right) const
+    /**
+     @brief Test whether a given pair is in the set.
+     @param left The left side of the pair to look for.
+     @param right The right side of the pair to look for.
+     */
+    bool contains(const LeftType &left, const RightType &right) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -656,17 +709,32 @@ public:
         return false;
     }
 
-    bool containsLeft(const LeftType &left) const
+    /**
+     @brief Test whether any pair in the set has this left value.
+     @param left The left side of the pair to look for.
+     */
+    bool containsLeft(const LeftType &left) const noexcept
     {
         return m_LeftToRight.contains(left);
     }
 
+    /**
+     @brief Test whether any pair in the set has this right value.
+     @param right The right side of the pair to look for.
+     */
     bool containsRight(const RightType &right) const
     {
         return m_RightToLeft.contains(right);
     }
 
-    const std::vector<RightType>* findRight(const LeftType &left) const
+    /**
+     @brief Find all right values that are paired with this left value.
+     If nothing is found, you will get an empty array.
+     This works well with range-based-for.
+     @param left The left side of the pair to look for.
+     @return The vector of right values.
+     */
+    const std::vector<RightType>* findRight(const LeftType &left) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it == m_LeftToRight.end())
@@ -675,7 +743,14 @@ public:
         return l2r_it->second;
     }
 
-    const std::vector<LeftType>* findLeft(const RightType &right) const
+    /**
+     @brief Find all left values that are paired with this right value.
+     If nothing is found, you will get an empty array.
+     This works well with range-based-for.
+     @param right The right side of the pair to look for.
+     @return The vector of left values.
+     */
+    const std::vector<LeftType>* findLeft(const RightType &right) const noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
@@ -684,12 +759,20 @@ public:
         return r2l_it->second;
     }
 
-    int countLeft() const
+    /**
+     @brief Count the number of left values in the set.
+     @return The number of left values in the set.
+     */
+    int countLeft() const noexcept
     {
         return m_LeftToRight.count();
     }
 
-    int countRight() const
+    /**
+     @brief Count the number of right values in the set.
+     @return The number of right values in the set.
+     */
+    int countRight() const noexcept
     {
         return m_RightToLeft.count();
     }
@@ -698,7 +781,7 @@ public:
      @brief Count the number of pairs in the set.
      @return The number of pairs in the set.
      */
-    int count() const
+    int count() const noexcept
     {
         return m_Count;
     }
@@ -708,6 +791,9 @@ public:
      */
     class Iterator
     {
+        /**
+         @cond
+         */
       public:
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it;
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it_end;
@@ -743,13 +829,16 @@ public:
             }
             return *this;
         }
+        /**
+         @endcond
+         */
     };
 
     /**
      @brief Required member to get range-based-for.
      @return an Iterator set to the first pair in the set.
      */
-    Iterator begin() const
+    Iterator begin() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cbegin();
@@ -766,7 +855,7 @@ public:
      @brief Required member to get range-based-for.
      @return an Iterator set to one after the last pair in the set.
      */
-    Iterator end() const
+    Iterator end() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cend();
@@ -778,7 +867,7 @@ public:
 
 /**
  A one-to-one set of (left, right) pairs. Any left or right value can only be paired with one counterpart.
- @img html \image html binary-relations-one-to-one.png
+ @image html binary-relations-one-to-one.png "one-to-one"
  */
 template <typename LeftType, typename RightType> class OneToOne
 {
@@ -786,32 +875,43 @@ template <typename LeftType, typename RightType> class OneToOne
     std::unordered_map<RightType, LeftType> m_RightToLeft;
 
 public:
+    /**
+    @brief A pair of (left, right) values.
+     */
     struct Pair
     {
         LeftType left;
         RightType right;
-        Pair(LeftType left, RightType right) : left(left), right(right)
-        {
-        }
+        Pair(LeftType left, RightType right)
+        : left(left), right(right)
+        {}
         Pair()
-        {
-        }
+        {}
     };
 
-    OneToOne()
-    {
-    }
+    /**
+     @brief Default constructor.
+     */
+    OneToOne() noexcept
+    {}
 
-    OneToOne(const OneToOne &other) : m_RightToLeft(other.m_RightToLeft), m_LeftToRight(other.m_LeftToRight)
-    {
-    }
-
-    void insert(const Pair &pair)
+    /**
+     @brief Insert a pair into the set.
+     The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be removed.
+     @param pair The pair to insert.
+     */
+    void insert(const Pair &pair) noexcept
     {
         insert(pair.left, pair.right);
     }
 
-    void insert(const LeftType &left, const RightType &right)
+    /**
+     @brief Insert a pair into the set.
+     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.
+     @param left The left side of the pair to add.
+     @param right The right side of the pair to add.
+     */
+    void insert(const LeftType &left, const RightType &right) noexcept
     {
         if (!contains(left, right))
         {
@@ -822,12 +922,36 @@ public:
         }
     }
 
-    void remove(const Pair &pair)
+    /**
+     @brief Insert multiple  pairs into the set.
+     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.
+     @param other The OneToMany to add.
+     */
+    void insert(const OneToOne<LeftType, RightType> &other) noexcept
+    {
+        for (auto pair : other)
+        {
+            insert(pair);
+        }
+    }
+
+    /**
+     @brief Remove a pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param pair The pair to remove.
+     */
+    void remove(const Pair &pair) noexcept
     {
         remove(pair.left, pair.right);
     }
 
-    void remove(const LeftType &left, const RightType &right)
+    /**
+     @brief Remove a pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pair to remove.
+     @param right The right side of the pair to remove.
+     */
+    void remove(const LeftType &left, const RightType &right) noexcept
     {
         if (contains(left, right))
         {
@@ -839,7 +963,12 @@ public:
         }
     }
 
-    void removeLeft(const LeftType &left)
+    /**
+     @brief Remove all pairs with the given left value.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pairs to remove.
+     */
+    void removeLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -851,7 +980,12 @@ public:
         }
     }
 
-    void removeRight(const RightType &right)
+    /**
+     @brief Remove the pair with the given right value.
+     If there is no matching pair in the set, nothing happens.
+     @param right The right side of the pairs to remove.
+     */
+    void removeRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it != m_RightToLeft.end())
@@ -863,15 +997,11 @@ public:
         }
     }
 
-    void insert(const OneToOne<LeftType, RightType> &other)
-    {
-        for (auto pair : other)
-        {
-            insert(pair);
-        }
-    }
-
-    void remove(const OneToOne<LeftType, RightType> &other)
+    /**
+     @brief Remove multiple pairs from the set.
+     @param other The set of pairs to remove.
+     */
+    void remove(const OneToOne<LeftType, RightType> &other) noexcept
     {
         for (auto pair : other)
         {
@@ -879,64 +1009,116 @@ public:
         }
     }
 
-    void clear()
+    /**
+     @brief Remove all pairs from the set.
+     */
+    void clear() noexcept
     {
         m_RightToLeft.clear();
         m_LeftToRight.clear();
     }
 
-    bool contains(const Pair &pair) const
+    /**
+     @brief Test whether a given pair is in the set.
+     @param pair The pair to look for.
+     */
+    bool contains(const Pair &pair) const noexcept
     {
         return contains(pair.left, pair.right);
     }
 
-    bool contains(const LeftType &left, const RightType &right) const
+    /**
+     @brief Test whether a given pair is in the set.
+     @param left The left side of the pair to look for.
+     @param right The right side of the pair to look for.
+     */
+    bool contains(const LeftType &left, const RightType &right) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         return l2r_it != m_LeftToRight.end() && l2r_it->second == right;
     }
 
-    bool containsLeft(const LeftType &left) const
+    /**
+     @brief Test whether any pair in the set has this left value.
+     @param left The left side of the pair to look for.
+     */
+    bool containsLeft(const LeftType &left) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         return l2r_it != m_LeftToRight.end();
     }
 
-    bool containsRight(const RightType &right) const
+    /**
+     @brief Test whether any pair in the set has this right value.
+     @param right The right side of the pair to look for.
+     */
+    bool containsRight(const RightType &right) const noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         return r2l_it != m_RightToLeft.end();
     }
 
-    RightType findRight(const LeftType &left, const RightType &defaultValue) const
+    /**
+     @brief Find the single right value that is paired with this left value.
+     If nothing is found, you will get the notFoundValue.
+     @param left The left side of the pair to look for.
+     @param notFoundValue The value to return if no matching pair is found.
+     @return The singular right value.
+     */
+    RightType findRight(const LeftType &left, const RightType &notFoundValue) const noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
-        return l2r_it != m_LeftToRight.end() ? l2r_it->second : defaultValue;
+        return l2r_it != m_LeftToRight.end() ? l2r_it->second : notFoundValue;
     }
 
-    LeftType findLeft(const RightType &right, const LeftType &defaultValue) const
+    /**
+     @brief Find the single left value that is paired with this right value.
+     If nothing is found, you will get the notFoundValue.
+     @param right The right side of the pair to look for.
+     @param notFoundValue The value to return if no matching pair is found.
+     @return The singular left value.
+     */
+    LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
-        return r2l_it != m_RightToLeft.end() ? r2l_it->second : defaultValue;
+        return r2l_it != m_RightToLeft.end() ? r2l_it->second : notFoundValue;
     }
 
-    int countLeft() const
+    /**
+     @brief Count the number of left values in the set.
+     @return The number of left values in the set.
+     */
+    int countLeft() const noexcept
     {
         return (int)m_LeftToRight.size();
     }
 
-    int countRight() const
+    /**
+     @brief Count the number of right values in the set.
+     @return The number of right values in the set.
+     */
+    int countRight() const noexcept
     {
         return (int)m_RightToLeft.size();
     }
 
-    int count() const
+    /**
+     @brief Count the number of pairs in the set.
+     @return The number of pairs in the set.
+     */
+    int count() const noexcept
     {
         return (int)m_LeftToRight.size();
     }
 
+    /**
+     @brief A range-based-for compatible iterator.
+     */
     class Iterator
     {
+        /**
+         @cond
+         */
       public:
         std::unordered_map<LeftType, RightType>::const_iterator l2r_it;
 
@@ -958,16 +1140,27 @@ public:
             l2r_it++;
             return *this;
         }
+        /**
+         @endcond
+         */
     };
 
-    Iterator begin() const
+    /**
+     @brief Required member to get range-based-for.
+     @return an Iterator set to the first pair in the set.
+     */
+    Iterator begin() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cbegin();
         return it;
     }
 
-    Iterator end() const
+    /**
+     @brief Required member to get range-based-for.
+     @return an Iterator set to one after the last pair in the set.
+     */
+    Iterator end() const noexcept
     {
         Iterator it;
         it.l2r_it = m_LeftToRight.cend();

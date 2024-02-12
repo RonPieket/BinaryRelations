@@ -105,7 +105,7 @@ $(function(){initNavTree('class_binary_relations_1_1_one_to_many.html',''); init
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A range-based for compatible iterator.  <a href="class_binary_relations_1_1_one_to_many_1_1_iterator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A range-based-for compatible iterator.  <a href="class_binary_relations_1_1_one_to_many_1_1_iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pair of (left, right) values.  <a href="struct_binary_relations_1_1_one_to_many_1_1_pair.html#details">More...</a><br /></td></tr>
@@ -113,88 +113,91 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab3ed4c1d069821ea6e64ad3dd2a0c114" id="r_ab3ed4c1d069821ea6e64ad3dd2a0c114"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3ed4c1d069821ea6e64ad3dd2a0c114">insert</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">pair</a>)</td></tr>
-<tr class="memdesc:ab3ed4c1d069821ea6e64ad3dd2a0c114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
-<tr class="separator:ab3ed4c1d069821ea6e64ad3dd2a0c114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974b0ba64d146634472ac144777cc174" id="r_a974b0ba64d146634472ac144777cc174"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974b0ba64d146634472ac144777cc174">insert</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left, <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right)</td></tr>
-<tr class="memdesc:a974b0ba64d146634472ac144777cc174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
-<tr class="separator:a974b0ba64d146634472ac144777cc174"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c9b26f085557d673570bc55db43d9c" id="r_ab2c9b26f085557d673570bc55db43d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c9b26f085557d673570bc55db43d9c">insert</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">other</a>)</td></tr>
-<tr class="memdesc:ab2c9b26f085557d673570bc55db43d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
-<tr class="separator:ab2c9b26f085557d673570bc55db43d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38a063d913f9d3a1aedd50666be60709" id="r_a38a063d913f9d3a1aedd50666be60709"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38a063d913f9d3a1aedd50666be60709">remove</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">pair</a>)</td></tr>
-<tr class="memdesc:a38a063d913f9d3a1aedd50666be60709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:a38a063d913f9d3a1aedd50666be60709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f22ef6cc6b7b30cce9723483dd2a050" id="r_a5f22ef6cc6b7b30cce9723483dd2a050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f22ef6cc6b7b30cce9723483dd2a050">remove</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left, <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right)</td></tr>
-<tr class="memdesc:a5f22ef6cc6b7b30cce9723483dd2a050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:a5f22ef6cc6b7b30cce9723483dd2a050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29ac170b1cb39d1d0f3aba49f3852b7" id="r_ac29ac170b1cb39d1d0f3aba49f3852b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac29ac170b1cb39d1d0f3aba49f3852b7">removeLeft</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left)</td></tr>
-<tr class="memdesc:ac29ac170b1cb39d1d0f3aba49f3852b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs with the given left value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:ac29ac170b1cb39d1d0f3aba49f3852b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4e801a587dc752d260a99ea938dea67" id="r_af4e801a587dc752d260a99ea938dea67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4e801a587dc752d260a99ea938dea67">removeRight</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right)</td></tr>
-<tr class="memdesc:af4e801a587dc752d260a99ea938dea67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the pair with the given right value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:af4e801a587dc752d260a99ea938dea67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41bf4e744b0605d74ab6de0a28280d88" id="r_a41bf4e744b0605d74ab6de0a28280d88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41bf4e744b0605d74ab6de0a28280d88">remove</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">other</a>)</td></tr>
-<tr class="memdesc:a41bf4e744b0605d74ab6de0a28280d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple pairs from the set.  <br /></td></tr>
-<tr class="separator:a41bf4e744b0605d74ab6de0a28280d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeef742e48c540687585ae19e518c277c" id="r_aeef742e48c540687585ae19e518c277c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeef742e48c540687585ae19e518c277c">clear</a> ()</td></tr>
-<tr class="memdesc:aeef742e48c540687585ae19e518c277c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs from the set.  <br /></td></tr>
-<tr class="separator:aeef742e48c540687585ae19e518c277c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18fb087792239599b7058465248a33cd" id="r_a18fb087792239599b7058465248a33cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18fb087792239599b7058465248a33cd">contains</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">pair</a>) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a18fb087792239599b7058465248a33cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a given pair is in the set.  <br /></td></tr>
-<tr class="separator:a18fb087792239599b7058465248a33cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7fe8615cfca32ad78717f8b2b71f8c1" id="r_ac7fe8615cfca32ad78717f8b2b71f8c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7fe8615cfca32ad78717f8b2b71f8c1">contains</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left, <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:ac7fe8615cfca32ad78717f8b2b71f8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a given pair is in the set.  <br /></td></tr>
-<tr class="separator:ac7fe8615cfca32ad78717f8b2b71f8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3883ea628cad727b19a163d7329a0fc9" id="r_a3883ea628cad727b19a163d7329a0fc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3883ea628cad727b19a163d7329a0fc9">containsLeft</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a3883ea628cad727b19a163d7329a0fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether any pair in the set has this left value.  <br /></td></tr>
-<tr class="separator:a3883ea628cad727b19a163d7329a0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9ab67e85b90dd7a503f7b87484442dc" id="r_ab9ab67e85b90dd7a503f7b87484442dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9ab67e85b90dd7a503f7b87484442dc">containsRight</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:ab9ab67e85b90dd7a503f7b87484442dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether any pair in the set has this right value.  <br /></td></tr>
-<tr class="separator:ab9ab67e85b90dd7a503f7b87484442dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1777a08a819703b54f14c071abb908" id="r_a7e1777a08a819703b54f14c071abb908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> std::vector&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e1777a08a819703b54f14c071abb908">findRight</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;left) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a7e1777a08a819703b54f14c071abb908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all right values that are paired with this left value. If nothing is found, you will get an empty array. This works well with range-based for.  <br /></td></tr>
-<tr class="separator:a7e1777a08a819703b54f14c071abb908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d74aad2baf94fa2a2274866d0ec1e9" id="r_a18d74aad2baf94fa2a2274866d0ec1e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18d74aad2baf94fa2a2274866d0ec1e9">findLeft</a> (<a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;right, <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;<a class="el" href="class_binary_relations_1_1_many_to_many.html">notFoundValue</a>) <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a18d74aad2baf94fa2a2274866d0ec1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the single left value that is paired with this right value. If nothing is found, you will get the notFoundValue.  <br /></td></tr>
-<tr class="separator:a18d74aad2baf94fa2a2274866d0ec1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20ec3d3086f73f01039ed3e48331b614" id="r_a20ec3d3086f73f01039ed3e48331b614"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20ec3d3086f73f01039ed3e48331b614">countLeft</a> () <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a20ec3d3086f73f01039ed3e48331b614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of left values in the set.  <br /></td></tr>
-<tr class="separator:a20ec3d3086f73f01039ed3e48331b614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16d524261b43030f7fa5b6098293ccf8" id="r_a16d524261b43030f7fa5b6098293ccf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16d524261b43030f7fa5b6098293ccf8">countRight</a> () <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a16d524261b43030f7fa5b6098293ccf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of right values in the set.  <br /></td></tr>
-<tr class="separator:a16d524261b43030f7fa5b6098293ccf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bd152bc8ab63842a3e638f121fbdd7a" id="r_a6bd152bc8ab63842a3e638f121fbdd7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bd152bc8ab63842a3e638f121fbdd7a">count</a> () <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a6bd152bc8ab63842a3e638f121fbdd7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of pairs in the set.  <br /></td></tr>
-<tr class="separator:a6bd152bc8ab63842a3e638f121fbdd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1ca30e09204d7b5e4d59b4ab9ddf12" id="r_aac1ca30e09204d7b5e4d59b4ab9ddf12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac1ca30e09204d7b5e4d59b4ab9ddf12">begin</a> () <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:aac1ca30e09204d7b5e4d59b4ab9ddf12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required member to get range-based for.  <br /></td></tr>
-<tr class="separator:aac1ca30e09204d7b5e4d59b4ab9ddf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0134566338c4c500e06bfe179b960615" id="r_a0134566338c4c500e06bfe179b960615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0134566338c4c500e06bfe179b960615">end</a> () <a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a></td></tr>
-<tr class="memdesc:a0134566338c4c500e06bfe179b960615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required member to get range-based for.  <br /></td></tr>
-<tr class="separator:a0134566338c4c500e06bfe179b960615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf7d8ba41251d2e47caead038e904b1f" id="r_acf7d8ba41251d2e47caead038e904b1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf7d8ba41251d2e47caead038e904b1f">OneToMany</a> () noexcept</td></tr>
+<tr class="memdesc:acf7d8ba41251d2e47caead038e904b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="separator:acf7d8ba41251d2e47caead038e904b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c4342782a6118da072aa07d54919a6" id="r_af2c4342782a6118da072aa07d54919a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2c4342782a6118da072aa07d54919a6">insert</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
+<tr class="memdesc:af2c4342782a6118da072aa07d54919a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
+<tr class="separator:af2c4342782a6118da072aa07d54919a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20ce4947d883b2cbdcb7120d6c93793f" id="r_a20ce4947d883b2cbdcb7120d6c93793f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20ce4947d883b2cbdcb7120d6c93793f">insert</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
+<tr class="memdesc:a20ce4947d883b2cbdcb7120d6c93793f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
+<tr class="separator:a20ce4947d883b2cbdcb7120d6c93793f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e675bd054a35d6ca73b14a2ae82235d" id="r_a5e675bd054a35d6ca73b14a2ae82235d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e675bd054a35d6ca73b14a2ae82235d">insert</a> (const <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
+<tr class="memdesc:a5e675bd054a35d6ca73b14a2ae82235d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.  <br /></td></tr>
+<tr class="separator:a5e675bd054a35d6ca73b14a2ae82235d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d61ea8062052020243054f0884f66a" id="r_a81d61ea8062052020243054f0884f66a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81d61ea8062052020243054f0884f66a">remove</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
+<tr class="memdesc:a81d61ea8062052020243054f0884f66a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a81d61ea8062052020243054f0884f66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c1a1beaee378945f161e7182277036" id="r_a29c1a1beaee378945f161e7182277036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29c1a1beaee378945f161e7182277036">remove</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
+<tr class="memdesc:a29c1a1beaee378945f161e7182277036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a29c1a1beaee378945f161e7182277036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d703762da731a52ce9813c71e35b1a0" id="r_a0d703762da731a52ce9813c71e35b1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d703762da731a52ce9813c71e35b1a0">removeLeft</a> (const LeftType &amp;left) noexcept</td></tr>
+<tr class="memdesc:a0d703762da731a52ce9813c71e35b1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs with the given left value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a0d703762da731a52ce9813c71e35b1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76910d10751070bfaa9bdfa9e121b6e1" id="r_a76910d10751070bfaa9bdfa9e121b6e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76910d10751070bfaa9bdfa9e121b6e1">removeRight</a> (const RightType &amp;right) noexcept</td></tr>
+<tr class="memdesc:a76910d10751070bfaa9bdfa9e121b6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the pair with the given right value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a76910d10751070bfaa9bdfa9e121b6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe3c12f0793f22ddb61712ca1fce95d" id="r_aefe3c12f0793f22ddb61712ca1fce95d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefe3c12f0793f22ddb61712ca1fce95d">remove</a> (const <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
+<tr class="memdesc:aefe3c12f0793f22ddb61712ca1fce95d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple pairs from the set.  <br /></td></tr>
+<tr class="separator:aefe3c12f0793f22ddb61712ca1fce95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed49aa3e0a601f0b860044301bb38074" id="r_aed49aa3e0a601f0b860044301bb38074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed49aa3e0a601f0b860044301bb38074">clear</a> () noexcept</td></tr>
+<tr class="memdesc:aed49aa3e0a601f0b860044301bb38074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs from the set.  <br /></td></tr>
+<tr class="separator:aed49aa3e0a601f0b860044301bb38074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a286a3391a917e92e7b202246e52f22ff" id="r_a286a3391a917e92e7b202246e52f22ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a286a3391a917e92e7b202246e52f22ff">contains</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;pair) const noexcept</td></tr>
+<tr class="memdesc:a286a3391a917e92e7b202246e52f22ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a given pair is in the set.  <br /></td></tr>
+<tr class="separator:a286a3391a917e92e7b202246e52f22ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad20243db6055681104cf030e794372" id="r_a9ad20243db6055681104cf030e794372"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ad20243db6055681104cf030e794372">contains</a> (const LeftType &amp;left, const RightType &amp;right) const noexcept</td></tr>
+<tr class="memdesc:a9ad20243db6055681104cf030e794372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a given pair is in the set.  <br /></td></tr>
+<tr class="separator:a9ad20243db6055681104cf030e794372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ad67712e147fe82251412f0675f0ff" id="r_ac8ad67712e147fe82251412f0675f0ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8ad67712e147fe82251412f0675f0ff">containsLeft</a> (const LeftType &amp;left) const noexcept</td></tr>
+<tr class="memdesc:ac8ad67712e147fe82251412f0675f0ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether any pair in the set has this left value.  <br /></td></tr>
+<tr class="separator:ac8ad67712e147fe82251412f0675f0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12ea2c2b85c429c15fa7e73d7b075fc" id="r_ab12ea2c2b85c429c15fa7e73d7b075fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab12ea2c2b85c429c15fa7e73d7b075fc">containsRight</a> (const RightType &amp;right) const noexcept</td></tr>
+<tr class="memdesc:ab12ea2c2b85c429c15fa7e73d7b075fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether any pair in the set has this right value.  <br /></td></tr>
+<tr class="separator:ab12ea2c2b85c429c15fa7e73d7b075fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a6276f16f64b1eaf65fd3a6ce17d83" id="r_a45a6276f16f64b1eaf65fd3a6ce17d83"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; RightType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45a6276f16f64b1eaf65fd3a6ce17d83">findRight</a> (const LeftType &amp;left) const noexcept</td></tr>
+<tr class="memdesc:a45a6276f16f64b1eaf65fd3a6ce17d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find all right values that are paired with this left value. If nothing is found, you will get an empty array. This works well with range-based-for.  <br /></td></tr>
+<tr class="separator:a45a6276f16f64b1eaf65fd3a6ce17d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0094481aaf8330c4953618ef044da866" id="r_a0094481aaf8330c4953618ef044da866"><td class="memItemLeft" align="right" valign="top">LeftType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0094481aaf8330c4953618ef044da866">findLeft</a> (const RightType &amp;right, const LeftType &amp;notFoundValue) const noexcept</td></tr>
+<tr class="memdesc:a0094481aaf8330c4953618ef044da866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the single left value that is paired with this right value. If nothing is found, you will get the notFoundValue.  <br /></td></tr>
+<tr class="separator:a0094481aaf8330c4953618ef044da866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab852c9362d8c7bb4da85e2def870e520" id="r_ab852c9362d8c7bb4da85e2def870e520"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab852c9362d8c7bb4da85e2def870e520">countLeft</a> () const noexcept</td></tr>
+<tr class="memdesc:ab852c9362d8c7bb4da85e2def870e520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of left values in the set.  <br /></td></tr>
+<tr class="separator:ab852c9362d8c7bb4da85e2def870e520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a016d4c5687cdeb7a096c2edde530d9ce" id="r_a016d4c5687cdeb7a096c2edde530d9ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a016d4c5687cdeb7a096c2edde530d9ce">countRight</a> () const noexcept</td></tr>
+<tr class="memdesc:a016d4c5687cdeb7a096c2edde530d9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of right values in the set.  <br /></td></tr>
+<tr class="separator:a016d4c5687cdeb7a096c2edde530d9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12032ecaf037c643e8fa135cea0721f1" id="r_a12032ecaf037c643e8fa135cea0721f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12032ecaf037c643e8fa135cea0721f1">count</a> () const noexcept</td></tr>
+<tr class="memdesc:a12032ecaf037c643e8fa135cea0721f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the number of pairs in the set.  <br /></td></tr>
+<tr class="separator:a12032ecaf037c643e8fa135cea0721f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41efacdf1796ef9bfc06fa1d27adba7e" id="r_a41efacdf1796ef9bfc06fa1d27adba7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41efacdf1796ef9bfc06fa1d27adba7e">begin</a> () const noexcept</td></tr>
+<tr class="memdesc:a41efacdf1796ef9bfc06fa1d27adba7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required member to get range-based-for.  <br /></td></tr>
+<tr class="separator:a41efacdf1796ef9bfc06fa1d27adba7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe852da0d0ea1b9bff955482b61c1255" id="r_afe852da0d0ea1b9bff955482b61c1255"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe852da0d0ea1b9bff955482b61c1255">end</a> () const noexcept</td></tr>
+<tr class="memdesc:afe852da0d0ea1b9bff955482b61c1255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required member to get range-based-for.  <br /></td></tr>
+<tr class="separator:afe852da0d0ea1b9bff955482b61c1255"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a>&gt;<br />
-class BinaryRelations::OneToMany&lt; LeftType, RightType &gt;</div><p>A one-to-many set of (left, right) pairs. The left side can have any number of right counterparts. The right side can only be in a pair with one left side. @img html</p><div class="image">
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename LeftType, typename RightType&gt;<br />
+class BinaryRelations::OneToMany&lt; LeftType, RightType &gt;</div><p>A one-to-many set of (left, right) pairs. The left side can have any number of right counterparts. The right side can only be in a pair with one left side. </p><div class="image">
 <img src="binary-relations-one-to-many.png" alt=""/>
 </div>
  
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00112">112</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adc7afde70c429becc99b3054675924be" name="adc7afde70c429becc99b3054675924be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc7afde70c429becc99b3054675924be">&#9670;&#160;</a></span>OneToMany()</h2>
+<a id="acf7d8ba41251d2e47caead038e904b1f" name="acf7d8ba41251d2e47caead038e904b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf7d8ba41251d2e47caead038e904b1f">&#9670;&#160;</a></span>OneToMany()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::OneToMany </td>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::OneToMany </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -202,29 +205,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00134">134</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00136">136</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aac1ca30e09204d7b5e4d59b4ab9ddf12" name="aac1ca30e09204d7b5e4d59b4ab9ddf12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac1ca30e09204d7b5e4d59b4ab9ddf12">&#9670;&#160;</a></span>begin()</h2>
+<a id="a41efacdf1796ef9bfc06fa1d27adba7e" name="a41efacdf1796ef9bfc06fa1d27adba7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41efacdf1796ef9bfc06fa1d27adba7e">&#9670;&#160;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::begin </td>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::begin </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -232,31 +237,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Required member to get range-based for. </p>
-<dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html" title="A range-based for compatible iterator.">Iterator</a> set to the first pair in the set. </dd></dl>
+<p>Required member to get range-based-for. </p>
+<dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html" title="A range-based-for compatible iterator.">Iterator</a> set to the first pair in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00434">434</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00435">435</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="aeef742e48c540687585ae19e518c277c" name="aeef742e48c540687585ae19e518c277c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeef742e48c540687585ae19e518c277c">&#9670;&#160;</a></span>clear()</h2>
+<a id="aed49aa3e0a601f0b860044301bb38074" name="aed49aa3e0a601f0b860044301bb38074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed49aa3e0a601f0b860044301bb38074">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::clear </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::clear </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -264,42 +269,42 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Remove all pairs from the set. </p>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00279">279</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00280">280</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="ac7fe8615cfca32ad78717f8b2b71f8c1" name="ac7fe8615cfca32ad78717f8b2b71f8c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7fe8615cfca32ad78717f8b2b71f8c1">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
+<a id="a9ad20243db6055681104cf030e794372" name="a9ad20243db6055681104cf030e794372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad20243db6055681104cf030e794372">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::contains </td>
+          <td class="memname">bool <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::contains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;) const</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -313,31 +318,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00299">299</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00300">300</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a18fb087792239599b7058465248a33cd" name="a18fb087792239599b7058465248a33cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18fb087792239599b7058465248a33cd">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
+<a id="a286a3391a917e92e7b202246e52f22ff" name="a286a3391a917e92e7b202246e52f22ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a286a3391a917e92e7b202246e52f22ff">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::contains </td>
+          <td class="memname">bool <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::contains </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -350,31 +355,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00289">289</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00290">290</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a3883ea628cad727b19a163d7329a0fc9" name="a3883ea628cad727b19a163d7329a0fc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3883ea628cad727b19a163d7329a0fc9">&#9670;&#160;</a></span>containsLeft()</h2>
+<a id="ac8ad67712e147fe82251412f0675f0ff" name="ac8ad67712e147fe82251412f0675f0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ad67712e147fe82251412f0675f0ff">&#9670;&#160;</a></span>containsLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::containsLeft </td>
+          <td class="memname">bool <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::containsLeft </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -387,31 +392,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00309">309</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00310">310</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="ab9ab67e85b90dd7a503f7b87484442dc" name="ab9ab67e85b90dd7a503f7b87484442dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9ab67e85b90dd7a503f7b87484442dc">&#9670;&#160;</a></span>containsRight()</h2>
+<a id="ab12ea2c2b85c429c15fa7e73d7b075fc" name="ab12ea2c2b85c429c15fa7e73d7b075fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12ea2c2b85c429c15fa7e73d7b075fc">&#9670;&#160;</a></span>containsRight()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">bool</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::containsRight </td>
+          <td class="memname">bool <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::containsRight </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -424,23 +429,23 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00318">318</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00319">319</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a6bd152bc8ab63842a3e638f121fbdd7a" name="a6bd152bc8ab63842a3e638f121fbdd7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bd152bc8ab63842a3e638f121fbdd7a">&#9670;&#160;</a></span>count()</h2>
+<a id="a12032ecaf037c643e8fa135cea0721f1" name="a12032ecaf037c643e8fa135cea0721f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12032ecaf037c643e8fa135cea0721f1">&#9670;&#160;</a></span>count()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::count </td>
+          <td class="memname">int <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::count </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -448,7 +453,7 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -456,23 +461,23 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
 <p>Count the number of pairs in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of pairs in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00377">377</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00378">378</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a20ec3d3086f73f01039ed3e48331b614" name="a20ec3d3086f73f01039ed3e48331b614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20ec3d3086f73f01039ed3e48331b614">&#9670;&#160;</a></span>countLeft()</h2>
+<a id="ab852c9362d8c7bb4da85e2def870e520" name="ab852c9362d8c7bb4da85e2def870e520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab852c9362d8c7bb4da85e2def870e520">&#9670;&#160;</a></span>countLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::countLeft </td>
+          <td class="memname">int <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::countLeft </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -480,7 +485,7 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -488,23 +493,23 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
 <p>Count the number of left values in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of left values in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00359">359</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00360">360</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a16d524261b43030f7fa5b6098293ccf8" name="a16d524261b43030f7fa5b6098293ccf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16d524261b43030f7fa5b6098293ccf8">&#9670;&#160;</a></span>countRight()</h2>
+<a id="a016d4c5687cdeb7a096c2edde530d9ce" name="a016d4c5687cdeb7a096c2edde530d9ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a016d4c5687cdeb7a096c2edde530d9ce">&#9670;&#160;</a></span>countRight()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">int</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::countRight </td>
+          <td class="memname">int <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::countRight </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -512,7 +517,7 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -520,23 +525,23 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
 <p>Count the number of right values in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of right values in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00368">368</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00369">369</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a0134566338c4c500e06bfe179b960615" name="a0134566338c4c500e06bfe179b960615"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0134566338c4c500e06bfe179b960615">&#9670;&#160;</a></span>end()</h2>
+<a id="afe852da0d0ea1b9bff955482b61c1255" name="afe852da0d0ea1b9bff955482b61c1255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe852da0d0ea1b9bff955482b61c1255">&#9670;&#160;</a></span>end()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::end </td>
+          <td class="memname"><a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html">Iterator</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::end </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -544,43 +549,43 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Required member to get range-based for. </p>
-<dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html" title="A range-based for compatible iterator.">Iterator</a> set to one after the last pair in the set. </dd></dl>
+<p>Required member to get range-based-for. </p>
+<dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_one_to_many_1_1_iterator.html" title="A range-based-for compatible iterator.">Iterator</a> set to one after the last pair in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00451">451</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00452">452</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a18d74aad2baf94fa2a2274866d0ec1e9" name="a18d74aad2baf94fa2a2274866d0ec1e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18d74aad2baf94fa2a2274866d0ec1e9">&#9670;&#160;</a></span>findLeft()</h2>
+<a id="a0094481aaf8330c4953618ef044da866" name="a0094481aaf8330c4953618ef044da866"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0094481aaf8330c4953618ef044da866">&#9670;&#160;</a></span>findLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::findLeft </td>
+          <td class="memname">LeftType <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::findLeft </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em>, </span></td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>notFoundValue</em></span>&#160;) const</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>notFoundValue</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -595,36 +600,36 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The singular left value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00346">346</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00347">347</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a7e1777a08a819703b54f14c071abb908" name="a7e1777a08a819703b54f14c071abb908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e1777a08a819703b54f14c071abb908">&#9670;&#160;</a></span>findRight()</h2>
+<a id="a45a6276f16f64b1eaf65fd3a6ce17d83" name="a45a6276f16f64b1eaf65fd3a6ce17d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a6276f16f64b1eaf65fd3a6ce17d83">&#9670;&#160;</a></span>findRight()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> std::vector&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; * <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::findRight </td>
+          <td class="memname">const std::vector&lt; RightType &gt; * <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::findRight </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Find all right values that are paired with this left value. If nothing is found, you will get an empty array. This works well with range-based for. </p>
+<p>Find all right values that are paired with this left value. If nothing is found, you will get an empty array. This works well with range-based-for. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">left</td><td>The left side of the pair to look for. </td></tr>
@@ -633,40 +638,40 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The vector of right values. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00330">330</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00331">331</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a974b0ba64d146634472ac144777cc174" name="a974b0ba64d146634472ac144777cc174"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974b0ba64d146634472ac144777cc174">&#9670;&#160;</a></span>insert() <span class="overload">[1/3]</span></h2>
+<a id="a20ce4947d883b2cbdcb7120d6c93793f" name="a20ce4947d883b2cbdcb7120d6c93793f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ce4947d883b2cbdcb7120d6c93793f">&#9670;&#160;</a></span>insert() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::insert </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Insert a pair into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
+<p>Insert a pair into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">left</td><td>The left side of the pair to add. </td></tr>
@@ -675,36 +680,36 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00154">154</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00155">155</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="ab2c9b26f085557d673570bc55db43d9c" name="ab2c9b26f085557d673570bc55db43d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c9b26f085557d673570bc55db43d9c">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
+<a id="a5e675bd054a35d6ca73b14a2ae82235d" name="a5e675bd054a35d6ca73b14a2ae82235d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e675bd054a35d6ca73b14a2ae82235d">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::insert </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Insert multiple pairs into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
+<p>Insert multiple pairs into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>The <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a> to add. </td></tr>
@@ -712,36 +717,36 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00181">181</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00182">182</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="ab3ed4c1d069821ea6e64ad3dd2a0c114" name="ab3ed4c1d069821ea6e64ad3dd2a0c114"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ed4c1d069821ea6e64ad3dd2a0c114">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
+<a id="af2c4342782a6118da072aa07d54919a6" name="af2c4342782a6118da072aa07d54919a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c4342782a6118da072aa07d54919a6">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::insert </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Insert a pair into the set. The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
+<p>Insert a pair into the set. The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pair</td><td>The pair to insert. </td></tr>
@@ -749,35 +754,35 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00143">143</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00144">144</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a5f22ef6cc6b7b30cce9723483dd2a050" name="a5f22ef6cc6b7b30cce9723483dd2a050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f22ef6cc6b7b30cce9723483dd2a050">&#9670;&#160;</a></span>remove() <span class="overload">[1/3]</span></h2>
+<a id="a29c1a1beaee378945f161e7182277036" name="a29c1a1beaee378945f161e7182277036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c1a1beaee378945f161e7182277036">&#9670;&#160;</a></span>remove() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::remove </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -791,31 +796,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00205">205</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00206">206</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a41bf4e744b0605d74ab6de0a28280d88" name="a41bf4e744b0605d74ab6de0a28280d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41bf4e744b0605d74ab6de0a28280d88">&#9670;&#160;</a></span>remove() <span class="overload">[2/3]</span></h2>
+<a id="aefe3c12f0793f22ddb61712ca1fce95d" name="aefe3c12f0793f22ddb61712ca1fce95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe3c12f0793f22ddb61712ca1fce95d">&#9670;&#160;</a></span>remove() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::remove </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -828,31 +833,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00268">268</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00269">269</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="a38a063d913f9d3a1aedd50666be60709" name="a38a063d913f9d3a1aedd50666be60709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38a063d913f9d3a1aedd50666be60709">&#9670;&#160;</a></span>remove() <span class="overload">[3/3]</span></h2>
+<a id="a81d61ea8062052020243054f0884f66a" name="a81d61ea8062052020243054f0884f66a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81d61ea8062052020243054f0884f66a">&#9670;&#160;</a></span>remove() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::remove </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::remove </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -865,31 +870,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00194">194</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00195">195</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="ac29ac170b1cb39d1d0f3aba49f3852b7" name="ac29ac170b1cb39d1d0f3aba49f3852b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac29ac170b1cb39d1d0f3aba49f3852b7">&#9670;&#160;</a></span>removeLeft()</h2>
+<a id="a0d703762da731a52ce9813c71e35b1a0" name="a0d703762da731a52ce9813c71e35b1a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d703762da731a52ce9813c71e35b1a0">&#9670;&#160;</a></span>removeLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::removeLeft </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::removeLeft </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -902,31 +907,31 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00234">234</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00235">235</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
-<a id="af4e801a587dc752d260a99ea938dea67" name="af4e801a587dc752d260a99ea938dea67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4e801a587dc752d260a99ea938dea67">&#9670;&#160;</a></span>removeRight()</h2>
+<a id="a76910d10751070bfaa9bdfa9e121b6e1" name="a76910d10751070bfaa9bdfa9e121b6e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76910d10751070bfaa9bdfa9e121b6e1">&#9670;&#160;</a></span>removeRight()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a> , <a class="el" href="class_binary_relations_1_1_many_to_many.html">typename</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt; </div>
+template&lt;typename LeftType , typename RightType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_binary_relations_1_1_many_to_many.html">void</a> <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; <a class="el" href="class_binary_relations_1_1_many_to_many.html">LeftType</a>, <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &gt;::removeRight </td>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_many.html">BinaryRelations::OneToMany</a>&lt; LeftType, RightType &gt;::removeRight </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_binary_relations_1_1_many_to_many.html">const</a> <a class="el" href="class_binary_relations_1_1_many_to_many.html">RightType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -939,7 +944,7 @@ template&lt;<a class="el" href="class_binary_relations_1_1_many_to_many.html">ty
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00256">256</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00257">257</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
