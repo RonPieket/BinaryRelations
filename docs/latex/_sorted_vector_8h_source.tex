@@ -1,0 +1,111 @@
+\doxysection{Sorted\+Vector.\+h}
+\hypertarget{_sorted_vector_8h_source}{}\label{_sorted_vector_8h_source}\index{/Users/rpieket/Dropbox/Projects/BinaryRelations/BinaryRelations/SortedVector.h@{/Users/rpieket/Dropbox/Projects/BinaryRelations/BinaryRelations/SortedVector.h}}
+\mbox{\hyperlink{_sorted_vector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_binary_relations}{BinaryRelations}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/\ Manipulate\ vector\ with\ unique\ sorted\ elements\ -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_binary_relations_a00cd3596da29660839f28992ad66c88c}{countInSortedVector}}(\textcolor{keyword}{const}\ std::vector<T>\ *vector,\ \textcolor{keyword}{const}\ T\ \&value)}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ it\ =\ std::lower\_bound(vector-\/>cbegin(),\ vector-\/>cend(),\ value);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{return}\ it\ !=\ vector-\/>cend()\ \&\&\ *it\ ==\ value\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ \mbox{\hyperlink{namespace_binary_relations_a177c5008854bce04b510943500fb6eca}{findInSortedVector}}(\textcolor{keyword}{const}\ std::vector<T>\ *vector,\ \textcolor{keyword}{const}\ T\ \&value)}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ it\ =\ std::lower\_bound(vector-\/>cbegin(),\ vector-\/>cend(),\ value);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ vector-\/>cend()\ \&\&\ *it\ ==\ value)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ vector-\/>cend();}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_binary_relations_a2ece5f0882ffd39085710fcecacdaee3}{insertIntoSortedVector}}(std::vector<T>\ *vector,\ \textcolor{keyword}{const}\ T\ \&value)}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::iterator\ it\ =\ std::lower\_bound(vector-\/>begin(),\ vector-\/>end(),\ value);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ vector-\/>end()\ \&\&\ *it\ ==\ value)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ It's\ already\ there}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ vector-\/>insert(it,\ value);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(std::vector<T>\ *vector,\ \textcolor{keyword}{const}\ T\ \&value)}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::iterator\ it\ =\ std::lower\_bound(vector-\/>begin(),\ vector-\/>end(),\ value);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ vector-\/>end()\ \&\&\ *it\ ==\ value)}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ vector-\/>erase(it);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00049\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_binary_relations_a2ece5f0882ffd39085710fcecacdaee3}{insertIntoSortedVector}}(std::vector<T>\ *sourceVector,\ std::vector<T>\ *insertVector,\ std::vector<T>\ *outVector)}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ sourceIt\ =\ sourceVector-\/>cbegin();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ insertIt\ =\ insertVector-\/>cbegin();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ outVector-\/>clear();}
+\DoxyCodeLine{00058\ \ \ \ \ outVector-\/>reserve(sourceVector-\/>count()\ +\ insertVector-\/>count());}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (sourceIt\ !=\ sourceVector-\/>cend()\ \&\&\ insertIt\ !=\ insertVector-\/>cend())}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*sourceIt\ ==\ *insertIt)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ outVector-\/>append(*sourceIt++);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ insertIt++;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*sourceIt\ <\ *insertIt)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ outVector-\/>append(*sourceIt++);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ outVector-\/>append(*insertIt++);}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{while}\ (sourceIt\ !=\ sourceVector-\/>cend())}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ outVector-\/>append(*sourceIt++);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{while}\ (insertIt\ !=\ insertVector-\/>cend())}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ outVector-\/>append(*insertIt++);}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(std::vector<T>\ *sourceVector,\ std::vector<T>\ *removeVector,\ std::vector<T>\ *outVector)}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ sourceIt\ =\ sourceVector-\/>cbegin();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<T>::const\_iterator\ removeIt\ =\ removeVector-\/>cbegin();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ outVector-\/>clear();}
+\DoxyCodeLine{00087\ \ \ \ \ outVector-\/>reserve(std::max(sourceVector-\/>count(),\ removeVector-\/>count()));}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{while}\ (sourceIt\ !=\ sourceVector-\/>cend()\ \&\&\ removeIt\ !=\ removeVector-\/>cend())}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*sourceIt\ ==\ *removeIt)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ sourceIt++;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ removeIt++;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (*sourceIt\ <\ *removeIt)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ outVector-\/>append(*sourceIt++);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ outVector-\/>append(*removeIt++);}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{while}\ (sourceIt\ !=\ sourceVector-\/>cend())}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ outVector-\/>append(*sourceIt++);}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ \}\ \textcolor{comment}{//\ namespace\ BinaryRelations}}
+
+\end{DoxyCode}

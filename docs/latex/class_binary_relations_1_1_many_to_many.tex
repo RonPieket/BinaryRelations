@@ -1,0 +1,225 @@
+\doxysection{Binary\+Relations\+::Many\+To\+Many\texorpdfstring{$<$}{<} Left\+Type, Right\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_binary_relations_1_1_many_to_many}{}\label{class_binary_relations_1_1_many_to_many}\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+
+
+{\ttfamily \#include $<$Many\+To\+Many.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}
+\item 
+struct \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac851ae09bc5c1a6e700e9c4a7bf7861a}{Many\+To\+Many}} ()
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a82eae663e2b574d70d955420822d6672}{Many\+To\+Many}} (const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}} \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53}{insert}} (const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&pair)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac99e601f692e29e280299788b2e28447}{insert}} (const Left\+Type \&left, const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f}{remove}} (const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&pair)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a3b631bcfce155d91f30e7fed2fe02a98}{remove}} (const Left\+Type \&left, const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_aad716177d41f6ec12644472cef76a959}{remove\+Left}} (const Left\+Type \&left)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5d494b5246cd54a7006ac049e2ce5c30}{remove\+Right}} (const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac759a8c49708b138717d14f02e67e6b8}{insert}} (const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$ \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a2782943743c9a5d56c0f17057b945fc1}{remove}} (const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$ \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a26530ecb5bec8e80624d7a5ef81d86d7}{clear}} ()
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a923d864f267bd83b2d032feaba33b124}{contains}} (const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&pair) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a2af0b90739a09c75ee50f3e96659266e}{contains}} (const Left\+Type \&left, const Right\+Type \&right) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a77f0afc62bb128aed3fe9375a3baf8c2}{contains\+Left}} (const Left\+Type \&left) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_af2c30ca1f3b116710af8f801e594f34f}{contains\+Right}} (const Right\+Type \&right) const
+\item 
+const std\+::vector$<$ Right\+Type $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5dba1d9cbe55ff4319e3023d64d2ad90}{find\+Right}} (const Left\+Type \&left) const
+\item 
+const std\+::vector$<$ Left\+Type $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5e9530faf05a3c9e72230dc226ae2eca}{find\+Left}} (const Right\+Type \&right) const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac131656b02fcf5726a6d054a88b05c6f}{count\+Left}} () const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a0ffc817bf5030feaec0e0e7ac199ab94}{count\+Right}} () const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ab1d3f3c3bb35815413a93e078862f605}{count}} () const
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_abd6b92553009464df0578a2145c2eff8}{begin}} () const
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_aa5f4a119404743a9cc240d5a84aa27b8}{end}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_binary_relations_1_1_many_to_many_ac851ae09bc5c1a6e700e9c4a7bf7861a}\label{class_binary_relations_1_1_many_to_many_ac851ae09bc5c1a6e700e9c4a7bf7861a} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!ManyToMany@{ManyToMany}}
+\index{ManyToMany@{ManyToMany}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{ManyToMany()}{ManyToMany()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Many\+To\+Many (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a82eae663e2b574d70d955420822d6672}\label{class_binary_relations_1_1_many_to_many_a82eae663e2b574d70d955420822d6672} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!ManyToMany@{ManyToMany}}
+\index{ManyToMany@{ManyToMany}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{ManyToMany()}{ManyToMany()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Many\+To\+Many (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_binary_relations_1_1_many_to_many_abd6b92553009464df0578a2145c2eff8}\label{class_binary_relations_1_1_many_to_many_abd6b92553009464df0578a2145c2eff8} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!begin@{begin}}
+\index{begin@{begin}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a26530ecb5bec8e80624d7a5ef81d86d7}\label{class_binary_relations_1_1_many_to_many_a26530ecb5bec8e80624d7a5ef81d86d7} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!clear@{clear}}
+\index{clear@{clear}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a2af0b90739a09c75ee50f3e96659266e}\label{class_binary_relations_1_1_many_to_many_a2af0b90739a09c75ee50f3e96659266e} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!contains@{contains}}
+\index{contains@{contains}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::contains (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a923d864f267bd83b2d032feaba33b124}\label{class_binary_relations_1_1_many_to_many_a923d864f267bd83b2d032feaba33b124} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!contains@{contains}}
+\index{contains@{contains}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a77f0afc62bb128aed3fe9375a3baf8c2}\label{class_binary_relations_1_1_many_to_many_a77f0afc62bb128aed3fe9375a3baf8c2} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!containsLeft@{containsLeft}}
+\index{containsLeft@{containsLeft}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{containsLeft()}{containsLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::contains\+Left (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_af2c30ca1f3b116710af8f801e594f34f}\label{class_binary_relations_1_1_many_to_many_af2c30ca1f3b116710af8f801e594f34f} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!containsRight@{containsRight}}
+\index{containsRight@{containsRight}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{containsRight()}{containsRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::contains\+Right (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_ab1d3f3c3bb35815413a93e078862f605}\label{class_binary_relations_1_1_many_to_many_ab1d3f3c3bb35815413a93e078862f605} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!count@{count}}
+\index{count@{count}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_ac131656b02fcf5726a6d054a88b05c6f}\label{class_binary_relations_1_1_many_to_many_ac131656b02fcf5726a6d054a88b05c6f} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!countLeft@{countLeft}}
+\index{countLeft@{countLeft}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{countLeft()}{countLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::count\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a0ffc817bf5030feaec0e0e7ac199ab94}\label{class_binary_relations_1_1_many_to_many_a0ffc817bf5030feaec0e0e7ac199ab94} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!countRight@{countRight}}
+\index{countRight@{countRight}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{countRight()}{countRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::count\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_aa5f4a119404743a9cc240d5a84aa27b8}\label{class_binary_relations_1_1_many_to_many_aa5f4a119404743a9cc240d5a84aa27b8} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!end@{end}}
+\index{end@{end}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a5e9530faf05a3c9e72230dc226ae2eca}\label{class_binary_relations_1_1_many_to_many_a5e9530faf05a3c9e72230dc226ae2eca} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!findLeft@{findLeft}}
+\index{findLeft@{findLeft}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{findLeft()}{findLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+const std\+::vector$<$ Left\+Type $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::find\+Left (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a5dba1d9cbe55ff4319e3023d64d2ad90}\label{class_binary_relations_1_1_many_to_many_a5dba1d9cbe55ff4319e3023d64d2ad90} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!findRight@{findRight}}
+\index{findRight@{findRight}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{findRight()}{findRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+const std\+::vector$<$ Right\+Type $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::find\+Right (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_ac99e601f692e29e280299788b2e28447}\label{class_binary_relations_1_1_many_to_many_ac99e601f692e29e280299788b2e28447} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_ac759a8c49708b138717d14f02e67e6b8}\label{class_binary_relations_1_1_many_to_many_ac759a8c49708b138717d14f02e67e6b8} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53}\label{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a3b631bcfce155d91f30e7fed2fe02a98}\label{class_binary_relations_1_1_many_to_many_a3b631bcfce155d91f30e7fed2fe02a98} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a2782943743c9a5d56c0f17057b945fc1}\label{class_binary_relations_1_1_many_to_many_a2782943743c9a5d56c0f17057b945fc1} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f}\label{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_aad716177d41f6ec12644472cef76a959}\label{class_binary_relations_1_1_many_to_many_aad716177d41f6ec12644472cef76a959} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!removeLeft@{removeLeft}}
+\index{removeLeft@{removeLeft}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{removeLeft()}{removeLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::remove\+Left (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_many_to_many_a5d494b5246cd54a7006ac049e2ce5c30}\label{class_binary_relations_1_1_many_to_many_a5d494b5246cd54a7006ac049e2ce5c30} 
+\index{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}!removeRight@{removeRight}}
+\index{removeRight@{removeRight}!BinaryRelations::ManyToMany$<$ LeftType, RightType $>$@{BinaryRelations::ManyToMany$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{removeRight()}{removeRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{Binary\+Relations\+::\+Many\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::remove\+Right (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/rpieket/\+Dropbox/\+Projects/\+Binary\+Relations/\+Binary\+Relations/\mbox{\hyperlink{_many_to_many_8h}{Many\+To\+Many.\+h}}\end{DoxyCompactItemize}

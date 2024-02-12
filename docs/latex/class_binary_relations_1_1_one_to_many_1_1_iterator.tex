@@ -1,0 +1,86 @@
+\doxysection{Binary\+Relations\+::One\+To\+Many\texorpdfstring{$<$}{<} Left\+Type, Right\+Type \texorpdfstring{$>$}{>}\+::Iterator Class Reference}
+\hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator}{}\label{class_binary_relations_1_1_one_to_many_1_1_iterator}\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+
+
+{\ttfamily \#include $<$One\+To\+Many.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_binary_relations_1_1_one_to_many_1_1_pair}{Pair}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_a3130848de040ee88903bc2009420a5bc}{operator\texorpdfstring{$\ast$}{*}}} () const noexcept
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_aae8de269dd2f9c83d531b69af15522e2}{operator==}} (const \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \&other) const noexcept
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_a8651d3f3a412c260b6bb01aa261a66ee}{operator!=}} (const \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \&other) const noexcept
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_a2dc59864a1d68aff8b1da3f253979413}{operator++}} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ Left\+Type, std\+::vector$<$ Right\+Type $>$ \texorpdfstring{$\ast$}{*} $>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_a8107bed1c1344c3e24f026af09530685}{l2r\+\_\+it}}
+\item 
+std\+::unordered\+\_\+map$<$ Left\+Type, std\+::vector$<$ Right\+Type $>$ \texorpdfstring{$\ast$}{*} $>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_ae3556d56ca41b93e309dd616ad6b037d}{l2r\+\_\+it\+\_\+end}}
+\item 
+std\+::vector$<$ Right\+Type $>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator_aec4884452a1e65d1b23ba681c794bf88}{l2r\+\_\+vec\+\_\+it}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_a8651d3f3a412c260b6bb01aa261a66ee}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_a8651d3f3a412c260b6bb01aa261a66ee} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_a3130848de040ee88903bc2009420a5bc}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_a3130848de040ee88903bc2009420a5bc} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{struct_binary_relations_1_1_one_to_many_1_1_pair}{Pair}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_a2dc59864a1d68aff8b1da3f253979413}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_a2dc59864a1d68aff8b1da3f253979413} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_aae8de269dd2f9c83d531b69af15522e2}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_aae8de269dd2f9c83d531b69af15522e2} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_one_to_many_1_1_iterator}{Iterator}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_a8107bed1c1344c3e24f026af09530685}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_a8107bed1c1344c3e24f026af09530685} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!l2r\_it@{l2r\_it}}
+\index{l2r\_it@{l2r\_it}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{l2r\_it}{l2r\_it}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+std\+::unordered\+\_\+map$<$Left\+Type,std\+::vector$<$Right\+Type$>$\texorpdfstring{$\ast$}{*}$>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::l2r\+\_\+it}
+
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_ae3556d56ca41b93e309dd616ad6b037d}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_ae3556d56ca41b93e309dd616ad6b037d} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!l2r\_it\_end@{l2r\_it\_end}}
+\index{l2r\_it\_end@{l2r\_it\_end}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{l2r\_it\_end}{l2r\_it\_end}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+std\+::unordered\+\_\+map$<$Left\+Type,std\+::vector$<$Right\+Type$>$\texorpdfstring{$\ast$}{*}$>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::l2r\+\_\+it\+\_\+end}
+
+\Hypertarget{class_binary_relations_1_1_one_to_many_1_1_iterator_aec4884452a1e65d1b23ba681c794bf88}\label{class_binary_relations_1_1_one_to_many_1_1_iterator_aec4884452a1e65d1b23ba681c794bf88} 
+\index{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}!l2r\_vec\_it@{l2r\_vec\_it}}
+\index{l2r\_vec\_it@{l2r\_vec\_it}!BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator@{BinaryRelations::OneToMany$<$ LeftType, RightType $>$::Iterator}}
+\doxysubsubsection{\texorpdfstring{l2r\_vec\_it}{l2r\_vec\_it}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+std\+::vector$<$Right\+Type$>$\+::const\+\_\+iterator \mbox{\hyperlink{class_binary_relations_1_1_one_to_many}{Binary\+Relations\+::\+One\+To\+Many}}$<$ Left\+Type, Right\+Type $>$\+::\+Iterator\+::l2r\+\_\+vec\+\_\+it}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/rpieket/\+Dropbox/\+Projects/\+Binary\+Relations/\+Binary\+Relations/\mbox{\hyperlink{_one_to_many_8h}{One\+To\+Many.\+h}}\end{DoxyCompactItemize}

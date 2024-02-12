@@ -1,0 +1,310 @@
+\doxysection{Many\+To\+Many.\+h}
+\hypertarget{_many_to_many_8h_source}{}\label{_many_to_many_8h_source}\index{/Users/rpieket/Dropbox/Projects/BinaryRelations/BinaryRelations/ManyToMany.h@{/Users/rpieket/Dropbox/Projects/BinaryRelations/BinaryRelations/ManyToMany.h}}
+\mbox{\hyperlink{_many_to_many_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sorted_vector_8h}{SortedVector.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_binary_relations}{BinaryRelations}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ LeftType,\ \textcolor{keyword}{typename}\ RightType>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{ManyToMany}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ std::unordered\_map<LeftType,\ std::vector<RightType>\ *>\ m\_LeftToRight;}
+\DoxyCodeLine{00011\ \ \ \ \ std::unordered\_map<RightType,\ std::vector<LeftType>\ *>\ m\_RightToLeft;}
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<RightType>\ m\_EmptyRightVector;}
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<LeftType>\ m\_EmptyLeftVector;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_Count;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ LeftType\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ RightType\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a274e9fbfe88b3d9187bc30083ab9435f}{Pair}}(LeftType\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}},\ RightType\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}})\ :\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}}(\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}}),\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}}(\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}})}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_aa0e2cfece24a9f60a6c2f247ed109821}{Pair}}()}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac851ae09bc5c1a6e700e9c4a7bf7861a}{ManyToMany}}()\ :\ m\_Count(0)}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a82eae663e2b574d70d955420822d6672}{ManyToMany}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{ManyToMany}}\ \&other)\ :\ m\_Count(0),\ m\_RightToLeft(other.m\_RightToLeft),\ m\_LeftToRight(other.m\_LeftToRight)}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53}{insert}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}\ \&pair)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53}{insert}}(pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}},\ pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}});}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac99e601f692e29e280299788b2e28447}{insert}}(\textcolor{keyword}{const}\ LeftType\ \&left,\ \textcolor{keyword}{const}\ RightType\ \&right)}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.find(left);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_it\ !=\ m\_LeftToRight.end())}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ l2r\_it-\/>second;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ \mbox{\hyperlink{namespace_binary_relations_a00cd3596da29660839f28992ad66c88c}{countInSortedVector}}(l2r\_vec,\ right))}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ We\ already\ have\ this\ pair;}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ m\_LeftToRight[left];\ \textcolor{comment}{//\ Will\ insert\ if\ it\ isn't\ already\ there.}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_vec\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ l2r\_vec\ =\ \textcolor{keyword}{new}\ std::vector<RightType>();}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ m\_LeftToRight[left]\ =\ l2r\_vec;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a2ece5f0882ffd39085710fcecacdaee3}{insertIntoSortedVector}}(l2r\_vec,\ right);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_vec\ =\ m\_RightToLeft[right];\ \textcolor{comment}{//\ Will\ insert\ if\ it\ isn't\ already\ there.}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_vec\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ r2l\_vec\ =\ \textcolor{keyword}{new}\ std::vector<LeftType>();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ m\_RightToLeft[right]\ =\ r2l\_vec;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a2ece5f0882ffd39085710fcecacdaee3}{insertIntoSortedVector}}(r2l\_vec,\ left);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ m\_Count\ +=\ 1;}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f}{remove}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}\ \&pair)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f}{remove}}(pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}},\ pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}});}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a3b631bcfce155d91f30e7fed2fe02a98}{remove}}(\textcolor{keyword}{const}\ LeftType\ \&left,\ \textcolor{keyword}{const}\ RightType\ \&right)}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.find(left);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_it\ !=\ m\_LeftToRight.end())}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_it\ =\ m\_RightToLeft.find(right);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_it\ !=\ m\_RightToLeft.end())}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ l2r\_it-\/>second;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_vec\ =\ r2l\_it-\/>second;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(l2r\_vec,\ right);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(r2l\_vec,\ left);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(l2r\_vec-\/>size()\ ==\ 0)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_LeftToRight.erase(l2r\_it);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ l2r\_vec;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(r2l\_vec-\/>size()\ ==\ 0)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_RightToLeft.erase(r2l\_it);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ r2l\_vec;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Count\ -\/=\ 1;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_aad716177d41f6ec12644472cef76a959}{removeLeft}}(\textcolor{keyword}{const}\ LeftType\ \&left)}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.constFind(left);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_it\ !=\ m\_LeftToRight.end())}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ l2r\_it-\/>second;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ right\ :\ l2r\_vec)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_it\ =\ m\_RightToLeft.constFind(right);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_vec\ =\ r2l\_it-\/>second;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(*r2l\_vec,\ left);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Count\ -\/=\ 1;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_vec-\/>size()\ ==\ 0)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_RightToLeft.erase(r2l\_it);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ r2l\_vec;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ m\_LeftToRight.erase(l2r\_it);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ l2r\_vec;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5d494b5246cd54a7006ac049e2ce5c30}{removeRight}}(\textcolor{keyword}{const}\ RightType\ \&right)}
+\DoxyCodeLine{00130\ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_it\ =\ m\_RightToLeft.constFind(right);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_it\ !=\ m\_RightToLeft.end())}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_vec\ =\ r2l\_it-\/>second;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ left\ :\ r2l\_vec)}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.constFind(left);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ l2r\_it-\/>second;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_binary_relations_a33de7561ea4ab0085c25927eff114a17}{removeFromSortedVector}}(*l2r\_vec,\ right);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Count\ -\/=\ 1;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_vec-\/>size()\ ==\ 0)}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_LeftToRight.erase(l2r\_it);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ l2r\_vec;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ m\_RightToLeft.erase(r2l\_it);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ r2l\_vec;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac759a8c49708b138717d14f02e67e6b8}{insert}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{ManyToMany<LeftType,\ RightType>}}\&\ other)}
+\DoxyCodeLine{00153\ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ pair\ :\ other)}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a79cbdd70b890191a5b078ed9a1d8eb53}{insert}}(pair);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a2782943743c9a5d56c0f17057b945fc1}{remove}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many}{ManyToMany<LeftType,\ RightType>}}\&\ other)}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ pair\ :\ other)}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a66be69947330ed6ed130e7ce5e22df3f}{remove}}(pair);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a26530ecb5bec8e80624d7a5ef81d86d7}{clear}}()}
+\DoxyCodeLine{00169\ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ m\_RightToLeft.clear();}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ m\_LeftToRight.clear();}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a923d864f267bd83b2d032feaba33b124}{contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}\ \&pair)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a923d864f267bd83b2d032feaba33b124}{contains}}(pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_ad16676a2a239d5d247ec6fe46ac6bb8f}{left}},\ pair.\mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair_a96c559e5cc2530e24ae1df20f28a9940}{right}});}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a2af0b90739a09c75ee50f3e96659266e}{contains}}(\textcolor{keyword}{const}\ LeftType\ \&left,\ \textcolor{keyword}{const}\ RightType\ \&right)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00180\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.find(left);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_it\ !=\ m\_LeftToRight.end())}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_it\ =\ m\_RightToLeft.find(right);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_it\ !=\ m\_RightToLeft.end())}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ l2r\_it-\/>second;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_vec\ =\ r2l\_it-\/>second;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_vec-\/>size()\ <\ r2l\_vec-\/>size())}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0\ !=\ \mbox{\hyperlink{namespace_binary_relations_a00cd3596da29660839f28992ad66c88c}{countInSortedVector}}(l2r\_vec,\ right);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0\ !=\ \mbox{\hyperlink{namespace_binary_relations_a00cd3596da29660839f28992ad66c88c}{countInSortedVector}}(r2l\_vec,\ left);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a77f0afc62bb128aed3fe9375a3baf8c2}{containsLeft}}(\textcolor{keyword}{const}\ LeftType\ \&left)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00203\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_LeftToRight.contains(left);}
+\DoxyCodeLine{00205\ \ \ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_af2c30ca1f3b116710af8f801e594f34f}{containsRight}}(\textcolor{keyword}{const}\ RightType\ \&right)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00208\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_RightToLeft.contains(right);}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<RightType>*\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5dba1d9cbe55ff4319e3023d64d2ad90}{findRight}}(\textcolor{keyword}{const}\ LeftType\ \&left)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00213\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_it\ =\ m\_LeftToRight.find(left);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l2r\_it\ ==\ m\_LeftToRight.end())}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_EmptyRightVector;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l2r\_it-\/>second;}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LeftType>*\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a5e9530faf05a3c9e72230dc226ae2eca}{findLeft}}(\textcolor{keyword}{const}\ RightType\ \&right)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00222\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r2l\_it\ =\ m\_RightToLeft.find(right);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r2l\_it\ ==\ m\_RightToLeft.end())}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_EmptyLeftVector;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r2l\_it-\/>second;}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ac131656b02fcf5726a6d054a88b05c6f}{countLeft}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00231\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_LeftToRight.count();}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_a0ffc817bf5030feaec0e0e7ac199ab94}{countRight}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00236\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_RightToLeft.count();}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_ab1d3f3c3bb35815413a93e078862f605}{count}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00241\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_Count;}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::unordered\_map<LeftType,\ std::vector<RightType>\ *>::const\_iterator\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::unordered\_map<LeftType,\ std::vector<RightType>\ *>::const\_iterator\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a6a8c0529f3ffbf717a7ee8ef86ce86e0}{l2r\_it\_end}};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ std::vector<RightType>::const\_iterator\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a0a332d005738da760f58ec6cd725a189}{operator*}}()\ const\ noexcept}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ left\ =\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}-\/>first;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ right\ =\ *\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_binary_relations_1_1_many_to_many_1_1_pair}{Pair}}(left,\ right);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a527dcfa1faeb86286417fb8d605fed98}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ \&other)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ ==\ other.LeftIterator;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a74060d95f3f9cbd33e4106c19f92a6e7}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ \&other)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ !=\ other.l2r\_it;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_aed3879118f2a045c7afbf16a0c8b0e54}{operator++}}()\ noexcept}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}}++;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}}\ ==\ (*l2r\_it).second-\/>cend())}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}++;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ !=\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a6a8c0529f3ffbf717a7ee8ef86ce86e0}{l2r\_it\_end}})}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}}\ =\ (*l2r\_it).second-\/>cbegin();}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_abd6b92553009464df0578a2145c2eff8}{begin}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00285\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ it;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ =\ m\_LeftToRight.cbegin();}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a6a8c0529f3ffbf717a7ee8ef86ce86e0}{l2r\_it\_end}}\ =\ m\_LeftToRight.cend();}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ !=\ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a6a8c0529f3ffbf717a7ee8ef86ce86e0}{l2r\_it\_end}})}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ l2r\_vec\ =\ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}-\/>second;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a48e12e1cf21c727b9c3a1f48d67f75c1}{l2r\_vec\_it}}\ =\ l2r\_vec-\/>cbegin();}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_aa5f4a119404743a9cc240d5a84aa27b8}{end}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00298\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator}{Iterator}}\ it;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{class_binary_relations_1_1_many_to_many_1_1_iterator_a8f495f5ab799c520ad366c58ee6eb734}{l2r\_it}}\ =\ m\_LeftToRight.cend();}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \};}
+\DoxyCodeLine{00304\ \}\ \textcolor{comment}{//\ namespace\ BinaryRelations}}
+
+\end{DoxyCode}

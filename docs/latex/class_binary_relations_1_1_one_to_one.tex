@@ -1,0 +1,225 @@
+\doxysection{Binary\+Relations\+::One\+To\+One\texorpdfstring{$<$}{<} Left\+Type, Right\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_binary_relations_1_1_one_to_one}{}\label{class_binary_relations_1_1_one_to_one}\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+
+
+{\ttfamily \#include $<$One\+To\+One.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_1_1_iterator}{Iterator}}
+\item 
+struct \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a37b3783b493a494b85aca469ea6f59c3}{One\+To\+One}} ()
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a5920706d10b8c11c76acd6d7adee9e2e}{One\+To\+One}} (const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}} \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a74b954e9db1319ced843362d4bb96962}{insert}} (const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&pair)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_adec8280bb858a0dd6f8b6b81e5ac9c71}{insert}} (const Left\+Type \&left, const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a9f6e7bd3e0b24c27720e5ffb6306c326}{remove}} (const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&pair)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_ab5789ed673f17d34b9130c28f22a4ea1}{remove}} (const Left\+Type \&left, const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_acd7c4b8b2018d7605d5ac52b8c3e5055}{remove\+Left}} (const Left\+Type \&left)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a62fd39bb64d31ee104ec063af33bbe7b}{remove\+Right}} (const Right\+Type \&right)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a3bcb11697d74f7ef4ab4b9231d82fd7b}{insert}} (const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}}$<$ Left\+Type, Right\+Type $>$ \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a4d564b9b470a86ce1d3031f448202032}{remove}} (const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}}$<$ Left\+Type, Right\+Type $>$ \&other)
+\item 
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a72da1ad69e8af3a8d659a7068be66a3c}{clear}} ()
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_aeb86312c43a741583bade9f939d9e09a}{contains}} (const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&pair) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_ad4a13527bae2c7c12869b7df029e4598}{contains}} (const Left\+Type \&left, const Right\+Type \&right) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a6ddd833a52138cb5076cf1800406411c}{contains\+Left}} (const Left\+Type \&left) const
+\item 
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_af263a66d37e535d5c9f52d41011e829b}{contains\+Right}} (const Right\+Type \&right) const
+\item 
+Right\+Type \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a57b99cda644fe174f475dd3915059d3a}{find\+Right}} (const Left\+Type \&left, const Right\+Type \&default\+Value) const
+\item 
+Left\+Type \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a29314af096ebb044fbe4a6d0c8264b28}{find\+Left}} (const Right\+Type \&right, const Left\+Type \&default\+Value) const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a5037f5ae0e73b172c2b75a3834a53d2d}{count\+Left}} () const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a9c8af50fc9a73371939f2407fd7a73df}{count\+Right}} () const
+\item 
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a1be8d401cd67893e61043447c6921593}{count}} () const
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_ac79df56236ef90ec6a98bfd97750b187}{begin}} () const
+\item 
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_one_a13ce349978eb988dfcf1600cd568a795}{end}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_binary_relations_1_1_one_to_one_a37b3783b493a494b85aca469ea6f59c3}\label{class_binary_relations_1_1_one_to_one_a37b3783b493a494b85aca469ea6f59c3} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!OneToOne@{OneToOne}}
+\index{OneToOne@{OneToOne}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{OneToOne()}{OneToOne()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::\+One\+To\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a5920706d10b8c11c76acd6d7adee9e2e}\label{class_binary_relations_1_1_one_to_one_a5920706d10b8c11c76acd6d7adee9e2e} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!OneToOne@{OneToOne}}
+\index{OneToOne@{OneToOne}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{OneToOne()}{OneToOne()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::\+One\+To\+One (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_binary_relations_1_1_one_to_one_ac79df56236ef90ec6a98bfd97750b187}\label{class_binary_relations_1_1_one_to_one_ac79df56236ef90ec6a98bfd97750b187} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!begin@{begin}}
+\index{begin@{begin}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a72da1ad69e8af3a8d659a7068be66a3c}\label{class_binary_relations_1_1_one_to_one_a72da1ad69e8af3a8d659a7068be66a3c} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!clear@{clear}}
+\index{clear@{clear}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_ad4a13527bae2c7c12869b7df029e4598}\label{class_binary_relations_1_1_one_to_one_ad4a13527bae2c7c12869b7df029e4598} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!contains@{contains}}
+\index{contains@{contains}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::contains (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_aeb86312c43a741583bade9f939d9e09a}\label{class_binary_relations_1_1_one_to_one_aeb86312c43a741583bade9f939d9e09a} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!contains@{contains}}
+\index{contains@{contains}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a6ddd833a52138cb5076cf1800406411c}\label{class_binary_relations_1_1_one_to_one_a6ddd833a52138cb5076cf1800406411c} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!containsLeft@{containsLeft}}
+\index{containsLeft@{containsLeft}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{containsLeft()}{containsLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::contains\+Left (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_af263a66d37e535d5c9f52d41011e829b}\label{class_binary_relations_1_1_one_to_one_af263a66d37e535d5c9f52d41011e829b} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!containsRight@{containsRight}}
+\index{containsRight@{containsRight}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{containsRight()}{containsRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+bool \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::contains\+Right (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a1be8d401cd67893e61043447c6921593}\label{class_binary_relations_1_1_one_to_one_a1be8d401cd67893e61043447c6921593} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!count@{count}}
+\index{count@{count}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a5037f5ae0e73b172c2b75a3834a53d2d}\label{class_binary_relations_1_1_one_to_one_a5037f5ae0e73b172c2b75a3834a53d2d} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!countLeft@{countLeft}}
+\index{countLeft@{countLeft}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{countLeft()}{countLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::count\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a9c8af50fc9a73371939f2407fd7a73df}\label{class_binary_relations_1_1_one_to_one_a9c8af50fc9a73371939f2407fd7a73df} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!countRight@{countRight}}
+\index{countRight@{countRight}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{countRight()}{countRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+int \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::count\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a13ce349978eb988dfcf1600cd568a795}\label{class_binary_relations_1_1_one_to_one_a13ce349978eb988dfcf1600cd568a795} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!end@{end}}
+\index{end@{end}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+\mbox{\hyperlink{class_binary_relations_1_1_one_to_one_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a29314af096ebb044fbe4a6d0c8264b28}\label{class_binary_relations_1_1_one_to_one_a29314af096ebb044fbe4a6d0c8264b28} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!findLeft@{findLeft}}
+\index{findLeft@{findLeft}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{findLeft()}{findLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+Left\+Type \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::find\+Left (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right,  }\item[{const Left\+Type \&}]{default\+Value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a57b99cda644fe174f475dd3915059d3a}\label{class_binary_relations_1_1_one_to_one_a57b99cda644fe174f475dd3915059d3a} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!findRight@{findRight}}
+\index{findRight@{findRight}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{findRight()}{findRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+Right\+Type \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::find\+Right (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{default\+Value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_adec8280bb858a0dd6f8b6b81e5ac9c71}\label{class_binary_relations_1_1_one_to_one_adec8280bb858a0dd6f8b6b81e5ac9c71} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a3bcb11697d74f7ef4ab4b9231d82fd7b}\label{class_binary_relations_1_1_one_to_one_a3bcb11697d74f7ef4ab4b9231d82fd7b} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a74b954e9db1319ced843362d4bb96962}\label{class_binary_relations_1_1_one_to_one_a74b954e9db1319ced843362d4bb96962} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!insert@{insert}}
+\index{insert@{insert}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_ab5789ed673f17d34b9130c28f22a4ea1}\label{class_binary_relations_1_1_one_to_one_ab5789ed673f17d34b9130c28f22a4ea1} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left,  }\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a4d564b9b470a86ce1d3031f448202032}\label{class_binary_relations_1_1_one_to_one_a4d564b9b470a86ce1d3031f448202032} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{One\+To\+One}}$<$ Left\+Type, Right\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a9f6e7bd3e0b24c27720e5ffb6306c326}\label{class_binary_relations_1_1_one_to_one_a9f6e7bd3e0b24c27720e5ffb6306c326} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!remove@{remove}}
+\index{remove@{remove}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::remove (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_binary_relations_1_1_one_to_one_1_1_pair}{Pair}} \&}]{pair }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_acd7c4b8b2018d7605d5ac52b8c3e5055}\label{class_binary_relations_1_1_one_to_one_acd7c4b8b2018d7605d5ac52b8c3e5055} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!removeLeft@{removeLeft}}
+\index{removeLeft@{removeLeft}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{removeLeft()}{removeLeft()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::remove\+Left (\begin{DoxyParamCaption}\item[{const Left\+Type \&}]{left }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_binary_relations_1_1_one_to_one_a62fd39bb64d31ee104ec063af33bbe7b}\label{class_binary_relations_1_1_one_to_one_a62fd39bb64d31ee104ec063af33bbe7b} 
+\index{BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}!removeRight@{removeRight}}
+\index{removeRight@{removeRight}!BinaryRelations::OneToOne$<$ LeftType, RightType $>$@{BinaryRelations::OneToOne$<$ LeftType, RightType $>$}}
+\doxysubsubsection{\texorpdfstring{removeRight()}{removeRight()}}
+{\footnotesize\ttfamily template$<$typename Left\+Type , typename Right\+Type $>$ \\
+void \mbox{\hyperlink{class_binary_relations_1_1_one_to_one}{Binary\+Relations\+::\+One\+To\+One}}$<$ Left\+Type, Right\+Type $>$\+::remove\+Right (\begin{DoxyParamCaption}\item[{const Right\+Type \&}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/rpieket/\+Dropbox/\+Projects/\+Binary\+Relations/\+Binary\+Relations/\mbox{\hyperlink{_one_to_one_8h}{One\+To\+One.\+h}}\end{DoxyCompactItemize}

@@ -64,7 +64,7 @@ both the `m_Parent` of the child as well as the `m_Children` list of the parent.
 This kind of connection is a one-to-many binary relation. With binary relations,
 the relationship between parents and children is stored outside of the object
 data structure, in its own container. All parent-to-child relationships are
-stored in one container at lives alongside the game objects.
+stored in one container that lives alongside the game objects.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class World
@@ -137,7 +137,6 @@ void     removeLeft(const LeftType &left)
 void     removeRight(const RightType &right)
 void     remove(const OneToMany<LeftType, RightType> &other)
 void     clear()
-void     merge(const OneToMany<LeftType, RightType> other)
 bool     contains(const Pair &pair) const
 bool     contains(const LeftType &left, const RightType &right) const
 bool     containsLeft(const LeftType &left) const
