@@ -4,8 +4,8 @@ Binary relations are everywhere
 What is this?
 -------------
 
-This is a small C++ library (a single header file) that adds three new container
-types that help you organize and query data in memory.
+This is a small C++ library (a single header file) that adds three new
+associative container types that help you organize and query data in memory.
 
 Intro
 -----
@@ -19,10 +19,10 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
-A quick refresher, before we go on. A binary relation is a collection of pairs.
-Each pair represents a relation between one member on the left and one on the
-right. For example, in the illustration below, the one-to-one relation consists
-of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
+A quick refresher, before we go on. A binary relation is a set of pairs. Each
+pair represents a relation between one member on the left and one on the right.
+For example, in the illustration below, the one-to-one relation consists of four
+pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
 
 ![](ThreeKindsOfBinaryRelation.png)
 
@@ -126,7 +126,8 @@ Each binary relation type is a template, with type arguments `LeftType` and
 recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
-This is the entire OneToMany API:
+This is the entire OneToMany API. [Click here for the full
+documentation](ronpieket.github.io/BinaryRelations).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToMany:

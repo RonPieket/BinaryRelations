@@ -105,6 +105,10 @@ void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *remove
 
 // ----------------------------------------------------------------------------
 
+/**
+ @img html \image html binary-relations-one-to-many.png
+ A one-to-many set of (left, right) pairs. The left side can have any number of right counterparts. The right side can only be in a pair with one left side.
+ */
 template <typename LeftType, typename RightType> class OneToMany
 {
     std::unordered_map<LeftType, std::vector<RightType> *> m_LeftToRight;
@@ -112,6 +116,9 @@ template <typename LeftType, typename RightType> class OneToMany
     std::vector<RightType> m_EmptyRightVector;
 
 public:
+    /**
+    @brief A pair of (left, right) values.
+     */
     struct Pair
     {
         LeftType left;
@@ -128,11 +135,22 @@ public:
     {
     }
 
+    /**
+     @brief Insert a pair into the set.
+     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     @param pair The (left, right) pair to insert.
+     */
     void insert(const Pair &pair)
     {
         insert(pair.left, pair.right);
     }
 
+    /**
+     @brief Insert a (left, right) pair into the set.
+     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     @param left The left side of the pair to add.
+     @param right The right side of the pair to add.
+     */
     void insert(const LeftType &left, const RightType &right)
     {
         auto r2l_it = m_RightToLeft.find(right);
@@ -155,6 +173,11 @@ public:
         m_RightToLeft[right] = left;
     }
 
+    /**
+     @brief Insert multiple  pairs into the set.
+     The rule for one-on-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     @param other The OneToMany to add.
+     */
     void insert(const OneToMany<LeftType, RightType>& other)
     {
         for (auto pair : other)
@@ -163,11 +186,22 @@ public:
         }
     }
 
+    /**
+     @brief Remove a (left, right) pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param pair The (left, right) pair to remove.
+     */
     void remove(const Pair &pair)
     {
         remove(pair.left, pair.right);
     }
 
+    /**
+     @brief Remove a pair from the set.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pair to remove.
+     @param right The right side of the pair to remove.
+     */
     void remove(const LeftType &left, const RightType &right)
     {
         auto r2l_it = m_RightToLeft.find(right);
@@ -192,6 +226,11 @@ public:
         }
     }
 
+    /**
+     @brief Remove all pairs with the given left value.
+     If there is no matching pair in the set, nothing happens.
+     @param left The left side of the pairs to remove.
+     */
     void removeLeft(const LeftType &left)
     {
         auto l2r_it = m_LeftToRight.find(left);
@@ -209,6 +248,11 @@ public:
         delete l2r_vec; // Vector is empty now
     }
 
+    /**
+     @brief Remove the pair with the given right value.
+     If there is no matching pair in the set, nothing happens.
+     @param right The right side of the pairs to remove.
+     */
     void removeRight(const RightType &right)
     {
         auto r2l_it = m_RightToLeft.find(right);
@@ -217,6 +261,10 @@ public:
         remove(r2l_it->second, right);
     }
 
+    /**
+     @brief Remove multiple (left, right) pairs from the set.
+     @param other The set of pairs to remove.
+     */
     void remove(const OneToMany<LeftType, RightType> &other)
     {
         for (auto pair : other)
@@ -225,6 +273,9 @@ public:
         }
     }
 
+    /**
+     @brief Remove all pais=rs from the set.
+     */
     void clear()
     {
         m_RightToLeft.clear();
