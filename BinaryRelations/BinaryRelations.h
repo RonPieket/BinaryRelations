@@ -467,7 +467,7 @@ public:
      @brief List all left elements.
      @return A helper object to iterate over left elements using range-based-for.
      */
-    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft() const noexcept
     {
         return UnorderedMapHelper(&m_LeftToRight);
     }
@@ -476,7 +476,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, LeftType> allRight()
+    UnorderedMapHelper<RightType, LeftType> allRight() const noexcept
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }
@@ -887,7 +887,7 @@ public:
      @brief List all left elements.
      @return A helper object to iterate over left elements using range-based-for.
      */
-    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft() const noexcept
     {
         return UnorderedMapHelper(&m_LeftToRight);
     }
@@ -896,7 +896,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, std::vector<LeftType> *> allRight()
+    UnorderedMapHelper<RightType, std::vector<LeftType> *> allRight() const noexcept
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }
@@ -1226,7 +1226,7 @@ public:
      @brief List all left elements.
      @return A helper object to iterate over left elements using range-based-for.
      */
-    UnorderedMapHelper<LeftType, RightType> allLeft()
+    UnorderedMapHelper<LeftType, RightType> allLeft() const noexcept
     {
         return UnorderedMapHelper(&m_LeftToRight);
     }
@@ -1235,7 +1235,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, LeftType> allRight()
+    UnorderedMapHelper<RightType, LeftType> allRight() const noexcept
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }

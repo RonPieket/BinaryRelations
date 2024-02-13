@@ -29,13 +29,16 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
-![](binary-relations.png)
+A quick refresher
+-----------------
 
-A quick refresher. Binary relations are the association between elements of
-either two or one set. It can be projected as a set consisting of related pairs
-(x,y) where x is the input or the domain and where y is the output or the range.
-The notation x R y means that x is related to y by R, where R can be the
-relation that links x and y.
+Binary relations are the association between elements of either two or one set.
+It can be projected as a set consisting of related pairs (x,y) where x is the
+input or the domain and where y is the output or the range. The notation x R y
+means that x is related to y by R, where R can be the relation that links x and
+y.
+
+![](binary-relations.png)
 
 In this library x and y are called left and right, indicating their position in
 the diagram.
@@ -44,6 +47,10 @@ There are four kinds of binary relations. They are: one-to-one, one-to-many,
 many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
+
+One way to describe what this library does is that it is like a hash table with
+a reverse lookup. A one-to-one is just that. Things get a littlemore involved
+with one-to-many, and many-to-many.
 
 Real world examples
 -------------------
