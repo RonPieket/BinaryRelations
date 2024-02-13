@@ -7,12 +7,13 @@ What is this?
 This is a small C++ library (a single header file) that adds three new
 associative container types that help you organize and query data in memory.
 
-Released under MIT License
+-   Released under MIT License.
 
-[Click here for the full
-documentation.](https://ronpieket.github.io/BinaryRelations)
+-   [Click here for the
+    documentation.](https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html)
 
-[Click here for the GitHub repo](https://github.com/RonPieket/BinaryRelations)
+-   [Click here for the GitHub
+    repo.](https://github.com/RonPieket/BinaryRelations)
 
 Intro
 -----
@@ -38,8 +39,8 @@ many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
 
-Real world examples
--------------------
+Real world uses
+---------------
 
 The real world examples come from my experience as a game tools programmer,
 specifically as a programmer of the Insomniac world editor. So I will use that
@@ -184,6 +185,13 @@ void     remove(const ManyToMany<LeftType, RightType> &other)
 const std::vector<LeftType>* findLeft(const RightType &right) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Code example
+------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Efficiency
 ----------
 
@@ -194,5 +202,5 @@ Things get more complicated with OneToMany and ManyToMany. They maintain sorted
 arrays. Insertion and removal of elements in an array involves shifting
 everything between the point of insertion/removal and the end of the array. We
 built several AAA games with this tech, without running into performance issues.
-However, depending on the number elements in the array, the frequency of
+However, depending on the number elements in your array, the frequency of
 changes, and your CPU time budget, you may want to consider alternatives.

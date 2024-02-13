@@ -99,15 +99,20 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <h1><a class="anchor" id="autotoc_md0"></a>
 What is this?</h1>
 <p>This is a small C++ library (a single header file) that adds three new associative container types that help you organize and query data in memory.</p>
+<ul>
+<li>Released under MIT License.</li>
+<li><a href="https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html">Click here for the documentation.</a></li>
+<li><a href="https://github.com/RonPieket/BinaryRelations">Click here for the GitHub repo.</a></li>
+</ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Intro</h1>
 <p>There is a data structure I that has served me very well for many years in the Insomniac Core tools group. I don’t hear other programmers refer to it, so I want to introduce it to you. I call it a binary relation. It’s a bidirectional associative container.</p>
 <p>The term “binary relation” and the concept are borrowed from mathematics, specifically set theory. But this is not a library for mathematicians. It is for programmers needing to organize their data.</p>
-<p>A quick refresher, before we go on. A binary relation is a set of pairs. Each pair represents a relation between one member on the left and one on the right. For example, in the illustration below, the one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).</p>
-<p><img src="ThreeKindsOfBinaryRelation.png" alt="" class="inline"/></p>
+<p>A quick refresher, before we go on. A binary relation is a set of pairs. Each pair represents a connection between one member on the left and one on the right. For example, in the illustration below, the one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).</p>
+<p><img src="binary-relations.png" alt="" class="inline"/></p>
 <p>There are four kinds of binary relations. They are: one-to-one, one-to-many, many-to-one, and many-to-many. But because one-to-many and many-to-one are interchangeable if you swap the left and the right side, we ignore many-to-one. You won’t need it, as will become clear later.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Real world examples</h1>
+Real world uses</h1>
 <p>The real world examples come from my experience as a game tools programmer, specifically as a programmer of the Insomniac world editor. So I will use that as an example. I’m certain that these data structures will be useful in many other areas.</p>
 <p>So in the world editor then, every object in the world is represented by a handle. They need to be organized at the global level. For example, objects can be connected in a parent-child relationship. A parent object can have any number of children. Each child has exactly one parent. This is a binary relation, a one-to-many. And each child may itself be a parent and have children. So we have a hierarchy tree.</p>
 <p>Typically, this is kind of relationship is expressed in the object data itself. Every object that is a child contains a handle (or pointer) to a parent. And each parent contains an array of handles (or pointers) to its children.</p>
@@ -148,7 +153,7 @@ Binary relations are everywhere</h1>
 The API</h1>
 <p>The library is located in the BinaryRelations directory. It consists of a single C++ header file. There are three class templates that you need to know of. The classes are: OneToMany, ManyToMany, and OneToOne.</p>
 <p>Each binary relation type is a template, with type arguments <code>LeftType</code> and <code>RightType</code>. <b>Both types need to be small, hashable, and immutable.</b> I recommend that you only use simple types, such as <code>int</code> and <code>enum</code>, and possibly <code>std::string</code>.</p>
-<p>This is the entire OneToMany API. <a href="ronpieket.github.io/BinaryRelations">Click here for the full documentation</a>.</p>
+<p>This is the entire OneToMany API. <a href="https://ronpieket.github.io/BinaryRelations">Click here for the full documentation.</a></p>
 <div class="fragment"><div class="line">OneToMany:</div>
 <div class="line"> </div>
 <div class="line">void     insert(const Pair &amp;pair)</div>
@@ -187,9 +192,11 @@ The API</h1>
 <div class="line"> </div>
 <div class="line">const std::vector&lt;LeftType&gt;* findLeft(const RightType &amp;right) const</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Code example</h1>
+<div class="fragment"></div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a OneToOne are also constant.</p>
-<p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in the array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>
+<p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in your array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->

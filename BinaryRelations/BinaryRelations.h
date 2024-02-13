@@ -20,12 +20,11 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
- */
 
-//
-// Latest version at https://github.com/RonPieket/BinaryRelations
-// Documentation at https://ronpieket.github.io/BinaryRelations
-//
+ Latest version at https://github.com/RonPieket/BinaryRelations
+ Documentation at https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html
+
+ */
 
 #pragma once
 
