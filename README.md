@@ -134,7 +134,8 @@ Each binary relation type is a template, with type arguments `LeftType` and
 recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
-This is the entire OneToMany API. [Click here for the full
+This is the entire OneToMany API. OneToOne and ManyToMany are near identical.
+[Click here for the full
 documentation.](https://ronpieket.github.io/BinaryRelations)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,33 +157,11 @@ bool     containsRight(const RightType &right) const
 int      countLeft() const
 int      countRight() const
 int      count() const
-Iterator begin() const
-Iterator end() const
 
+UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()Iterator 
+UnorderedMapHelper<RightType, LeftType> AllRight()
 LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
 const std::vector<RightType>* findRight(const LeftType &left) const
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The API for OneToOne is the same, except for:
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OneToOne:
-
-void     insert(const OneToOne<LeftType, RightType> &other)
-void     remove(const OneToOne<LeftType, RightType> &other)
-
-RightType findRight(const LeftType &left, const RightType &notFoundValue) const
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-And ManyToMany is the same as OneToMany, except for:
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ManyToMany:
-
-void     insert(const ManyToMany<LeftType, RightType> &other)
-void     remove(const ManyToMany<LeftType, RightType> &other)
-
-const std::vector<LeftType>* findLeft(const RightType &right) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Code example
@@ -195,29 +174,37 @@ Code example
     OneToMany<VehicleMake, std::string> VehicleToOccupants;
     OneToMany<OccupantType, std::string> TypeToOccupants;
 
-    VehicleToOccupants.insert(kVolvo, "Lisa");
-    VehicleToOccupants.insert(kVolvo, "Derek");
-    VehicleToOccupants.insert(kVolvo, "Sally");
-    VehicleToOccupants.insert(kNissan, "Josh");
-    VehicleToOccupants.insert(kNissan, "Tyler");
-    VehicleToOccupants.insert(kFord, "Maxime");
+    VehicleToOccupants.insert(kVolvo, "Liz");
+    VehicleToOccupants.insert(kVolvo, "Joe");
+    VehicleToOccupants.insert(kVolvo, "Sal");
+    VehicleToOccupants.insert(kNissan, "Ben");
+    VehicleToOccupants.insert(kNissan, "Eva");
+    VehicleToOccupants.insert(kFord, "Amy");
 
-    TypeToOccupants.insert(kDriver, "Lisa");
-    TypeToOccupants.insert(kPassenger, "Derek");
-    TypeToOccupants.insert(kPassenger, "Sally");
-    TypeToOccupants.insert(kDriver, "Josh");
-    TypeToOccupants.insert(kPassenger, "Tyler");
-    TypeToOccupants.insert(kDriver, "Maxime");
+    TypeToOccupants.insert(kDriver, "Liz");
+    TypeToOccupants.insert(kPassenger, "Joe");
+    TypeToOccupants.insert(kPassenger, "Sal");
+    TypeToOccupants.insert(kDriver, "Ben");
+    TypeToOccupants.insert(kPassenger, "Eva");
+    TypeToOccupants.insert(kDriver, "Amy");
 
+    // List just the drivers
     std::cout << "Drivers are:" << std::endl;
     for (std::string name : *TypeToOccupants.findRight(kDriver))
         std::cout << name << std::endl;
 
-    for (std::string name : {"Lisa", "Derek", "Sally", "Josh", "Tyler", "Maxime"})
+    // List all occupant info
+    std::cout << "Occupants are:" << std::endl;
+    for (std::string name : VehicleToOccupants.AllRight())
         std::cout << name
         << " is a " << TypeToOccupants.findLeft(name, kUnknownType)
         << " in the " << VehicleToOccupants.findLeft(name, kUnknownMake)
         << std::endl;
+
+    // List all vehicles
+    std::cout << "Vehicles are:" << std::endl;
+    for (auto vehicle : VehicleToOccupants.allLeft())
+        std::cout << vehicle << std::endl;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Efficiency

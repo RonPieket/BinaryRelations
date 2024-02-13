@@ -1,7 +1,7 @@
 /*
  MIT License
 
- Copyright (c) [year] [fullname]
+ Copyright (c) 2024 Ronald Pieket
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -130,6 +130,59 @@ void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *remove
     while (sourceIt != sourceVector->cend())
         outVector->append(*sourceIt++);
 }
+
+// ----------------------------------------------------------------------------
+
+template <typename KeyType, typename ValueType> class UnorderedMapHelper
+{
+public:
+    const std::unordered_map<KeyType, ValueType>* m_Map;
+    
+    UnorderedMapHelper(const std::unordered_map<KeyType, ValueType>* map)
+    : m_Map(map)
+    {}
+    
+    class Iterator
+    {
+    public:
+        typename std::unordered_map<KeyType, ValueType>::const_iterator it;
+
+        inline KeyType operator*() const noexcept
+        {
+            return it->first;
+        }
+        
+        inline bool operator==(const Iterator &other) const noexcept
+        {
+            return it == other.it;
+        }
+        
+        inline bool operator!=(const Iterator &other) const noexcept
+        {
+            return it != other.it;
+        }
+        
+        inline Iterator operator++() noexcept
+        {
+            it++;
+            return *this;
+        }
+    };
+    
+    Iterator begin() const noexcept
+    {
+        Iterator it;
+        it.it = m_Map->begin();
+        return it;
+    }
+
+    Iterator end() const noexcept
+    {
+        Iterator it;
+        it.it = m_Map->end();
+        return it;
+    }
+};
 
 // ----------------------------------------------------------------------------
 
@@ -406,6 +459,24 @@ public:
     int count() const noexcept
     {
         return (int)m_RightToLeft.size();
+    }
+
+    /**
+     @brief List all left elements.
+     @return A helper object to iterate over left elements using range-based-for.
+     */
+    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    {
+        return UnorderedMapHelper(&m_LeftToRight);
+    }
+
+    /**
+     @brief List all right elements.
+     @return A helper object to iterate over right elements using range-based-for.
+     */
+    UnorderedMapHelper<RightType, LeftType> AllRight()
+    {
+        return UnorderedMapHelper(&m_RightToLeft);
     }
 
     /**
@@ -815,6 +886,24 @@ public:
     }
 
     /**
+     @brief List all left elements.
+     @return A helper object to iterate over left elements using range-based-for.
+     */
+    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    {
+        return UnorderedMapHelper(&m_LeftToRight);
+    }
+
+    /**
+     @brief List all right elements.
+     @return A helper object to iterate over right elements using range-based-for.
+     */
+    UnorderedMapHelper<RightType, LeftType> AllRight()
+    {
+        return UnorderedMapHelper(&m_RightToLeft);
+    }
+
+    /**
      @brief A range-based-for compatible iterator.
      */
     class Iterator
@@ -1137,6 +1226,24 @@ public:
     int count() const noexcept
     {
         return (int)m_LeftToRight.size();
+    }
+
+    /**
+     @brief List all left elements.
+     @return A helper object to iterate over left elements using range-based-for.
+     */
+    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    {
+        return UnorderedMapHelper(&m_LeftToRight);
+    }
+
+    /**
+     @brief List all right elements.
+     @return A helper object to iterate over right elements using range-based-for.
+     */
+    UnorderedMapHelper<RightType, LeftType> AllRight()
+    {
+        return UnorderedMapHelper(&m_RightToLeft);
     }
 
     /**

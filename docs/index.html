@@ -153,7 +153,7 @@ Binary relations are everywhere</h1>
 The API</h1>
 <p>The library is located in the BinaryRelations directory. It consists of a single C++ header file. There are three class templates that you need to know of. The classes are: OneToMany, ManyToMany, and OneToOne.</p>
 <p>Each binary relation type is a template, with type arguments <code>LeftType</code> and <code>RightType</code>. <b>Both types need to be small, hashable, and immutable.</b> I recommend that you only use simple types, such as <code>int</code> and <code>enum</code>, and possibly <code>std::string</code>.</p>
-<p>This is the entire OneToMany API. <a href="https://ronpieket.github.io/BinaryRelations">Click here for the full documentation.</a></p>
+<p>This is the entire OneToMany API. OneToOne and ManyToMany are near identical. <a href="https://ronpieket.github.io/BinaryRelations">Click here for the full documentation.</a></p>
 <div class="fragment"><div class="line">OneToMany:</div>
 <div class="line"> </div>
 <div class="line">void     insert(const Pair &amp;pair)</div>
@@ -172,28 +172,51 @@ The API</h1>
 <div class="line">int      countLeft() const</div>
 <div class="line">int      countRight() const</div>
 <div class="line">int      count() const</div>
-<div class="line">Iterator begin() const</div>
-<div class="line">Iterator end() const</div>
 <div class="line"> </div>
+<div class="line">UnorderedMapHelper&lt;LeftType, std::vector&lt;RightType&gt; *&gt; allLeft()Iterator </div>
+<div class="line">UnorderedMapHelper&lt;RightType, LeftType&gt; AllRight()</div>
 <div class="line">LeftType findLeft(const RightType &amp;right, const LeftType &amp;notFoundValue) const</div>
 <div class="line">const std::vector&lt;RightType&gt;* findRight(const LeftType &amp;left) const</div>
-</div><!-- fragment --><p>The API for OneToOne is the same, except for:</p>
-<div class="fragment"><div class="line">OneToOne:</div>
-<div class="line"> </div>
-<div class="line">void     insert(const OneToOne&lt;LeftType, RightType&gt; &amp;other)</div>
-<div class="line">void     remove(const OneToOne&lt;LeftType, RightType&gt; &amp;other)</div>
-<div class="line"> </div>
-<div class="line">RightType findRight(const LeftType &amp;left, const RightType &amp;notFoundValue) const</div>
-</div><!-- fragment --><p>And ManyToMany is the same as OneToMany, except for:</p>
-<div class="fragment"><div class="line">ManyToMany:</div>
-<div class="line"> </div>
-<div class="line">void     insert(const ManyToMany&lt;LeftType, RightType&gt; &amp;other)</div>
-<div class="line">void     remove(const ManyToMany&lt;LeftType, RightType&gt; &amp;other)</div>
-<div class="line"> </div>
-<div class="line">const std::vector&lt;LeftType&gt;* findLeft(const RightType &amp;right) const</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 Code example</h1>
-<div class="fragment"></div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+<div class="fragment"><div class="line">    enum VehicleMake { kUnknownMake, kVolvo, kNissan, kFord };</div>
+<div class="line">    enum OccupantType { kUnknownType, kDriver, kPassenger };</div>
+<div class="line"> </div>
+<div class="line">    OneToMany&lt;VehicleMake, std::string&gt; VehicleToOccupants;</div>
+<div class="line">    OneToMany&lt;OccupantType, std::string&gt; TypeToOccupants;</div>
+<div class="line"> </div>
+<div class="line">    VehicleToOccupants.insert(kVolvo, &quot;Liz&quot;);</div>
+<div class="line">    VehicleToOccupants.insert(kVolvo, &quot;Joe&quot;);</div>
+<div class="line">    VehicleToOccupants.insert(kVolvo, &quot;Sal&quot;);</div>
+<div class="line">    VehicleToOccupants.insert(kNissan, &quot;Ben&quot;);</div>
+<div class="line">    VehicleToOccupants.insert(kNissan, &quot;Eva&quot;);</div>
+<div class="line">    VehicleToOccupants.insert(kFord, &quot;Amy&quot;);</div>
+<div class="line"> </div>
+<div class="line">    TypeToOccupants.insert(kDriver, &quot;Liz&quot;);</div>
+<div class="line">    TypeToOccupants.insert(kPassenger, &quot;Joe&quot;);</div>
+<div class="line">    TypeToOccupants.insert(kPassenger, &quot;Sal&quot;);</div>
+<div class="line">    TypeToOccupants.insert(kDriver, &quot;Ben&quot;);</div>
+<div class="line">    TypeToOccupants.insert(kPassenger, &quot;Eva&quot;);</div>
+<div class="line">    TypeToOccupants.insert(kDriver, &quot;Amy&quot;);</div>
+<div class="line"> </div>
+<div class="line">    // List just the drivers</div>
+<div class="line">    std::cout &lt;&lt; &quot;Drivers are:&quot; &lt;&lt; std::endl;</div>
+<div class="line">    for (std::string name : *TypeToOccupants.findRight(kDriver))</div>
+<div class="line">        std::cout &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    // List all occupant info</div>
+<div class="line">    std::cout &lt;&lt; &quot;Occupants are:&quot; &lt;&lt; std::endl;</div>
+<div class="line">    for (std::string name : VehicleToOccupants.AllRight())</div>
+<div class="line">        std::cout &lt;&lt; name</div>
+<div class="line">        &lt;&lt; &quot; is a &quot; &lt;&lt; TypeToOccupants.findLeft(name, kUnknownType)</div>
+<div class="line">        &lt;&lt; &quot; in the &quot; &lt;&lt; VehicleToOccupants.findLeft(name, kUnknownMake)</div>
+<div class="line">        &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    // List all vehicles</div>
+<div class="line">    std::cout &lt;&lt; &quot;Vehicles are:&quot; &lt;&lt; std::endl;</div>
+<div class="line">    for (auto vehicle : VehicleToOccupants.allLeft())</div>
+<div class="line">        std::cout &lt;&lt; vehicle &lt;&lt; std::endl;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a OneToOne are also constant.</p>
 <p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in your array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>

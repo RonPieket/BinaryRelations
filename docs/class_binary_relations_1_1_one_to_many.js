@@ -3,6 +3,8 @@ var class_binary_relations_1_1_one_to_many =
     [ "Iterator", "class_binary_relations_1_1_one_to_many_1_1_iterator.html", null ],
     [ "Pair", "struct_binary_relations_1_1_one_to_many_1_1_pair.html", null ],
     [ "OneToMany", "class_binary_relations_1_1_one_to_many.html#acf7d8ba41251d2e47caead038e904b1f", null ],
+    [ "allLeft", "class_binary_relations_1_1_one_to_many.html#ae7c700a4f8b27fe96b9283c03edc2a40", null ],
+    [ "AllRight", "class_binary_relations_1_1_one_to_many.html#a58cde3cd87d9d9d90cccf5f8972bde2c", null ],
     [ "begin", "class_binary_relations_1_1_one_to_many.html#a41efacdf1796ef9bfc06fa1d27adba7e", null ],
     [ "clear", "class_binary_relations_1_1_one_to_many.html#aed49aa3e0a601f0b860044301bb38074", null ],
     [ "contains", "class_binary_relations_1_1_one_to_many.html#a9ad20243db6055681104cf030e794372", null ],
