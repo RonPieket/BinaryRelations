@@ -133,6 +133,7 @@ void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *remove
 
 // ----------------------------------------------------------------------------
 
+/// @cond
 template <typename KeyType, typename ValueType> class UnorderedMapHelper
 {
 public:
@@ -183,6 +184,7 @@ public:
         return it;
     }
 };
+/// @endcond
 
 // ----------------------------------------------------------------------------
 
@@ -484,9 +486,7 @@ public:
      */
     class Iterator
     {
-        /**
-         @cond
-         */
+        /// @cond
       public:
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it;
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it_end;
@@ -522,9 +522,7 @@ public:
             }
             return *this;
         }
-        /**
-         @endcond
-         */
+        /// @endcond
     };
 
     /**
@@ -908,9 +906,7 @@ public:
      */
     class Iterator
     {
-        /**
-         @cond
-         */
+        /// @cond
       public:
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it;
         typename std::unordered_map<LeftType, std::vector<RightType> *>::const_iterator l2r_it_end;
@@ -946,9 +942,7 @@ public:
             }
             return *this;
         }
-        /**
-         @endcond
-         */
+        /// @endcond
     };
 
     /**
@@ -1251,9 +1245,7 @@ public:
      */
     class Iterator
     {
-        /**
-         @cond
-         */
+        /// @cond
       public:
         std::unordered_map<LeftType, RightType>::const_iterator l2r_it;
 
@@ -1275,9 +1267,7 @@ public:
             l2r_it++;
             return *this;
         }
-        /**
-         @endcond
-         */
+        /// @endcond
     };
 
     /**
