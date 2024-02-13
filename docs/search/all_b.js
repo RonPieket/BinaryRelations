@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['unorderedmaphelper_0',['UnorderedMapHelper',['../class_binary_relations_1_1_unordered_map_helper.html',1,'BinaryRelations']]],
-  ['uses_1',['Real world uses',['../index.html#autotoc_md2',1,'']]]
+  ['the_20api_0',['The API',['../index.html#autotoc_md4',1,'']]],
+  ['this_1',['What is this?',['../index.html#autotoc_md0',1,'']]]
 ];
