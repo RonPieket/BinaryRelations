@@ -15,6 +15,8 @@ associative container types that help you organize and query data in memory.
 -   [Click here for the GitHub
     repo.](https://github.com/RonPieket/BinaryRelations)
 
+-   This library uses STL.
+
 Intro
 -----
 
@@ -27,6 +29,8 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
+![](binary-relations.png)
+
 A quick refresher. Binary relations are the association between elements of
 either two or one set. It can be projected as a set consisting of related pairs
 (x,y) where x is the input or the domain and where y is the output or the range.
@@ -36,15 +40,13 @@ relation that links x and y.
 In this library x and y are called left and right, indicating their position in
 the diagram.
 
-![](binary-relations.png)
-
 There are four kinds of binary relations. They are: one-to-one, one-to-many,
 many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
 
-Real world uses
----------------
+Real world examples
+-------------------
 
 The real world examples come from my experience as a game tools programmer,
 specifically as a programmer of the Insomniac world editor. So I will use that
@@ -168,6 +170,15 @@ LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
 const std::vector<RightType>* findRight(const LeftType &left) const
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Installation and usage
+----------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#include "BinaryRelations/BinaryRelations.h"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+That’s all.
+
 Code example
 ------------
 
@@ -199,7 +210,7 @@ Code example
 
     // List all occupant info
     std::cout << "Occupants are:" << std::endl;
-    for (std::string name : VehicleToOccupants.AllRight())
+    for (std::string name : VehicleToOccupants.allRight())
         std::cout << name
         << " is a " << TypeToOccupants.findLeft(name, kUnknownType)
         << " in the " << VehicleToOccupants.findLeft(name, kUnknownMake)
@@ -210,6 +221,35 @@ Code example
     for (auto vehicle : VehicleToOccupants.allLeft())
         std::cout << vehicle << std::endl;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Output:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Drivers are:
+Amy
+Ben
+Liz
+Occupants are:
+Amy is a 1 in the 3
+Eva is a 2 in the 2
+Ben is a 1 in the 2
+Joe is a 2 in the 1
+Sal is a 2 in the 1
+Liz is a 1 in the 1
+Vehicles are:
+3
+2
+1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Naming
+------
+
+This is a suggestion.
+
+In the code example, note that the name of the OneToMany has the form of
+“SingleToPlural”, like “VehicleToOccupants”. Similarly, ManyToMany names would
+be “PluralToPlural”, OneToOne would be “SingleToSingle”.
 
 Efficiency
 ----------
