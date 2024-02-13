@@ -25,14 +25,7 @@
 var NAVTREE =
 [
   [ "Binary Relations", "index.html", [
-    [ "Binary relations are everywhere", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html", [
-      [ "What is this?", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md0", null ],
-      [ "Intro", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Real world examples", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Binary relations are everywhere", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "The API", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "Efficiency", "md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e.html#autotoc_md5", null ]
-    ] ],
+    [ "Binary relations are everywhere", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

@@ -7,9 +7,6 @@ What is this?
 This is a small C++ library (a single header file) that adds three new
 associative container types that help you organize and query data in memory.
 
-[Click here for the full
-documentation.](https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html)
-
 Intro
 -----
 
@@ -23,11 +20,11 @@ specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
 A quick refresher, before we go on. A binary relation is a set of pairs. Each
-pair represents a relation between one member on the left and one on the right.
-For example, in the illustration below, the one-to-one relation consists of four
-pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
+pair represents a connection between one member on the left and one on the
+right. For example, in the illustration below, the one-to-one relation consists
+of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
 
-![](binary-relations.png)
+![](ThreeKindsOfBinaryRelation.png)
 
 There are four kinds of binary relations. They are: one-to-one, one-to-many,
 many-to-one, and many-to-many. But because one-to-many and many-to-one are
@@ -129,7 +126,8 @@ Each binary relation type is a template, with type arguments `LeftType` and
 recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
-This is the entire OneToMany API. [Click here for the full documentation.]
+This is the entire OneToMany API. [Click here for the full
+documentation](ronpieket.github.io/BinaryRelations).
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToMany:

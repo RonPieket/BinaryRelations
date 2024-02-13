@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Binary Relations: Main Page</title>
+<title>Binary Relations: Binary relations are everywhere</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,10 +91,106 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Binary Relations Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Binary relations are everywhere </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__2_users_2rpieket_2_dropbox_2_projects_2_binary_relations_2_r_e_a_d_m_e"></a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+What is this?</h1>
+<p>This is a small C++ library (a single header file) that adds three new associative container types that help you organize and query data in memory.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Intro</h1>
+<p>There is a data structure I that has served me very well for many years in the Insomniac Core tools group. I don’t hear other programmers refer to it, so I want to introduce it to you. I call it a binary relation. It’s a bidirectional associative container.</p>
+<p>The term “binary relation” and the concept are borrowed from mathematics, specifically set theory. But this is not a library for mathematicians. It is for programmers needing to organize their data.</p>
+<p>A quick refresher, before we go on. A binary relation is a set of pairs. Each pair represents a relation between one member on the left and one on the right. For example, in the illustration below, the one-to-one relation consists of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).</p>
+<p><img src="ThreeKindsOfBinaryRelation.png" alt="" class="inline"/></p>
+<p>There are four kinds of binary relations. They are: one-to-one, one-to-many, many-to-one, and many-to-many. But because one-to-many and many-to-one are interchangeable if you swap the left and the right side, we ignore many-to-one. You won’t need it, as will become clear later.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Real world examples</h1>
+<p>The real world examples come from my experience as a game tools programmer, specifically as a programmer of the Insomniac world editor. So I will use that as an example. I’m certain that these data structures will be useful in many other areas.</p>
+<p>So in the world editor then, every object in the world is represented by a handle. They need to be organized at the global level. For example, objects can be connected in a parent-child relationship. A parent object can have any number of children. Each child has exactly one parent. This is a binary relation, a one-to-many. And each child may itself be a parent and have children. So we have a hierarchy tree.</p>
+<p>Typically, this is kind of relationship is expressed in the object data itself. Every object that is a child contains a handle (or pointer) to a parent. And each parent contains an array of handles (or pointers) to its children.</p>
+<div class="fragment"><div class="line">class GameObject</div>
+<div class="line">{</div>
+<div class="line">    Handle m_Parent;</div>
+<div class="line">    std::vector&lt;Handle&gt; m_Children;</div>
+<div class="line">    ...</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>This organization requires that when a child changes parent, you need to update both the <code>m_Parent</code> of the child as well as the <code>m_Children</code> list of the parent. This kind of connection is a one-to-many binary relation. With binary relations, the relationship between parents and children is stored outside of the object data structure, in its own container. All parent-to-child relationships are stored in one container that lives alongside the game objects.</p>
+<div class="fragment"><div class="line">class World</div>
+<div class="line">{</div>
+<div class="line">    OneToMany&lt;Handle, Handle&gt; m_ParentToChildren;</div>
+<div class="line">    ...</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>With this data structure, you can look up the parent handle for any object, and get a list of handles of its children.</p>
+<p>This is a key concept, and I want to emphasize it here. Relations between objects (such as parent-child) are not stored in the objects, but in a separate worldwide relationship table.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Binary relations are everywhere</h1>
+<p>Once you get the hang of storing relationships outside of the object, you will find uses for it everywhere. For example, game objects can be member of multiple groups. That’s a many-to-many. Given the group’s handle, you can look up all its members. And when you have a game object, you can get a list of the groups it belongs to.</p>
+<p>Perhaps a more surprising example is this. Say you have an object type to classify people, vehicles, and buildings. This, too, is a binary relation. In this case it’s a one-to-many. Given an object handle, you can look up what type it is. Given an object type, you can get a list of all objects of that type.</p>
+<p>Here are some more use cases:</p>
+<div class="fragment"><div class="line">class World</div>
+<div class="line">{</div>
+<div class="line">    OneToMany&lt;Handle, Handle&gt;     m_ParentToChildren;</div>
+<div class="line">    OneToMany&lt;ZoneId, Handle&gt;     m_ZoneToObjects;</div>
+<div class="line">    OneToMany&lt;ObjectType, Handle&gt; m_TypeToObjects;</div>
+<div class="line">    OneToMany&lt;AssetInfo, Handle&gt;  m_AssetToObjects;</div>
+<div class="line">    OneToMany&lt;AssetInfo, Handle&gt;  m_ZoneToObjects;</div>
+<div class="line">    OneToMany&lt;Handle, Handle&gt;     m_PrefabToObjects;</div>
+<div class="line">    OneToMany&lt;AssetType, Handle&gt;  m_AssetTypeToObjects;</div>
+<div class="line">    ...</div>
+<div class="line">    ManyToMany&lt;Handle, Handle&gt;    m_GroupsToObjects;</div>
+<div class="line">    ManyToMany&lt;QuestId, Handle&gt;   m_QuestsToGroups;</div>
+<div class="line">    ...</div>
+<div class="line">};</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+The API</h1>
+<p>The library is located in the BinaryRelations directory. It consists of a single C++ header file. There are three class templates that you need to know of. The classes are: OneToMany, ManyToMany, and OneToOne.</p>
+<p>Each binary relation type is a template, with type arguments <code>LeftType</code> and <code>RightType</code>. <b>Both types need to be small, hashable, and immutable.</b> I recommend that you only use simple types, such as <code>int</code> and <code>enum</code>, and possibly <code>std::string</code>.</p>
+<p>This is the entire OneToMany API. <a href="ronpieket.github.io/BinaryRelations">Click here for the full documentation</a>.</p>
+<div class="fragment"><div class="line">OneToMany:</div>
+<div class="line"> </div>
+<div class="line">void     insert(const Pair &amp;pair)</div>
+<div class="line">void     insert(const LeftType &amp;left, const RightType &amp;right)</div>
+<div class="line">void     insert(const OneToMany&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line">void     remove(const Pair &amp;pair)</div>
+<div class="line">void     remove(const LeftType &amp;left, const RightType &amp;right)</div>
+<div class="line">void     removeLeft(const LeftType &amp;left)</div>
+<div class="line">void     removeRight(const RightType &amp;right)</div>
+<div class="line">void     remove(const OneToMany&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line">void     clear()</div>
+<div class="line">bool     contains(const Pair &amp;pair) const</div>
+<div class="line">bool     contains(const LeftType &amp;left, const RightType &amp;right) const</div>
+<div class="line">bool     containsLeft(const LeftType &amp;left) const</div>
+<div class="line">bool     containsRight(const RightType &amp;right) const</div>
+<div class="line">int      countLeft() const</div>
+<div class="line">int      countRight() const</div>
+<div class="line">int      count() const</div>
+<div class="line">Iterator begin() const</div>
+<div class="line">Iterator end() const</div>
+<div class="line"> </div>
+<div class="line">LeftType findLeft(const RightType &amp;right, const LeftType &amp;notFoundValue) const</div>
+<div class="line">const std::vector&lt;RightType&gt;* findRight(const LeftType &amp;left) const</div>
+</div><!-- fragment --><p>The API for OneToOne is the same, except for:</p>
+<div class="fragment"><div class="line">OneToOne:</div>
+<div class="line"> </div>
+<div class="line">void     insert(const OneToOne&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line">void     remove(const OneToOne&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line"> </div>
+<div class="line">RightType findRight(const LeftType &amp;left, const RightType &amp;notFoundValue) const</div>
+</div><!-- fragment --><p>And ManyToMany is the same as OneToMany, except for:</p>
+<div class="fragment"><div class="line">ManyToMany:</div>
+<div class="line"> </div>
+<div class="line">void     insert(const ManyToMany&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line">void     remove(const ManyToMany&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line"> </div>
+<div class="line">const std::vector&lt;LeftType&gt;* findLeft(const RightType &amp;right) const</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+Efficiency</h1>
+<p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a OneToOne are also constant.</p>
+<p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in the array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
 </div><!-- doc-content -->
