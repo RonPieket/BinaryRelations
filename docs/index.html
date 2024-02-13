@@ -109,11 +109,13 @@ What is this?</h1>
 Intro</h1>
 <p>There is a data structure I that has served me very well for many years in the Insomniac Core tools group. I don’t hear other programmers refer to it, so I want to introduce it to you. I call it a binary relation. It’s a bidirectional associative container.</p>
 <p>The term “binary relation” and the concept are borrowed from mathematics, specifically set theory. But this is not a library for mathematicians. It is for programmers needing to organize their data.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+A quick refresher</h1>
+<p>Binary relations are the association between elements of either two or one set. It can be projected as a set consisting of related pairs (x,y) where x is the input or the domain and where y is the output or the range. The notation x R y means that x is related to y by R, where R can be the relation that links x and y.</p>
 <p><img src="binary-relations.png" alt="" class="inline"/></p>
-<p>A quick refresher. Binary relations are the association between elements of either two or one set. It can be projected as a set consisting of related pairs (x,y) where x is the input or the domain and where y is the output or the range. The notation x R y means that x is related to y by R, where R can be the relation that links x and y.</p>
 <p>In this library x and y are called left and right, indicating their position in the diagram.</p>
 <p>There are four kinds of binary relations. They are: one-to-one, one-to-many, many-to-one, and many-to-many. But because one-to-many and many-to-one are interchangeable if you swap the left and the right side, we ignore many-to-one. You won’t need it, as will become clear later.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Real world examples</h1>
 <p>The real world examples come from my experience as a game tools programmer, specifically as a programmer of the Insomniac world editor. So I will use that as an example. I’m certain that these data structures will be useful in many other areas.</p>
 <p>So in the world editor then, every object in the world is represented by a handle. They need to be organized at the global level. For example, objects can be connected in a parent-child relationship. A parent object can have any number of children. Each child has exactly one parent. This is a binary relation, a one-to-many. And each child may itself be a parent and have children. So we have a hierarchy tree.</p>
@@ -132,7 +134,7 @@ Real world examples</h1>
 <div class="line">};</div>
 </div><!-- fragment --><p>With this data structure, you can look up the parent handle for any object, and get a list of handles of its children.</p>
 <p>This is a key concept, and I want to emphasize it here. Relations between objects (such as parent-child) are not stored in the objects, but in a separate worldwide relationship table.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Binary relations are everywhere</h1>
 <p>Once you get the hang of storing relationships outside of the object, you will find uses for it everywhere. For example, game objects can be member of multiple groups. That’s a many-to-many. Given the group’s handle, you can look up all its members. And when you have a game object, you can get a list of the groups it belongs to.</p>
 <p>Perhaps a more surprising example is this. Say you have an object type to classify people, vehicles, and buildings. This, too, is a binary relation. In this case it’s a one-to-many. Given an object handle, you can look up what type it is. Given an object type, you can get a list of all objects of that type.</p>
@@ -151,7 +153,7 @@ Binary relations are everywhere</h1>
 <div class="line">    ManyToMany&lt;QuestId, Handle&gt;   m_QuestsToGroups;</div>
 <div class="line">    ...</div>
 <div class="line">};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 The API</h1>
 <p>The library is located in the BinaryRelations directory. It consists of a single C++ header file. There are three class templates that you need to know of. The classes are: OneToMany, ManyToMany, and OneToOne.</p>
 <p>Each binary relation type is a template, with type arguments <code>LeftType</code> and <code>RightType</code>. <b>Both types need to be small, hashable, and immutable.</b> I recommend that you only use simple types, such as <code>int</code> and <code>enum</code>, and possibly <code>std::string</code>.</p>
@@ -179,11 +181,11 @@ The API</h1>
 <div class="line">UnorderedMapHelper&lt;RightType, LeftType&gt; AllRight()</div>
 <div class="line">LeftType findLeft(const RightType &amp;right, const LeftType &amp;notFoundValue) const</div>
 <div class="line">const std::vector&lt;RightType&gt;* findRight(const LeftType &amp;left) const</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Installation and usage</h1>
 <div class="fragment"><div class="line">#include &quot;BinaryRelations/BinaryRelations.h&quot;</div>
 </div><!-- fragment --><p>That’s all.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Code example</h1>
 <div class="fragment"><div class="line">    enum VehicleMake { kUnknownMake, kVolvo, kNissan, kFord };</div>
 <div class="line">    enum OccupantType { kUnknownType, kDriver, kPassenger };</div>
@@ -238,11 +240,11 @@ Code example</h1>
 <div class="line">3</div>
 <div class="line">2</div>
 <div class="line">1</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Naming</h1>
 <p>This is a suggestion.</p>
 <p>In the code example, note that the name of the OneToMany has the form of “SingleToPlural”, like “VehicleToOccupants”. Similarly, ManyToMany names would be “PluralToPlural”, OneToOne would be “SingleToSingle”.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a OneToOne are also constant.</p>
 <p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in your array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>

@@ -48,10 +48,6 @@ many-to-one, and many-to-many. But because one-to-many and many-to-one are
 interchangeable if you swap the left and the right side, we ignore many-to-one.
 You won’t need it, as will become clear later.
 
-One way to describe what this library does is that it is like a hash table with
-a reverse lookup. A one-to-one is just that. Things get a littlemore involved
-with one-to-many, and many-to-many.
-
 Real world examples
 -------------------
 
