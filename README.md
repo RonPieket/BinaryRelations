@@ -7,6 +7,13 @@ What is this?
 This is a small C++ library (a single header file) that adds three new
 associative container types that help you organize and query data in memory.
 
+Released under MIT License
+
+[Click here for the full
+documentation.](https://ronpieket.github.io/BinaryRelations)
+
+[Click here for the GitHub repo](https://github.com/RonPieket/BinaryRelations)
+
 Intro
 -----
 
@@ -127,7 +134,7 @@ recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
 This is the entire OneToMany API. [Click here for the full
-documentation](ronpieket.github.io/BinaryRelations).
+documentation.](https://ronpieket.github.io/BinaryRelations)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 OneToMany:
