@@ -24,7 +24,7 @@ pair represents a connection between one member on the left and one on the
 right. For example, in the illustration below, the one-to-one relation consists
 of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
 
-![](ThreeKindsOfBinaryRelation.png)
+![](binary-relations.png)
 
 There are four kinds of binary relations. They are: one-to-one, one-to-many,
 many-to-one, and many-to-many. But because one-to-many and many-to-one are
