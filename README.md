@@ -27,10 +27,14 @@ The term “binary relation” and the concept are borrowed from mathematics,
 specifically set theory. But this is not a library for mathematicians. It is for
 programmers needing to organize their data.
 
-A quick refresher, before we go on. A binary relation is a set of pairs. Each
-pair represents a connection between one member on the left and one on the
-right. For example, in the illustration below, the one-to-one relation consists
-of four pairs, namely (A, 3), (B, 1), (C, 4), and (D, 2).
+A quick refresher. Binary relations are the association between elements of
+either two or one set. It can be projected as a set consisting of related pairs
+(x,y) where x is the input or the domain and where y is the output or the range.
+The notation x R y means that x is related to y by R, where R can be the
+relation that links x and y.
+
+In this library x and y are called left and right, indicating their position in
+the diagram.
 
 ![](binary-relations.png)
 
