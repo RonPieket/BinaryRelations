@@ -476,7 +476,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, LeftType> AllRight()
+    UnorderedMapHelper<RightType, LeftType> allRight()
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }
@@ -896,7 +896,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, LeftType> AllRight()
+    UnorderedMapHelper<RightType, std::vector<LeftType> *> allRight()
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }
@@ -1226,7 +1226,7 @@ public:
      @brief List all left elements.
      @return A helper object to iterate over left elements using range-based-for.
      */
-    UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+    UnorderedMapHelper<LeftType, RightType> allLeft()
     {
         return UnorderedMapHelper(&m_LeftToRight);
     }
@@ -1235,7 +1235,7 @@ public:
      @brief List all right elements.
      @return A helper object to iterate over right elements using range-based-for.
      */
-    UnorderedMapHelper<RightType, LeftType> AllRight()
+    UnorderedMapHelper<RightType, LeftType> allRight()
     {
         return UnorderedMapHelper(&m_RightToLeft);
     }

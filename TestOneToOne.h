@@ -123,3 +123,42 @@ UTEST(TestOneToOne, FindRight)
     ASSERT_TRUE(oto.findRight(3, "not found") == std::string("cherry"));
     ASSERT_TRUE(oto.findRight(4, "not found") == std::string("date"));
 }
+
+
+UTEST(TestOneToOne, AllLeft)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
+    oto.insert(5, "elderberry");
+
+    int count = 0;
+    for (auto p : oto.allLeft())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 5);
+}
+
+UTEST(TestOneToOne, AllRight)
+{
+    OneToOne<int, std::string> oto;
+    oto.insert(1, "apple");
+    oto.insert(2, "banana");
+    oto.insert(3, "cherry");
+    oto.insert(4, "date");
+    oto.insert(5, "elderberry");
+
+    int count = 0;
+    for (auto p : oto.allRight())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 5);
+}

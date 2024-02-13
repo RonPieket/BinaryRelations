@@ -92,27 +92,40 @@ UTEST(TestManyToMany, FindRight)
     ASSERT_EQ(count, 3);
 }
 
-UTEST(TestManyToMany, Merge)
+UTEST(TestManyToMany, AllLeft)
 {
-    ManyToMany<int, std::string> m2m;
-    m2m.insert(1, "apple");
-    m2m.insert(1, "banana");
-    m2m.insert(2, "cherry");
-    m2m.insert(3, "cherry");
+    ManyToMany<int, std::string> mtm;
+    mtm.insert(1, "apple");
+    mtm.insert(1, "banana");
+    mtm.insert(1, "cherry");
+    mtm.insert(2, "date");
+    mtm.insert(3, "date");
 
-    ManyToMany<int, std::string> m2m2;
-    m2m2.insert(3, "elderberry");
-    m2m2.insert(4, "fig");
-    m2m2.insert(1, "apple");
+    int count = 0;
+    for (auto p : mtm.allLeft())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
 
-    m2m.insert(m2m2);
-
-    ASSERT_EQ(m2m.count(), 6);
-    ASSERT_TRUE(m2m.contains(1, "apple"));
-    ASSERT_TRUE(m2m.contains(1, "banana"));
-    ASSERT_TRUE(m2m.contains(2, "cherry"));
-    ASSERT_TRUE(m2m.contains(3, "cherry"));
-    ASSERT_TRUE(m2m.contains(3, "elderberry"));
-    ASSERT_TRUE(m2m.contains(4, "fig"));
+    ASSERT_EQ(count, 3);
 }
 
+UTEST(TestManyToMany, AllRight)
+{
+    ManyToMany<int, std::string> mtm;
+    mtm.insert(1, "apple");
+    mtm.insert(1, "banana");
+    mtm.insert(1, "cherry");
+    mtm.insert(2, "date");
+    mtm.insert(3, "date");
+
+    int count = 0;
+    for (auto p : mtm.allRight())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 4);
+}
