@@ -189,7 +189,35 @@ Code example
 ------------
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    enum VehicleMake { kUnknownMake, kVolvo, kNissan, kFord };
+    enum OccupantType { kUnknownType, kDriver, kPassenger };
 
+    OneToMany<VehicleMake, std::string> VehicleToOccupants;
+    OneToMany<OccupantType, std::string> TypeToOccupants;
+
+    VehicleToOccupants.insert(kVolvo, "Lisa");
+    VehicleToOccupants.insert(kVolvo, "Derek");
+    VehicleToOccupants.insert(kVolvo, "Sally");
+    VehicleToOccupants.insert(kNissan, "Josh");
+    VehicleToOccupants.insert(kNissan, "Tyler");
+    VehicleToOccupants.insert(kFord, "Maxime");
+
+    TypeToOccupants.insert(kDriver, "Lisa");
+    TypeToOccupants.insert(kPassenger, "Derek");
+    TypeToOccupants.insert(kPassenger, "Sally");
+    TypeToOccupants.insert(kDriver, "Josh");
+    TypeToOccupants.insert(kPassenger, "Tyler");
+    TypeToOccupants.insert(kDriver, "Maxime");
+
+    std::cout << "Drivers are:" << std::endl;
+    for (std::string name : *TypeToOccupants.findRight(kDriver))
+        std::cout << name << std::endl;
+
+    for (std::string name : {"Lisa", "Derek", "Sally", "Josh", "Tyler", "Maxime"})
+        std::cout << name
+        << " is a " << TypeToOccupants.findLeft(name, kUnknownType)
+        << " in the " << VehicleToOccupants.findLeft(name, kUnknownMake)
+        << std::endl;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Efficiency
