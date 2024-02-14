@@ -267,3 +267,59 @@ everything between the point of insertion/removal and the end of the array. In
 practice, at least in the context of our world editor, this has not been a
 problem. That’s probably because insert and remove operations are relatively
 infrequent when compared to lookups.
+
+Performance
+-----------
+
+Performance measurement results in Xcode on an iMac M1.
+
+### Worst case
+
+The “worst case” is inserting random numbers on the right with the same left
+value.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Worst case:
+
+OneToMany<int, int> otm;
+for(int i = 0; i < count; ++i)
+{
+    otm.insert(1, rand());
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Worst case results in milliseconds.
+
+|           | one-to-one | one-to-many | many-to-many |
+|-----------|------------|-------------|--------------|
+| 10        | 0.002125   | 0.004208    | 0.004541     |
+| 100       | 0.01275    | 0.031625    | 0.032417     |
+| 1,000     | 0.123      | 0.259875    | 0.316083     |
+| 10,000    | 1.21842    | 5.8155      | 6.03812      |
+| 100,000   | 9.90271    | 204.167     | 197.585      |
+| 1,000,000 | 48.9268    | 19,656.3    | 19,787.9     |
+
+### Best case
+
+The “best case” is inserting random numbers on both the left and right.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Best case:
+
+OneToMany<int, int> otm;
+for(int i = 0; i < count; ++i)
+{
+    otm.insert(rand(), rand());
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Best case results in milliseconds.
+
+|           | one-to-one | one-to-many | many-to-many |
+|-----------|------------|-------------|--------------|
+| 10        | 0.005542   | 0.005625    | 0.00575      |
+| 100       | 0.03325    | 0.042167    | 0.039875     |
+| 1,000     | 0.25875    | 0.306125    | 0.354167     |
+| 10,000    | 2.37317    | 2.64029     | 3.25633      |
+| 100,000   | 20.2791    | 18.3426     | 30.7384      |
+| 1,000,000 | 454.936    | 601.014     | 780.828      |
