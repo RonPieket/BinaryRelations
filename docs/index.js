@@ -9,5 +9,11 @@ var index =
     [ "Installation and usage", "index.html#autotoc_md6", null ],
     [ "Code example", "index.html#autotoc_md7", null ],
     [ "Naming", "index.html#autotoc_md8", null ],
-    [ "Efficiency", "index.html#autotoc_md9", null ]
+    [ "Efficiency", "index.html#autotoc_md9", null ],
+    [ "Performance", "index.html#autotoc_md10", [
+      [ "Worst case insert", "index.html#autotoc_md11", [
+        [ "Best case insert", "index.html#autotoc_md12", null ],
+        [ "Lookup", "index.html#autotoc_md13", null ]
+      ] ]
+    ] ]
 ];
