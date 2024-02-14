@@ -264,6 +264,19 @@ $(function(){initNavTree('_test_one_to_one_8h_source.html',''); initResizable();
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    ASSERT_EQ(count, 5);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">// =========================================================================================================</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>UTEST(TestOneToOne, Perf)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>{</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::cout &lt;&lt; std::boolalpha &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
 <div class="ttc" id="aclass_binary_relations_1_1_one_to_one_html"><div class="ttname"><a href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a></div><div class="ttdef"><b>Definition</b> <a href="_binary_relations_8h_source.html#l00983">BinaryRelations.h:984</a></div></div>
 <div class="ttc" id="aclass_binary_relations_1_1_one_to_one_html_a1bfc2d10cf6bcfa2af57dd827c5aafb9"><div class="ttname"><a href="class_binary_relations_1_1_one_to_one.html#a1bfc2d10cf6bcfa2af57dd827c5aafb9">BinaryRelations::OneToOne::findRight</a></div><div class="ttdeci">RightType findRight(const LeftType &amp;left, const RightType &amp;notFoundValue) const noexcept</div><div class="ttdoc">Find the single right value that is paired with this left value. If nothing is found,...</div><div class="ttdef"><b>Definition</b> <a href="_binary_relations_8h_source.html#l01179">BinaryRelations.h:1179</a></div></div>
 <div class="ttc" id="aclass_binary_relations_1_1_one_to_one_html_a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"><div class="ttname"><a href="class_binary_relations_1_1_one_to_one.html#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d">BinaryRelations::OneToOne::insert</a></div><div class="ttdeci">void insert(const Pair &amp;pair) noexcept</div><div class="ttdoc">Insert a pair into the set. The rule for one-to-one is that if the rleft value or the ight value are ...</div><div class="ttdef"><b>Definition</b> <a href="_binary_relations_8h_source.html#l01014">BinaryRelations.h:1014</a></div></div>

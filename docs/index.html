@@ -103,7 +103,7 @@ What is this?</h1>
 <li>Released under MIT License.</li>
 <li><a href="https://ronpieket.github.io/BinaryRelations/class_binary_relations_1_1_one_to_many.html">Click here for the documentation.</a></li>
 <li><a href="https://github.com/RonPieket/BinaryRelations">Click here for the GitHub repo.</a></li>
-<li>This library uses STL.</li>
+<li>This library uses <code>std::vector</code> and <code>std::unordered_map</code>.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Intro</h1>
@@ -111,13 +111,13 @@ Intro</h1>
 <p>The term “binary relation” and the concept are borrowed from mathematics, specifically set theory. But this is not a library for mathematicians. It is for programmers needing to organize their data.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 A quick refresher</h1>
-<p>Binary relations are the association between elements of either two or one set. It can be projected as a set consisting of related pairs (x,y) where x is the input or the domain and where y is the output or the range. The notation x R y means that x is related to y by R, where R can be the relation that links x and y.</p>
+<p>Binary relations are the association between elements of two sets. It can be projected as a set consisting of related pairs (x,y) where x is the input or the domain and where y is the output or the range. The notation x R y means that x is related to y by R, where R can be the relation that links x and y.</p>
 <p><img src="binary-relations.png" alt="" class="inline"/></p>
 <p>In this library x and y are called left and right, indicating their position in the diagram.</p>
 <p>There are four kinds of binary relations. They are: one-to-one, one-to-many, many-to-one, and many-to-many. But because one-to-many and many-to-one are interchangeable if you swap the left and the right side, we ignore many-to-one. You won’t need it, as will become clear later.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Real world examples</h1>
-<p>The real world examples come from my experience as a game tools programmer, specifically as a programmer of the Insomniac world editor. So I will use that as an example. I’m certain that these data structures will be useful in many other areas.</p>
+<p>The real world examples come from my experience as a game tools programmer, specifically as a programmer of the Insomniac world editor. So I will use that as an example.</p>
 <p>So in the world editor then, every object in the world is represented by a handle. They need to be organized at the global level. For example, objects can be connected in a parent-child relationship. A parent object can have any number of children. Each child has exactly one parent. This is a binary relation, a one-to-many. And each child may itself be a parent and have children. So we have a hierarchy tree.</p>
 <p>Typically, this is kind of relationship is expressed in the object data itself. Every object that is a child contains a handle (or pointer) to a parent. And each parent contains an array of handles (or pointers) to its children.</p>
 <div class="fragment"><div class="line">class GameObject</div>
@@ -133,7 +133,7 @@ Real world examples</h1>
 <div class="line">    ...</div>
 <div class="line">};</div>
 </div><!-- fragment --><p>With this data structure, you can look up the parent handle for any object, and get a list of handles of its children.</p>
-<p>This is a key concept, and I want to emphasize it here. Relations between objects (such as parent-child) are not stored in the objects, but in a separate worldwide relationship table.</p>
+<p>This is a key concept, and I want to emphasize it here: relations between objects (such as parent-child) are not stored in the objects, but in a separate worldwide relationship table.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Binary relations are everywhere</h1>
 <p>Once you get the hang of storing relationships outside of the object, you will find uses for it everywhere. For example, game objects can be member of multiple groups. That’s a many-to-many. Given the group’s handle, you can look up all its members. And when you have a game object, you can get a list of the groups it belongs to.</p>
@@ -208,11 +208,13 @@ Code example</h1>
 <div class="line">    TypeToOccupants.insert(kDriver, &quot;Amy&quot;);</div>
 <div class="line"> </div>
 <div class="line">    // List just the drivers</div>
+<div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; &quot;Drivers are:&quot; &lt;&lt; std::endl;</div>
 <div class="line">    for (std::string name : *TypeToOccupants.findRight(kDriver))</div>
 <div class="line">        std::cout &lt;&lt; name &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    // List all occupant info</div>
+<div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; &quot;Occupants are:&quot; &lt;&lt; std::endl;</div>
 <div class="line">    for (std::string name : VehicleToOccupants.allRight())</div>
 <div class="line">        std::cout &lt;&lt; name</div>
@@ -221,6 +223,7 @@ Code example</h1>
 <div class="line">        &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    // List all vehicles</div>
+<div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; &quot;Vehicles are:&quot; &lt;&lt; std::endl;</div>
 <div class="line">    for (auto vehicle : VehicleToOccupants.allLeft())</div>
 <div class="line">        std::cout &lt;&lt; vehicle &lt;&lt; std::endl;</div>
@@ -247,7 +250,7 @@ Naming</h1>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a OneToOne are also constant.</p>
-<p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. We built several AAA games with this tech, without running into performance issues. However, depending on the number elements in your array, the frequency of changes, and your CPU time budget, you may want to consider alternatives. </p>
+<p>Things get more complicated with OneToMany and ManyToMany. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. In practice, at least in the context of our world editor, this has not been a problem. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->

@@ -162,3 +162,16 @@ UTEST(TestOneToOne, AllRight)
 
     ASSERT_EQ(count, 5);
 }
+
+// =========================================================================================================
+
+#include <chrono>
+#include <iomanip>
+#include <iostream>
+
+UTEST(TestOneToOne, Perf)
+{
+    std::cout << std::boolalpha << std::endl;
+
+    std::cout << std::endl;
+}

@@ -15,7 +15,7 @@ associative container types that help you organize and query data in memory.
 -   [Click here for the GitHub
     repo.](https://github.com/RonPieket/BinaryRelations)
 
--   This library uses STL.
+-   This library uses `std::vector` and `std::unordered_map`.
 
 Intro
 -----
@@ -32,11 +32,10 @@ programmers needing to organize their data.
 A quick refresher
 -----------------
 
-Binary relations are the association between elements of either two or one set.
-It can be projected as a set consisting of related pairs (x,y) where x is the
-input or the domain and where y is the output or the range. The notation x R y
-means that x is related to y by R, where R can be the relation that links x and
-y.
+Binary relations are the association between elements of two sets. It can be
+projected as a set consisting of related pairs (x,y) where x is the input or the
+domain and where y is the output or the range. The notation x R y means that x
+is related to y by R, where R can be the relation that links x and y.
 
 ![](binary-relations.png)
 
@@ -53,8 +52,7 @@ Real world examples
 
 The real world examples come from my experience as a game tools programmer,
 specifically as a programmer of the Insomniac world editor. So I will use that
-as an example. I’m certain that these data structures will be useful in many
-other areas.
+as an example.
 
 So in the world editor then, every object in the world is represented by a
 handle. They need to be organized at the global level. For example, objects can
@@ -94,7 +92,7 @@ class World
 With this data structure, you can look up the parent handle for any object, and
 get a list of handles of its children.
 
-This is a key concept, and I want to emphasize it here. Relations between
+This is a key concept, and I want to emphasize it here: relations between
 objects (such as parent-child) are not stored in the objects, but in a separate
 worldwide relationship table.
 
@@ -207,11 +205,13 @@ Code example
     TypeToOccupants.insert(kDriver, "Amy");
 
     // List just the drivers
+
     std::cout << "Drivers are:" << std::endl;
     for (std::string name : *TypeToOccupants.findRight(kDriver))
         std::cout << name << std::endl;
 
     // List all occupant info
+
     std::cout << "Occupants are:" << std::endl;
     for (std::string name : VehicleToOccupants.allRight())
         std::cout << name
@@ -220,6 +220,7 @@ Code example
         << std::endl;
 
     // List all vehicles
+
     std::cout << "Vehicles are:" << std::endl;
     for (auto vehicle : VehicleToOccupants.allLeft())
         std::cout << vehicle << std::endl;
@@ -262,7 +263,6 @@ time. All operations on a OneToOne are also constant.
 
 Things get more complicated with OneToMany and ManyToMany. They maintain sorted
 arrays. Insertion and removal of elements in an array involves shifting
-everything between the point of insertion/removal and the end of the array. We
-built several AAA games with this tech, without running into performance issues.
-However, depending on the number elements in your array, the frequency of
-changes, and your CPU time budget, you may want to consider alternatives.
+everything between the point of insertion/removal and the end of the array. In
+practice, at least in the context of our world editor, this has not been a
+problem.
