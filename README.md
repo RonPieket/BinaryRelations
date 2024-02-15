@@ -99,7 +99,7 @@ worldwide relationship table.
 Binary relations are everywhere
 -------------------------------
 
-Once you get the hang of storing relationships outside of the object, you will
+Once you get the hang of storing relationships outside of the objects, you will
 find uses for it everywhere. For example, game objects can be member of multiple
 groups. That’s a many-to-many. Given the group’s handle, you can look up all its
 members. And when you have a game object, you can get a list of the groups it
@@ -134,15 +134,15 @@ The API
 
 The library is located in the BinaryRelations directory. It consists of a single
 C++ header file. There are three class templates that you need to know of. The
-classes are: OneToMany, ManyToMany, and OneToOne.
+classes are: `OneToMany`, `ManyToMany`, and `OneToOne`.
 
 Each binary relation type is a template, with type arguments `LeftType` and
 `RightType`. **Both types need to be small, hashable, and immutable.** I
 recommend that you only use simple types, such as `int` and `enum`, and possibly
 `std::string`.
 
-This is the entire OneToMany API. OneToOne and ManyToMany are near identical.
-[Click here for the full
+This is the entire `OneToMany` API. `OneToOne` and `ManyToMany` are near
+identical. [Click here for the full
 documentation.](https://ronpieket.github.io/BinaryRelations)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -246,23 +246,45 @@ Vehicles are:
 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Naming
-------
+How it works
+------------
 
-This is a suggestion.
+This section is for those who want to venture into the code.
 
-In the code example, note that the name of the OneToMany has the form of
-“SingleToPlural”, like “VehicleToOccupants”. Similarly, ManyToMany names would
-be “PluralToPlural”, OneToOne would be “SingleToSingle”.
+I will show you, and talk you through the structure of the `OneToMany` template
+class. The `OneToOne` and `ManyToMany` template classes are structured along the
+same lines.
+
+![](one-to-many-diagram.png)
+
+I used the above diagram to write the code. The `l2r_it` style labels refer to
+local variable names in the code. `m_LeftToRight` and `m_RightToLeft` are both
+hash tables. Each entry on the `m_LeftToRight` table contains an `std::pair`
+with a left value in the `first` slot, and a pointer to an `std::vector` in the
+`second`. The `vector` has one or more `right` values in it, sorted by value.
+The `m_RightToLeft` hash table contains `pair`s with a `right` value in the
+`first` slot, and a `left` value in the `second` slot.
+
+When `findRight()` is called, the `OneToMany` is returns the pointer to the
+`vector` of `right` values from the `second` slot in the `m_LeftToRight` hash
+table. When `findLeft()` is called, it returns the `left` value from the
+`second` slot in the `m_RightToLeft` hash table.
+
+Naming of template specializations
+----------------------------------
+
+In the code example, note that the name of the `OneToMany` has the form of
+“SingularToPlural”, like “ParentToChildren”. Similarly, ManyToMany names would
+be “PluralToPlural”, OneToOne would be “SingularToSingular”.
 
 Efficiency
 ----------
 
 The efficiency for lookup such as `FindLeft()` and `FindRight()` is constant
-time. All operations on a OneToOne are also constant.
+time. All operations on a `OneToOne` are also constant.
 
-Things get more complicated with OneToMany and ManyToMany. They maintain sorted
-arrays. Insertion and removal of elements in an array involves shifting
+Things get more complicated with `OneToMany` and `ManyToMany`. They maintain
+sorted arrays. Insertion and removal of elements in an array involves shifting
 everything between the point of insertion/removal and the end of the array. In
 practice, at least in the context of our world editor, this has not been a
 problem. That’s probably because insert and remove operations are relatively
