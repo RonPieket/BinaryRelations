@@ -287,7 +287,7 @@ value. Results in milliseconds.
 | 100,000   | 9.90271    | 204.167     | 197.585      |
 | 1,000,000 | 48.9268    | 19,656.3    | 19,787.9     |
 
-#### Best case insert
+### Best case insert
 
 The “best case” is inserting random numbers on both the left and right. Results
 in milliseconds.
@@ -301,10 +301,10 @@ in milliseconds.
 | 100,000   | 20.2791    | 18.3426     | 30.7384      |
 | 1,000,000 | 454.936    | 601.014     | 780.828      |
 
-#### Lookup
+### Lookup
 
 This is the time it takes for a single lookup in tables of different sizes.
-Results **microseconds**.
+Results microseconds.
 
 |           | one-to-one | one-to-many | many-to-many |
 |-----------|------------|-------------|--------------|
@@ -314,3 +314,16 @@ Results **microseconds**.
 | 10,000    | 0.0473625  | 0.0477541   | 0.04305      |
 | 100,000   | 0.0406292  | 0.0389792   | 0.0372666    |
 | 1,000,000 | 0.0652959  | 0.0715042   | 0.0902375    |
+
+### Thoughts on performance
+
+`std::unordered_map` is not the fastest hash map. I’m aware of faster ones, but
+all those I have found have a license that is more restrictive than the MIT
+license.
+
+The array insert operation, which requires shifting half the array on average,
+is definitely a performance liability. This can be improved by segmenting the
+array, so that you only have to shift half of the segment.
+
+Performance of this tech has not been an issue in our tools. But there is plenty
+of room for improvement.

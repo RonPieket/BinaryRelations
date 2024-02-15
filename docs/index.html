@@ -273,8 +273,8 @@ Worst case insert</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">48.9268   </td><td class="markdownTableBodyNone">19,656.3   </td><td class="markdownTableBodyNone">19,787.9   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md12"></a>
-Best case insert</h3>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Best case insert</h2>
 <p>The “best case” is inserting random numbers on both the left and right. Results in milliseconds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -292,9 +292,9 @@ Best case insert</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">454.936   </td><td class="markdownTableBodyNone">601.014   </td><td class="markdownTableBodyNone">780.828   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md13"></a>
-Lookup</h3>
-<p>This is the time it takes for a single lookup in tables of different sizes. Results <b>microseconds</b>.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Lookup</h2>
+<p>This is the time it takes for a single lookup in tables of different sizes. Results microseconds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">one-to-one   </th><th class="markdownTableHeadNone">one-to-many   </th><th class="markdownTableHeadNone">many-to-many    </th></tr>
@@ -311,6 +311,11 @@ Lookup</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">0.0652959   </td><td class="markdownTableBodyNone">0.0715042   </td><td class="markdownTableBodyNone">0.0902375   </td></tr>
 </table>
+<h2><a class="anchor" id="autotoc_md14"></a>
+Thoughts on performance</h2>
+<p><code>std::unordered_map</code> is not the fastest hash map. I’m aware of faster ones, but all those I have found have a license that is more restrictive than the MIT license.</p>
+<p>The array insert operation, which requires shifting half the array on average, is definitely a performance liability. This can be improved by segmenting the array, so that you only have to shift half of the segment.</p>
+<p>Performance of this tech has not been an issue in our tools. But there is plenty of room for improvement. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
