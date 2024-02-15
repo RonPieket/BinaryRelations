@@ -52,6 +52,12 @@ typename std::vector<T>::const_iterator findInSortedVector(const std::vector<T> 
         return vector->cend();
 }
 
+template <typename T> int appendToSortedVector(std::vector<T> *vector, const T &value) noexcept
+{
+    vector->append(value);
+    return 1;
+}
+
 template <typename T> int insertIntoSortedVector(std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::iterator it = std::lower_bound(vector->begin(), vector->end(), value);
@@ -197,6 +203,7 @@ template <typename LeftType, typename RightType> class OneToMany
     std::unordered_map<LeftType, std::vector<RightType> *> m_LeftToRight;
     std::unordered_map<RightType, LeftType> m_RightToLeft;
     std::vector<RightType> m_EmptyRightVector;
+    bool m_RightIsSorted = false;
 
 public:
     /**
