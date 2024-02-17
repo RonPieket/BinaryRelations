@@ -246,30 +246,6 @@ Vehicles are:
 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-How it works
-------------
-
-This section is for those who want to venture into the code.
-
-I will show you, and talk you through the structure of the `OneToMany` template
-class. The `OneToOne` and `ManyToMany` template classes are structured along the
-same lines.
-
-![](one-to-many-diagram.png)
-
-I used the above diagram to write the code. The `l2r_it` style labels refer to
-local variable names in the code. `m_LeftToRight` and `m_RightToLeft` are both
-hash tables. Each entry on the `m_LeftToRight` table contains an `std::pair`
-with a left value in the `first` slot, and a pointer to an `std::vector` in the
-`second`. The `vector` has one or more `right` values in it, sorted by value.
-The `m_RightToLeft` hash table contains `pair`s with a `right` value in the
-`first` slot, and a `left` value in the `second` slot.
-
-When `findRight()` is called, the `OneToMany` is returns the pointer to the
-`vector` of `right` values from the `second` slot in the `m_LeftToRight` hash
-table. When `findLeft()` is called, it returns the `left` value from the
-`second` slot in the `m_RightToLeft` hash table.
-
 Naming of template specializations
 ----------------------------------
 
@@ -349,3 +325,27 @@ array, so that you only have to shift half of the segment.
 
 Performance of this tech has not been an issue in our tools. But there is plenty
 of room for improvement.
+
+How it works
+------------
+
+This section is for those who want to venture into the code.
+
+I will show you, and talk you through the structure of the `OneToMany` template
+class. The `OneToOne` and `ManyToMany` template classes are structured along the
+same lines.
+
+![](one-to-many-diagram.png)
+
+I used the above diagram to write the code. The `l2r_it` style labels refer to
+local variable names in the code. `m_LeftToRight` and `m_RightToLeft` are both
+hash tables. Each entry on the `m_LeftToRight` table contains an `std::pair`
+with a left value in the `first` slot, and a pointer to an `std::vector` in the
+`second`. The `vector` has one or more `right` values in it, sorted by value.
+The `m_RightToLeft` hash table contains `pair`s with a `right` value in the
+`first` slot, and a `left` value in the `second` slot.
+
+When `findRight()` is called, the `OneToMany` is returns the pointer to the
+`vector` of `right` values from the `second` slot in the `m_LeftToRight` hash
+table. When `findLeft()` is called, it returns the `left` value from the
+`second` slot in the `m_RightToLeft` hash table.
