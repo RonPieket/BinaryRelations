@@ -248,11 +248,11 @@ Naming of template specializations</h1>
 <p>In the code example, note that the name of the <code>OneToMany</code> has the form of “SingularToPlural”, like “ParentToChildren”. Similarly, ManyToMany names would be “PluralToPlural”, OneToOne would be “SingularToSingular”.</p>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
-<p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time. All operations on a <code>OneToOne</code> are also constant.</p>
-<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. In practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and remove operations are relatively infrequent when compared to lookups.</p>
+<p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time, or O(1). All operations on a <code>OneToOne</code> are also constant.</p>
+<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and remove operations are relatively infrequent when compared to lookups.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Performance</h1>
-<p>Performance measurements in Xcode on an iMac M1.</p>
+<p>Performance measurements in Xcode on an iMac M1, release build.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 Worst case insert</h2>
 <p>The “worst case” is inserting random numbers on the right with the same left value. Results in milliseconds.</p>
