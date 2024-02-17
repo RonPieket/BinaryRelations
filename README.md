@@ -257,19 +257,19 @@ Efficiency
 ----------
 
 The efficiency for lookup such as `FindLeft()` and `FindRight()` is constant
-time. All operations on a `OneToOne` are also constant.
+time, or O(1). All operations on a `OneToOne` are also constant.
 
 Things get more complicated with `OneToMany` and `ManyToMany`. They maintain
 sorted arrays. Insertion and removal of elements in an array involves shifting
-everything between the point of insertion/removal and the end of the array. In
-practice, at least in the context of our world editor, this has not been a
-problem. That’s probably because insert and remove operations are relatively
-infrequent when compared to lookups.
+everything between the point of insertion/removal and the end of the array. This
+is O(n). It sounds terrible, but in practice, at least in the context of our
+world editor, this has not been a problem. That’s probably because insert and
+remove operations are relatively infrequent when compared to lookups.
 
 Performance
 -----------
 
-Performance measurements in Xcode on an iMac M1.
+Performance measurements in Xcode on an iMac M1, release build.
 
 ### Worst case insert
 
