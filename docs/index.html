@@ -177,10 +177,13 @@ The API</h1>
 <div class="line">int      countRight() const</div>
 <div class="line">int      count() const</div>
 <div class="line"> </div>
-<div class="line">UnorderedMapHelper&lt;LeftType, std::vector&lt;RightType&gt; *&gt; allLeft()Iterator </div>
-<div class="line">UnorderedMapHelper&lt;RightType, LeftType&gt; AllRight()</div>
-<div class="line">LeftType findLeft(const RightType &amp;right, const LeftType &amp;notFoundValue) const</div>
-<div class="line">const std::vector&lt;RightType&gt;* findRight(const LeftType &amp;left) const</div>
+<div class="line">UnorderedMapHelper&lt;LeftType, std::vector&lt;RightType&gt; *&gt; allLeft()</div>
+<div class="line"> </div>
+<div class="line">UnorderedMapHelper&lt;RightType, LeftType&gt; allRight()</div>
+<div class="line"> </div>
+<div class="line">LeftType findLeft(const RightType &amp;right, const LeftType &amp;notFoundValue)</div>
+<div class="line"> </div>
+<div class="line">const std::vector&lt;RightType&gt;* findRight(const LeftType &amp;left) const noexcept</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Installation and usage</h1>
 <div class="fragment"><div class="line">#include &quot;BinaryRelations/BinaryRelations.h&quot;</div>
