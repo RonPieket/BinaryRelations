@@ -20,8 +20,8 @@ associative container types that help you organize and query data in memory.
 Intro
 -----
 
-There is a data structure I that has served me very well for many years in the
-Insomniac Core tools group. I don’t hear other programmers refer to it, so I
+There is a data structure I use that has served me very well for many years in
+the Insomniac Core tools group. I don’t hear other programmers refer to it, so I
 want to introduce it to you. I call it a binary relation. It’s a bidirectional
 associative container.
 
@@ -33,7 +33,7 @@ A quick refresher
 -----------------
 
 Binary relations are the association between elements of two sets. It can be
-projected as a set consisting of related pairs (x,y) where x is the input or the
+seen as a set consisting of related pairs (x,y) where x is the input or the
 domain and where y is the output or the range. The notation x R y means that x
 is related to y by R, where R can be the relation that links x and y.
 
