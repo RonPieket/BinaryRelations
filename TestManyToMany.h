@@ -22,7 +22,7 @@ UTEST(TestManyToMany, Insert)
     ASSERT_TRUE(m2m.contains(3, "cherry"));
 }
 
-UTEST(TestManyToMany, Remove)
+UTEST(TestManyToMany, Erase)
 {
     ManyToMany<int, std::string> m2m;
     m2m.insert(1, "apple");
@@ -30,7 +30,7 @@ UTEST(TestManyToMany, Remove)
     m2m.insert(2, "cherry");
     m2m.insert(3, "cherry");
 
-    m2m.remove(1, "banana");
+    m2m.erase(1, "banana");
 
     ASSERT_EQ(m2m.count(), 3);
     ASSERT_TRUE(m2m.contains(1, "apple"));

@@ -22,7 +22,7 @@ UTEST(TestOneToOne, Insert)
     ASSERT_TRUE(oto.contains(4, "date"));
 }
 
-UTEST(TestOneToOne, Remove)
+UTEST(TestOneToOne, Erase)
 {
     OneToOne<int, std::string> oto;
     oto.insert(1, "apple");
@@ -30,8 +30,8 @@ UTEST(TestOneToOne, Remove)
     oto.insert(3, "cherry");
     oto.insert(4, "date");
 
-    oto.remove(2, "banana");
-    oto.remove(3, "foo");
+    oto.erase(2, "banana");
+    oto.erase(3, "foo");
 
     ASSERT_EQ(oto.count(), 3);
     ASSERT_TRUE(oto.contains(1, "apple"));
@@ -48,7 +48,7 @@ UTEST(TestOneToOne, Overwrite)
     oto.insert(3, "cherry");
     oto.insert(4, "date");
     
-    oto.insert(5, "cherry"); // Should remove (3, "cherry")
+    oto.insert(5, "cherry"); // Should erase (3, "cherry")
     
     ASSERT_EQ(oto.count(), 4);
     ASSERT_TRUE(oto.contains(1, "apple"));

@@ -70,7 +70,7 @@ template <typename T> int insertIntoSortedVector(std::vector<T> *vector, const T
     }
 }
 
-template <typename T> int removeFromSortedVector(std::vector<T> *vector, const T &value) noexcept
+template <typename T> int eraseFromSortedVector(std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::iterator it = std::lower_bound(vector->begin(), vector->end(), value);
     if (it != vector->end() && *it == value)
@@ -112,25 +112,25 @@ void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insert
 }
 
 template <typename T>
-void removeFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *removeVector, std::vector<T> *outVector) noexcept
+void eraseFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *eraseVector, std::vector<T> *outVector) noexcept
 {
     typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
-    typename std::vector<T>::const_iterator removeIt = removeVector->cbegin();
+    typename std::vector<T>::const_iterator eraseIt = eraseVector->cbegin();
 
     outVector->clear();
-    outVector->reserve(std::max(sourceVector->count(), removeVector->count()));
+    outVector->reserve(std::max(sourceVector->count(), eraseVector->count()));
 
-    while (sourceIt != sourceVector->cend() && removeIt != removeVector->cend())
+    while (sourceIt != sourceVector->cend() && eraseIt != eraseVector->cend())
     {
-        if (*sourceIt == *removeIt)
+        if (*sourceIt == *eraseIt)
         {
             sourceIt++;
-            removeIt++;
+            eraseIt++;
         }
-        else if (*sourceIt < *removeIt)
+        else if (*sourceIt < *eraseIt)
             outVector->append(*sourceIt++);
         else
-            outVector->append(*removeIt++);
+            outVector->append(*eraseIt++);
     }
 
     while (sourceIt != sourceVector->cend())
@@ -228,7 +228,7 @@ public:
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be erased.
      @param pair The pair to insert.
      */
     void insert(const Pair &pair) noexcept
@@ -238,7 +238,7 @@ public:
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be erased.
      @param left The left side of the pair to add.
      @param right The right side of the pair to add.
      */
@@ -250,7 +250,7 @@ public:
             if (r2l_it->second == left)
                 return; // We already have this pair - do nothing
 
-            remove(r2l_it->second, right); // Remove old relation
+            erase(r2l_it->second, right); // Erase old relation
         }
 
         auto l2r_vec = m_LeftToRight[left]; // Will insert if it isn't already there.
@@ -266,7 +266,7 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
-     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be removed.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be erased.
      @param other The OneToMany to add.
      */
     void insert(const OneToMany<LeftType, RightType>& other) noexcept
@@ -278,22 +278,22 @@ public:
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param pair The pair to remove.
+     @param pair The pair to erase.
      */
-    void remove(const Pair &pair) noexcept
+    void erase(const Pair &pair) noexcept
     {
-        remove(pair.left, pair.right);
+        erase(pair.left, pair.right);
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pair to remove.
-     @param right The right side of the pair to remove.
+     @param left The left side of the pair to erase.
+     @param right The right side of the pair to erase.
      */
-    void remove(const LeftType &left, const RightType &right) noexcept
+    void erase(const LeftType &left, const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
@@ -318,11 +318,11 @@ public:
     }
 
     /**
-     @brief Remove all pairs with the given left value.
+     @brief Erase all pairs with the given left value.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pairs to remove.
+     @param left The left side of the pairs to erase.
      */
-    void removeLeft(const LeftType &left) noexcept
+    void eraseLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it == m_LeftToRight.end())
@@ -340,32 +340,32 @@ public:
     }
 
     /**
-     @brief Remove the pair with the given right value.
+     @brief Erase the pair with the given right value.
      If there is no matching pair in the set, nothing happens.
-     @param right The right side of the pairs to remove.
+     @param right The right side of the pairs to erase.
      */
-    void removeRight(const RightType &right) noexcept
+    void eraseRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it == m_RightToLeft.end())
             return;
-        remove(r2l_it->second, right);
+        erase(r2l_it->second, right);
     }
 
     /**
-     @brief Remove multiple pairs from the set.
-     @param other The set of pairs to remove.
+     @brief Erase multiple pairs from the set.
+     @param other The set of pairs to erase.
      */
-    void remove(const OneToMany<LeftType, RightType> &other) noexcept
+    void erase(const OneToMany<LeftType, RightType> &other) noexcept
     {
         for (auto pair : other)
         {
-            remove(pair);
+            erase(pair);
         }
     }
 
     /**
-     @brief Remove all pairs from the set.
+     @brief Erase all pairs from the set.
      */
     void clear() noexcept
     {
@@ -653,22 +653,22 @@ public:
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param pair The pair to remove.
+     @param pair The pair to erase.
      */
-    void remove(const Pair &pair) noexcept
+    void erase(const Pair &pair) noexcept
     {
-        remove(pair.left, pair.right);
+        erase(pair.left, pair.right);
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pair to remove.
-     @param right The right side of the pair to remove.
+     @param left The left side of the pair to erase.
+     @param right The right side of the pair to erase.
      */
-    void remove(const LeftType &left, const RightType &right) noexcept
+    void erase(const LeftType &left, const RightType &right) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -679,8 +679,8 @@ public:
                 auto l2r_vec = l2r_it->second;
                 auto r2l_vec = r2l_it->second;
 
-                removeFromSortedVector(l2r_vec, right);
-                removeFromSortedVector(r2l_vec, left);
+                eraseFromSortedVector(l2r_vec, right);
+                eraseFromSortedVector(r2l_vec, left);
 
                 if(l2r_vec->size() == 0)
                 {
@@ -700,11 +700,11 @@ public:
     }
 
     /**
-     @brief Remove all pairs with the given left value.
+     @brief Erase all pairs with the given left value.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pairs to remove.
+     @param left The left side of the pairs to erase.
      */
-    void removeLeft(const LeftType &left) noexcept
+    void eraseLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.constFind(left);
         if (l2r_it != m_LeftToRight.end())
@@ -714,7 +714,7 @@ public:
             {
                 auto r2l_it = m_RightToLeft.constFind(right);
                 auto r2l_vec = r2l_it->second;
-                removeFromSortedVector(*r2l_vec, left);
+                eraseFromSortedVector(*r2l_vec, left);
                 m_Count -= 1;
                 if (r2l_vec->size() == 0)
                 {
@@ -728,11 +728,11 @@ public:
     }
 
     /**
-     @brief Remove the pair with the given right value.
+     @brief Erase the pair with the given right value.
      If there is no matching pair in the set, nothing happens.
-     @param right The right side of the pairs to remove.
+     @param right The right side of the pairs to erase.
      */
-    void removeRight(const RightType &right) noexcept
+    void eraseRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.constFind(right);
         if (r2l_it != m_RightToLeft.end())
@@ -742,7 +742,7 @@ public:
             {
                 auto l2r_it = m_LeftToRight.constFind(left);
                 auto l2r_vec = l2r_it->second;
-                removeFromSortedVector(*l2r_vec, right);
+                eraseFromSortedVector(*l2r_vec, right);
                 m_Count -= 1;
                 if (l2r_vec->size() == 0)
                 {
@@ -756,19 +756,19 @@ public:
     }
 
     /**
-     @brief Remove multiple pairs from the set.
-     @param other The set of pairs to remove.
+     @brief Erase multiple pairs from the set.
+     @param other The set of pairs to erase.
      */
-    void remove(const ManyToMany<LeftType, RightType>& other) noexcept
+    void erase(const ManyToMany<LeftType, RightType>& other) noexcept
     {
         for (auto pair : other)
         {
-            remove(pair);
+            erase(pair);
         }
     }
 
     /**
-     @brief Remove all pairs from the set.
+     @brief Erase all pairs from the set.
      */
     void clear() noexcept
     {
@@ -1015,7 +1015,7 @@ public:
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be removed.
+     The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be erased.
      @param pair The pair to insert.
      */
     void insert(const Pair &pair) noexcept
@@ -1025,7 +1025,7 @@ public:
 
     /**
      @brief Insert a pair into the set.
-     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.
+     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.
      @param left The left side of the pair to add.
      @param right The right side of the pair to add.
      */
@@ -1033,8 +1033,8 @@ public:
     {
         if (!contains(left, right))
         {
-            removeLeft(left);
-            removeRight(right);
+            eraseLeft(left);
+            eraseRight(right);
             m_RightToLeft[right] = left;
             m_LeftToRight[left] = right;
         }
@@ -1042,7 +1042,7 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
-     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.
+     The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.
      @param other The OneToMany to add.
      */
     void insert(const OneToOne<LeftType, RightType> &other) noexcept
@@ -1054,22 +1054,22 @@ public:
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param pair The pair to remove.
+     @param pair The pair to erase.
      */
-    void remove(const Pair &pair) noexcept
+    void erase(const Pair &pair) noexcept
     {
-        remove(pair.left, pair.right);
+        erase(pair.left, pair.right);
     }
 
     /**
-     @brief Remove a pair from the set.
+     @brief Erase a pair from the set.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pair to remove.
-     @param right The right side of the pair to remove.
+     @param left The left side of the pair to erase.
+     @param right The right side of the pair to erase.
      */
-    void remove(const LeftType &left, const RightType &right) noexcept
+    void erase(const LeftType &left, const RightType &right) noexcept
     {
         if (contains(left, right))
         {
@@ -1082,11 +1082,11 @@ public:
     }
 
     /**
-     @brief Remove all pairs with the given left value.
+     @brief Erase all pairs with the given left value.
      If there is no matching pair in the set, nothing happens.
-     @param left The left side of the pairs to remove.
+     @param left The left side of the pairs to erase.
      */
-    void removeLeft(const LeftType &left) noexcept
+    void eraseLeft(const LeftType &left) noexcept
     {
         auto l2r_it = m_LeftToRight.find(left);
         if (l2r_it != m_LeftToRight.end())
@@ -1099,11 +1099,11 @@ public:
     }
 
     /**
-     @brief Remove the pair with the given right value.
+     @brief Erase the pair with the given right value.
      If there is no matching pair in the set, nothing happens.
-     @param right The right side of the pairs to remove.
+     @param right The right side of the pairs to erase.
      */
-    void removeRight(const RightType &right) noexcept
+    void eraseRight(const RightType &right) noexcept
     {
         auto r2l_it = m_RightToLeft.find(right);
         if (r2l_it != m_RightToLeft.end())
@@ -1116,19 +1116,19 @@ public:
     }
 
     /**
-     @brief Remove multiple pairs from the set.
-     @param other The set of pairs to remove.
+     @brief Erase multiple pairs from the set.
+     @param other The set of pairs to erase.
      */
-    void remove(const OneToOne<LeftType, RightType> &other) noexcept
+    void erase(const OneToOne<LeftType, RightType> &other) noexcept
     {
         for (auto pair : other)
         {
-            remove( pair);
+            erase( pair);
         }
     }
 
     /**
-     @brief Remove all pairs from the set.
+     @brief Erase all pairs from the set.
      */
     void clear() noexcept
     {

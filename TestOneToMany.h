@@ -22,7 +22,7 @@ UTEST(TestOneToMany, Insert)
     ASSERT_TRUE(otm.contains(3, "date"));
 }
 
-UTEST(TestOneToMany, Remove)
+UTEST(TestOneToMany, Erase)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
@@ -30,7 +30,7 @@ UTEST(TestOneToMany, Remove)
     otm.insert(2, "cherry");
     otm.insert(3, "date");
     
-    otm.remove(1, "banana");
+    otm.erase(1, "banana");
 
     ASSERT_EQ(otm.count(), 3);
     ASSERT_TRUE(otm.contains(1, "apple"));
