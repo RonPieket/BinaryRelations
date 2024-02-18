@@ -165,10 +165,13 @@ int      countLeft() const
 int      countRight() const
 int      count() const
 
-UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()Iterator 
-UnorderedMapHelper<RightType, LeftType> AllRight()
-LeftType findLeft(const RightType &right, const LeftType &notFoundValue) const
-const std::vector<RightType>* findRight(const LeftType &left) const
+UnorderedMapHelper<LeftType, std::vector<RightType> *> allLeft()
+
+UnorderedMapHelper<RightType, LeftType> allRight()
+
+LeftType findLeft(const RightType &right, const LeftType &notFoundValue)
+
+const std::vector<RightType>* findRight(const LeftType &left) const noexcept
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Installation and usage
