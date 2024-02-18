@@ -151,11 +151,11 @@ OneToMany:
 void     insert(const Pair &pair)
 void     insert(const LeftType &left, const RightType &right)
 void     insert(const OneToMany<LeftType, RightType> &other)
-void     remove(const Pair &pair)
-void     remove(const LeftType &left, const RightType &right)
-void     removeLeft(const LeftType &left)
-void     removeRight(const RightType &right)
-void     remove(const OneToMany<LeftType, RightType> &other)
+void     erase(const Pair &pair)
+void     erase(const LeftType &left, const RightType &right)
+void     eraseLeft(const LeftType &left)
+void     eraseRight(const RightType &right)
+void     erase(const OneToMany<LeftType, RightType> &other)
 void     clear()
 bool     contains(const Pair &pair) const
 bool     contains(const LeftType &left, const RightType &right) const
@@ -264,7 +264,7 @@ sorted arrays. Insertion and removal of elements in an array involves shifting
 everything between the point of insertion/removal and the end of the array. This
 is O(n). It sounds terrible, but in practice, at least in the context of our
 world editor, this has not been a problem. That’s probably because insert and
-remove operations are relatively infrequent when compared to lookups.
+erase operations are relatively infrequent when compared to lookups.
 
 Performance
 -----------

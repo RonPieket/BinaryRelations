@@ -15,14 +15,14 @@ var class_binary_relations_1_1_many_to_many =
     [ "countLeft", "class_binary_relations_1_1_many_to_many.html#a3cddaca2a6230c8a4933a06a3a22327e", null ],
     [ "countRight", "class_binary_relations_1_1_many_to_many.html#a4dac5a37298707dcf76dcf822abf7f18", null ],
     [ "end", "class_binary_relations_1_1_many_to_many.html#a398b2858b8b8c7a1eaededb6069fb6b7", null ],
+    [ "erase", "class_binary_relations_1_1_many_to_many.html#a0b18929427ed4b3bab1dcc3ef8571dc8", null ],
+    [ "erase", "class_binary_relations_1_1_many_to_many.html#a08ecec9154d191d992b0590a720a98cb", null ],
+    [ "erase", "class_binary_relations_1_1_many_to_many.html#a89f52dc27db12409cf92a45332be05c1", null ],
+    [ "eraseLeft", "class_binary_relations_1_1_many_to_many.html#a716652e4caad460cc7c8702d8313eb10", null ],
+    [ "eraseRight", "class_binary_relations_1_1_many_to_many.html#a7686e13e0e4be81439bff464c5e793a1", null ],
     [ "findLeft", "class_binary_relations_1_1_many_to_many.html#a9e27dbf3db504a8ce50085ef40eaf888", null ],
     [ "findRight", "class_binary_relations_1_1_many_to_many.html#ab0cf77e20a26c091cab6980838b42cd5", null ],
     [ "insert", "class_binary_relations_1_1_many_to_many.html#a744635acd0b395ddfaefe9b6a77ed508", null ],
     [ "insert", "class_binary_relations_1_1_many_to_many.html#a7e389d2f53dc030da30787aedab6681d", null ],
-    [ "insert", "class_binary_relations_1_1_many_to_many.html#a2058bb23609a3fb109769b7c312b71d1", null ],
-    [ "remove", "class_binary_relations_1_1_many_to_many.html#aba9599d0d7a6c59cf22ca71f69aff8c3", null ],
-    [ "remove", "class_binary_relations_1_1_many_to_many.html#aaa59b57cec11ab42e3f1d5fa2f46c254", null ],
-    [ "remove", "class_binary_relations_1_1_many_to_many.html#af380ca6b3b5ff3f5be04d0a5f780559e", null ],
-    [ "removeLeft", "class_binary_relations_1_1_many_to_many.html#aa9b1d935d6a1081231ffcbb6bee58157", null ],
-    [ "removeRight", "class_binary_relations_1_1_many_to_many.html#a8d9446fe56301ef89dd94579b0ea84f6", null ]
+    [ "insert", "class_binary_relations_1_1_many_to_many.html#a2058bb23609a3fb109769b7c312b71d1", null ]
 ];

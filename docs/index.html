@@ -163,11 +163,11 @@ The API</h1>
 <div class="line">void     insert(const Pair &amp;pair)</div>
 <div class="line">void     insert(const LeftType &amp;left, const RightType &amp;right)</div>
 <div class="line">void     insert(const OneToMany&lt;LeftType, RightType&gt; &amp;other)</div>
-<div class="line">void     remove(const Pair &amp;pair)</div>
-<div class="line">void     remove(const LeftType &amp;left, const RightType &amp;right)</div>
-<div class="line">void     removeLeft(const LeftType &amp;left)</div>
-<div class="line">void     removeRight(const RightType &amp;right)</div>
-<div class="line">void     remove(const OneToMany&lt;LeftType, RightType&gt; &amp;other)</div>
+<div class="line">void     erase(const Pair &amp;pair)</div>
+<div class="line">void     erase(const LeftType &amp;left, const RightType &amp;right)</div>
+<div class="line">void     eraseLeft(const LeftType &amp;left)</div>
+<div class="line">void     eraseRight(const RightType &amp;right)</div>
+<div class="line">void     erase(const OneToMany&lt;LeftType, RightType&gt; &amp;other)</div>
 <div class="line">void     clear()</div>
 <div class="line">bool     contains(const Pair &amp;pair) const</div>
 <div class="line">bool     contains(const LeftType &amp;left, const RightType &amp;right) const</div>
@@ -249,7 +249,7 @@ Naming of template specializations</h1>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time, or O(1). All operations on a <code>OneToOne</code> are also constant.</p>
-<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and remove operations are relatively infrequent when compared to lookups.</p>
+<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and erase operations are relatively infrequent when compared to lookups.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Performance</h1>
 <p>Performance measurements in Xcode on an iMac M1, release build.</p>

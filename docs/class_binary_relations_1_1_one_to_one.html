@@ -117,31 +117,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5883b8282acee0685075641d5b497407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="separator:a5883b8282acee0685075641d5b497407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb6ce8ac8dd6f0a2e6231a33cba1b6d" id="r_a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d">insert</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
-<tr class="memdesc:a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be removed.  <br /></td></tr>
+<tr class="memdesc:a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be erased.  <br /></td></tr>
 <tr class="separator:a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81c120a105948c75e3928d15ce631913" id="r_a81c120a105948c75e3928d15ce631913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c120a105948c75e3928d15ce631913">insert</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
-<tr class="memdesc:a81c120a105948c75e3928d15ce631913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.  <br /></td></tr>
+<tr class="memdesc:a81c120a105948c75e3928d15ce631913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.  <br /></td></tr>
 <tr class="separator:a81c120a105948c75e3928d15ce631913"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a095f2d49fc0f68ee0e61e4a4a045783f" id="r_a095f2d49fc0f68ee0e61e4a4a045783f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095f2d49fc0f68ee0e61e4a4a045783f">insert</a> (const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
-<tr class="memdesc:a095f2d49fc0f68ee0e61e4a4a045783f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed.  <br /></td></tr>
+<tr class="memdesc:a095f2d49fc0f68ee0e61e4a4a045783f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.  <br /></td></tr>
 <tr class="separator:a095f2d49fc0f68ee0e61e4a4a045783f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93fc9cdab983ea1e8712e5cb7324b7f6" id="r_a93fc9cdab983ea1e8712e5cb7324b7f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93fc9cdab983ea1e8712e5cb7324b7f6">remove</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
-<tr class="memdesc:a93fc9cdab983ea1e8712e5cb7324b7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:a93fc9cdab983ea1e8712e5cb7324b7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee217149ecc4036c9abc6b6defacf3e8" id="r_aee217149ecc4036c9abc6b6defacf3e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee217149ecc4036c9abc6b6defacf3e8">remove</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
-<tr class="memdesc:aee217149ecc4036c9abc6b6defacf3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:aee217149ecc4036c9abc6b6defacf3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9efa3c0d7e9ab220bb2c50655adf1a" id="r_a0f9efa3c0d7e9ab220bb2c50655adf1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f9efa3c0d7e9ab220bb2c50655adf1a">removeLeft</a> (const LeftType &amp;left) noexcept</td></tr>
-<tr class="memdesc:a0f9efa3c0d7e9ab220bb2c50655adf1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs with the given left value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:a0f9efa3c0d7e9ab220bb2c50655adf1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624b8a716c67ddbea8c1b90a9b5283c8" id="r_a624b8a716c67ddbea8c1b90a9b5283c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a624b8a716c67ddbea8c1b90a9b5283c8">removeRight</a> (const RightType &amp;right) noexcept</td></tr>
-<tr class="memdesc:a624b8a716c67ddbea8c1b90a9b5283c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the pair with the given right value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
-<tr class="separator:a624b8a716c67ddbea8c1b90a9b5283c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99e999180604ff71fb13a1ea20f0b91c" id="r_a99e999180604ff71fb13a1ea20f0b91c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99e999180604ff71fb13a1ea20f0b91c">remove</a> (const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
-<tr class="memdesc:a99e999180604ff71fb13a1ea20f0b91c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove multiple pairs from the set.  <br /></td></tr>
-<tr class="separator:a99e999180604ff71fb13a1ea20f0b91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8180cf812fcdc7b0270daf95e79a729d" id="r_a8180cf812fcdc7b0270daf95e79a729d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8180cf812fcdc7b0270daf95e79a729d">erase</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
+<tr class="memdesc:a8180cf812fcdc7b0270daf95e79a729d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a8180cf812fcdc7b0270daf95e79a729d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc60e2333797f9a64003f42a481abc2e" id="r_adc60e2333797f9a64003f42a481abc2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc60e2333797f9a64003f42a481abc2e">erase</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
+<tr class="memdesc:adc60e2333797f9a64003f42a481abc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:adc60e2333797f9a64003f42a481abc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697ca485865c833c9c62033e22876c44" id="r_a697ca485865c833c9c62033e22876c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a697ca485865c833c9c62033e22876c44">eraseLeft</a> (const LeftType &amp;left) noexcept</td></tr>
+<tr class="memdesc:a697ca485865c833c9c62033e22876c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase all pairs with the given left value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a697ca485865c833c9c62033e22876c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35fff95007c63f317d9e62108f185b23" id="r_a35fff95007c63f317d9e62108f185b23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35fff95007c63f317d9e62108f185b23">eraseRight</a> (const RightType &amp;right) noexcept</td></tr>
+<tr class="memdesc:a35fff95007c63f317d9e62108f185b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase the pair with the given right value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
+<tr class="separator:a35fff95007c63f317d9e62108f185b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5dfce29fcd20adf6429a718db9a8c1b" id="r_af5dfce29fcd20adf6429a718db9a8c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5dfce29fcd20adf6429a718db9a8c1b">erase</a> (const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
+<tr class="memdesc:af5dfce29fcd20adf6429a718db9a8c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase multiple pairs from the set.  <br /></td></tr>
+<tr class="separator:af5dfce29fcd20adf6429a718db9a8c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9facdebe241f7279126d2e51b14e1e5b" id="r_a9facdebe241f7279126d2e51b14e1e5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9facdebe241f7279126d2e51b14e1e5b">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a9facdebe241f7279126d2e51b14e1e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all pairs from the set.  <br /></td></tr>
+<tr class="memdesc:a9facdebe241f7279126d2e51b14e1e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase all pairs from the set.  <br /></td></tr>
 <tr class="separator:a9facdebe241f7279126d2e51b14e1e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac77c50166fda902147981e91ef66334f" id="r_ac77c50166fda902147981e91ef66334f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac77c50166fda902147981e91ef66334f">contains</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;pair) const noexcept</td></tr>
 <tr class="memdesc:ac77c50166fda902147981e91ef66334f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a given pair is in the set.  <br /></td></tr>
@@ -345,7 +345,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Remove all pairs from the set. </p>
+<p>Erase all pairs from the set. </p>
 
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01133">1133</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
@@ -632,6 +632,196 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 
 </div>
 </div>
+<a id="adc60e2333797f9a64003f42a481abc2e" name="adc60e2333797f9a64003f42a481abc2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc60e2333797f9a64003f42a481abc2e">&#9670;&#160;</a></span>erase() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase a pair from the set. If there is no matching pair in the set, nothing happens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>The left side of the pair to erase. </td></tr>
+    <tr><td class="paramname">right</td><td>The right side of the pair to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01072">1072</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="af5dfce29fcd20adf6429a718db9a8c1b" name="af5dfce29fcd20adf6429a718db9a8c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5dfce29fcd20adf6429a718db9a8c1b">&#9670;&#160;</a></span>erase() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase multiple pairs from the set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The set of pairs to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01122">1122</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a8180cf812fcdc7b0270daf95e79a729d" name="a8180cf812fcdc7b0270daf95e79a729d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8180cf812fcdc7b0270daf95e79a729d">&#9670;&#160;</a></span>erase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase a pair from the set. If there is no matching pair in the set, nothing happens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pair</td><td>The pair to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01061">1061</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a697ca485865c833c9c62033e22876c44" name="a697ca485865c833c9c62033e22876c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697ca485865c833c9c62033e22876c44">&#9670;&#160;</a></span>eraseLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::eraseLeft </td>
+          <td>(</td>
+          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase all pairs with the given left value. If there is no matching pair in the set, nothing happens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>The left side of the pairs to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01089">1089</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a35fff95007c63f317d9e62108f185b23" name="a35fff95007c63f317d9e62108f185b23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35fff95007c63f317d9e62108f185b23">&#9670;&#160;</a></span>eraseRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::eraseRight </td>
+          <td>(</td>
+          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase the pair with the given right value. If there is no matching pair in the set, nothing happens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">right</td><td>The right side of the pairs to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01106">1106</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
 <a id="a5bb2bdcc1e039db5cd84897ae8fcd73a" name="a5bb2bdcc1e039db5cd84897ae8fcd73a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bb2bdcc1e039db5cd84897ae8fcd73a">&#9670;&#160;</a></span>findLeft()</h2>
 
@@ -747,7 +937,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Insert a pair into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed. </p>
+<p>Insert a pair into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">left</td><td>The left side of the pair to add. </td></tr>
@@ -785,7 +975,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be removed. </p>
+<p>Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>The <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a> to add. </td></tr>
@@ -822,7 +1012,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Insert a pair into the set. The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be removed. </p>
+<p>Insert a pair into the set. The rule for one-to-one is that if the rleft value or the ight value are part of an existing pairs in the set, those relations will be erased. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pair</td><td>The pair to insert. </td></tr>
@@ -831,196 +1021,6 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01021">1021</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
-<a id="aee217149ecc4036c9abc6b6defacf3e8" name="aee217149ecc4036c9abc6b6defacf3e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee217149ecc4036c9abc6b6defacf3e8">&#9670;&#160;</a></span>remove() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::remove </td>
-          <td>(</td>
-          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove a pair from the set. If there is no matching pair in the set, nothing happens. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">left</td><td>The left side of the pair to remove. </td></tr>
-    <tr><td class="paramname">right</td><td>The right side of the pair to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01072">1072</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
-<a id="a99e999180604ff71fb13a1ea20f0b91c" name="a99e999180604ff71fb13a1ea20f0b91c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99e999180604ff71fb13a1ea20f0b91c">&#9670;&#160;</a></span>remove() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::remove </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove multiple pairs from the set. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The set of pairs to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01122">1122</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
-<a id="a93fc9cdab983ea1e8712e5cb7324b7f6" name="a93fc9cdab983ea1e8712e5cb7324b7f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93fc9cdab983ea1e8712e5cb7324b7f6">&#9670;&#160;</a></span>remove() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::remove </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pair</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove a pair from the set. If there is no matching pair in the set, nothing happens. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pair</td><td>The pair to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01061">1061</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
-<a id="a0f9efa3c0d7e9ab220bb2c50655adf1a" name="a0f9efa3c0d7e9ab220bb2c50655adf1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f9efa3c0d7e9ab220bb2c50655adf1a">&#9670;&#160;</a></span>removeLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::removeLeft </td>
-          <td>(</td>
-          <td class="paramtype">const LeftType &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove all pairs with the given left value. If there is no matching pair in the set, nothing happens. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">left</td><td>The left side of the pairs to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01089">1089</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
-<a id="a624b8a716c67ddbea8c1b90a9b5283c8" name="a624b8a716c67ddbea8c1b90a9b5283c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a624b8a716c67ddbea8c1b90a9b5283c8">&#9670;&#160;</a></span>removeRight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::removeRight </td>
-          <td>(</td>
-          <td class="paramtype">const RightType &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Remove the pair with the given right value. If there is no matching pair in the set, nothing happens. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">right</td><td>The right side of the pairs to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01106">1106</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>

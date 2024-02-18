@@ -15,14 +15,14 @@ var class_binary_relations_1_1_one_to_many =
     [ "countLeft", "class_binary_relations_1_1_one_to_many.html#ab852c9362d8c7bb4da85e2def870e520", null ],
     [ "countRight", "class_binary_relations_1_1_one_to_many.html#a016d4c5687cdeb7a096c2edde530d9ce", null ],
     [ "end", "class_binary_relations_1_1_one_to_many.html#afe852da0d0ea1b9bff955482b61c1255", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_many.html#a656adccbd0d3ab3b060aebdeb75a1264", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_many.html#a6a521c4063e5db85ad680efc4c9aca78", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_many.html#ad1790796861b53d080633ea5f4ff0453", null ],
+    [ "eraseLeft", "class_binary_relations_1_1_one_to_many.html#a5e9aaa7633428cd37c7f85a6c932605f", null ],
+    [ "eraseRight", "class_binary_relations_1_1_one_to_many.html#aa185cc190ccb8f91e1fd0df4b7881d85", null ],
     [ "findLeft", "class_binary_relations_1_1_one_to_many.html#a0094481aaf8330c4953618ef044da866", null ],
     [ "findRight", "class_binary_relations_1_1_one_to_many.html#a45a6276f16f64b1eaf65fd3a6ce17d83", null ],
     [ "insert", "class_binary_relations_1_1_one_to_many.html#a20ce4947d883b2cbdcb7120d6c93793f", null ],
     [ "insert", "class_binary_relations_1_1_one_to_many.html#a5e675bd054a35d6ca73b14a2ae82235d", null ],
-    [ "insert", "class_binary_relations_1_1_one_to_many.html#af2c4342782a6118da072aa07d54919a6", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_many.html#a29c1a1beaee378945f161e7182277036", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_many.html#aefe3c12f0793f22ddb61712ca1fce95d", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_many.html#a81d61ea8062052020243054f0884f66a", null ],
-    [ "removeLeft", "class_binary_relations_1_1_one_to_many.html#a0d703762da731a52ce9813c71e35b1a0", null ],
-    [ "removeRight", "class_binary_relations_1_1_one_to_many.html#a76910d10751070bfaa9bdfa9e121b6e1", null ]
+    [ "insert", "class_binary_relations_1_1_one_to_many.html#af2c4342782a6118da072aa07d54919a6", null ]
 ];

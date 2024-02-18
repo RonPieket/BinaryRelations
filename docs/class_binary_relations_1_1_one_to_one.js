@@ -15,14 +15,14 @@ var class_binary_relations_1_1_one_to_one =
     [ "countLeft", "class_binary_relations_1_1_one_to_one.html#a006c7d568c3dbeda2036a4bf59638e3b", null ],
     [ "countRight", "class_binary_relations_1_1_one_to_one.html#a8414679066bf23d2f89b4f4865808538", null ],
     [ "end", "class_binary_relations_1_1_one_to_one.html#a31142c4204c1c0f4e62c748e5be9c44e", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_one.html#adc60e2333797f9a64003f42a481abc2e", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_one.html#af5dfce29fcd20adf6429a718db9a8c1b", null ],
+    [ "erase", "class_binary_relations_1_1_one_to_one.html#a8180cf812fcdc7b0270daf95e79a729d", null ],
+    [ "eraseLeft", "class_binary_relations_1_1_one_to_one.html#a697ca485865c833c9c62033e22876c44", null ],
+    [ "eraseRight", "class_binary_relations_1_1_one_to_one.html#a35fff95007c63f317d9e62108f185b23", null ],
     [ "findLeft", "class_binary_relations_1_1_one_to_one.html#a5bb2bdcc1e039db5cd84897ae8fcd73a", null ],
     [ "findRight", "class_binary_relations_1_1_one_to_one.html#a1bfc2d10cf6bcfa2af57dd827c5aafb9", null ],
     [ "insert", "class_binary_relations_1_1_one_to_one.html#a81c120a105948c75e3928d15ce631913", null ],
     [ "insert", "class_binary_relations_1_1_one_to_one.html#a095f2d49fc0f68ee0e61e4a4a045783f", null ],
-    [ "insert", "class_binary_relations_1_1_one_to_one.html#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_one.html#aee217149ecc4036c9abc6b6defacf3e8", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_one.html#a99e999180604ff71fb13a1ea20f0b91c", null ],
-    [ "remove", "class_binary_relations_1_1_one_to_one.html#a93fc9cdab983ea1e8712e5cb7324b7f6", null ],
-    [ "removeLeft", "class_binary_relations_1_1_one_to_one.html#a0f9efa3c0d7e9ab220bb2c50655adf1a", null ],
-    [ "removeRight", "class_binary_relations_1_1_one_to_one.html#a624b8a716c67ddbea8c1b90a9b5283c8", null ]
+    [ "insert", "class_binary_relations_1_1_one_to_one.html#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d", null ]
 ];
