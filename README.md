@@ -263,8 +263,8 @@ The efficiency for lookup such as `FindLeft()` and `FindRight()` is constant
 time, or O(1). All operations on a `OneToOne` are also constant.
 
 Things get more complicated with `OneToMany` and `ManyToMany`. They maintain
-sorted arrays. Insertion and removal of elements in an array involves shifting
-everything between the point of insertion/removal and the end of the array. This
+sorted arrays. Insertion and erasure of elements in an array involves shifting
+everything between the point of insertion/erasure and the end of the array. This
 is O(n). It sounds terrible, but in practice, at least in the context of our
 world editor, this has not been a problem. That’s probably because insert and
 erase operations are relatively infrequent when compared to lookups.
