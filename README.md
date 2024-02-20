@@ -342,8 +342,8 @@ same lines.
 
 I used the above diagram to write the code. The `l2r_it` style labels refer to
 local variable names in the code. `m_LeftToRight` and `m_RightToLeft` are both
-hash tables. Each entry on the `m_LeftToRight` table contains an `std::pair`
-with a left value in the `first` slot, and a pointer to an `std::vector` in the
+hash tables. Each entry on the `m_LeftToRight` table contains a `std::pair` with
+a left value in the `first` slot, and a pointer to a `std::vector` in the
 `second`. The `vector` has one or more `right` values in it, sorted by value.
 The `m_RightToLeft` hash table contains `pair`s with a `right` value in the
 `first` slot, and a `left` value in the `second` slot.
