@@ -252,7 +252,7 @@ Naming of template specializations</h1>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time, or O(1). All operations on a <code>OneToOne</code> are also constant.</p>
-<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and removal of elements in an array involves shifting everything between the point of insertion/removal and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and erase operations are relatively infrequent when compared to lookups.</p>
+<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and erasure of elements in an array involves shifting everything between the point of insertion/erasure and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and erase operations are relatively infrequent when compared to lookups.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Performance</h1>
 <p>Performance measurements in Xcode on an iMac M1, release build.</p>
@@ -316,14 +316,14 @@ Lookup</h2>
 <h2><a class="anchor" id="autotoc_md14"></a>
 Thoughts on performance</h2>
 <p><code>std::unordered_map</code> is not the fastest hash map. I’m aware of faster ones, but all those I have found have a license that is more restrictive than the MIT license.</p>
-<p>The array insert operation, which requires shifting half the array on average, is definitely a performance liability. This can be improved by segmenting the array, so that you only have to shift half of the segment.</p>
-<p>Performance of this tech has not been an issue in our tools. But there is plenty of room for improvement.</p>
+<p>The array insert and erase operations, which require shifting half the array on average, are definitely a performance liability. This can be optimized, at the cost complexity.</p>
+<p>Performance of this tech has not been an issue in our tools, but there is plenty of room for improvement.</p>
 <h1><a class="anchor" id="autotoc_md15"></a>
 How it works</h1>
 <p>This section is for those who want to venture into the code.</p>
 <p>I will show you, and talk you through the structure of the <code>OneToMany</code> template class. The <code>OneToOne</code> and <code>ManyToMany</code> template classes are structured along the same lines.</p>
 <p><img src="one-to-many-diagram.png" alt="" class="inline"/></p>
-<p>I used the above diagram to write the code. The <code>l2r_it</code> style labels refer to local variable names in the code. <code>m_LeftToRight</code> and <code>m_RightToLeft</code> are both hash tables. Each entry on the <code>m_LeftToRight</code> table contains an <code>std::pair</code> with a left value in the <code>first</code> slot, and a pointer to an <code>std::vector</code> in the <code>second</code>. The <code>vector</code> has one or more <code>right</code> values in it, sorted by value. The <code>m_RightToLeft</code> hash table contains <code>pair</code>s with a <code>right</code> value in the <code>first</code> slot, and a <code>left</code> value in the <code>second</code> slot.</p>
+<p>I used the above diagram to write the code. The <code>l2r_it</code> style labels refer to local variable names in the code. <code>m_LeftToRight</code> and <code>m_RightToLeft</code> are both hash tables. Each entry on the <code>m_LeftToRight</code> table contains a <code>std::pair</code> with a left value in the <code>first</code> slot, and a pointer to a <code>std::vector</code> in the <code>second</code>. The <code>vector</code> has one or more <code>right</code> values in it, sorted by value. The <code>m_RightToLeft</code> hash table contains <code>pair</code>s with a <code>right</code> value in the <code>first</code> slot, and a <code>left</code> value in the <code>second</code> slot.</p>
 <p>When <code>findRight()</code> is called, the <code>OneToMany</code> is returns the pointer to the <code>vector</code> of <code>right</code> values from the <code>second</code> slot in the <code>m_LeftToRight</code> hash table. When <code>findLeft()</code> is called, it returns the <code>left</code> value from the <code>second</code> slot in the <code>m_RightToLeft</code> hash table. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
