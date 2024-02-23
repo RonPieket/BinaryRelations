@@ -36,10 +36,10 @@ namespace BinaryRelations
 {
 // -------- Manipulate vector with unique sorted elements --------
 
-template <typename T> int countInSortedVector(const std::vector<T> *vector, const T &value) noexcept
+template <typename T> bool containsInSortedVector(const std::vector<T> *vector, const T &value) noexcept
 {
     typename std::vector<T>::const_iterator it = std::lower_bound(vector->cbegin(), vector->cend(), value);
-    return it != vector->cend() && *it == value ? 1 : 0;
+    return it != vector->cend() && *it == value;
 }
 
 template <typename T>
@@ -74,61 +74,6 @@ template <typename T> int eraseFromSortedVector(std::vector<T> *vector, const T 
     }
     else
         return 0;
-}
-
-template <typename T>
-void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector) noexcept
-{
-    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
-    typename std::vector<T>::const_iterator insertIt = insertVector->cbegin();
-
-    outVector->clear();
-    outVector->reserve(sourceVector->count() + insertVector->count());
-
-    while (sourceIt != sourceVector->cend() && insertIt != insertVector->cend())
-    {
-        if (*sourceIt == *insertIt)
-        {
-            outVector->append(*sourceIt++);
-            insertIt++;
-        }
-        else if (*sourceIt < *insertIt)
-            outVector->append(*sourceIt++);
-        else
-            outVector->append(*insertIt++);
-    }
-
-    while (sourceIt != sourceVector->cend())
-        outVector->append(*sourceIt++);
-
-    while (insertIt != insertVector->cend())
-        outVector->append(*insertIt++);
-}
-
-template <typename T>
-void eraseFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *eraseVector, std::vector<T> *outVector) noexcept
-{
-    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
-    typename std::vector<T>::const_iterator eraseIt = eraseVector->cbegin();
-
-    outVector->clear();
-    outVector->reserve(std::max(sourceVector->count(), eraseVector->count()));
-
-    while (sourceIt != sourceVector->cend() && eraseIt != eraseVector->cend())
-    {
-        if (*sourceIt == *eraseIt)
-        {
-            sourceIt++;
-            eraseIt++;
-        }
-        else if (*sourceIt < *eraseIt)
-            outVector->append(*sourceIt++);
-        else
-            outVector->append(*eraseIt++);
-    }
-
-    while (sourceIt != sourceVector->cend())
-        outVector->append(*sourceIt++);
 }
 
 // ----------------------------------------------------------------------------
@@ -612,7 +557,7 @@ public:
         if (l2r_it != m_LeftToRight.end())
         {
             auto l2r_vec = l2r_it->second;
-            if (0 != countInSortedVector(l2r_vec, right))
+            if (containsInSortedVector(l2r_vec, right))
                 return; // We already have this pair;
         }
 
@@ -796,11 +741,11 @@ public:
                 auto r2l_vec = r2l_it->second;
                 if (l2r_vec->size() < r2l_vec->size())
                 {
-                    return 0 != countInSortedVector(l2r_vec, right);
+                    return containsInSortedVector(l2r_vec, right);
                 }
                 else
                 {
-                    return 0 != countInSortedVector(r2l_vec, left);
+                    return containsInSortedVector(r2l_vec, left);
                 }
             }
         }
