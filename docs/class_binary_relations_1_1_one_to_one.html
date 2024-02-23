@@ -122,9 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81c120a105948c75e3928d15ce631913" id="r_a81c120a105948c75e3928d15ce631913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c120a105948c75e3928d15ce631913">insert</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
 <tr class="memdesc:a81c120a105948c75e3928d15ce631913"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.  <br /></td></tr>
 <tr class="separator:a81c120a105948c75e3928d15ce631913"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a095f2d49fc0f68ee0e61e4a4a045783f" id="r_a095f2d49fc0f68ee0e61e4a4a045783f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095f2d49fc0f68ee0e61e4a4a045783f">insert</a> (const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
-<tr class="memdesc:a095f2d49fc0f68ee0e61e4a4a045783f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.  <br /></td></tr>
-<tr class="separator:a095f2d49fc0f68ee0e61e4a4a045783f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b5572529f5c77797b23fb854f4f273f" id="r_a0b5572529f5c77797b23fb854f4f273f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b5572529f5c77797b23fb854f4f273f">insert</a> (const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &gt; &amp;pairs) noexcept</td></tr>
+<tr class="memdesc:a0b5572529f5c77797b23fb854f4f273f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.  <br /></td></tr>
+<tr class="separator:a0b5572529f5c77797b23fb854f4f273f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8180cf812fcdc7b0270daf95e79a729d" id="r_a8180cf812fcdc7b0270daf95e79a729d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8180cf812fcdc7b0270daf95e79a729d">erase</a> (const <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
 <tr class="memdesc:a8180cf812fcdc7b0270daf95e79a729d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
 <tr class="separator:a8180cf812fcdc7b0270daf95e79a729d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -950,45 +950,8 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 
 </div>
 </div>
-<a id="a095f2d49fc0f68ee0e61e4a4a045783f" name="a095f2d49fc0f68ee0e61e4a4a045783f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a095f2d49fc0f68ee0e61e4a4a045783f">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::insert </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_one_to_one.html">OneToOne</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a> to add. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01042">1042</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
 <a id="a3fb6ce8ac8dd6f0a2e6231a33cba1b6d" name="a3fb6ce8ac8dd6f0a2e6231a33cba1b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1021,6 +984,43 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01015">1015</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a0b5572529f5c77797b23fb854f4f273f" name="a0b5572529f5c77797b23fb854f4f273f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b5572529f5c77797b23fb854f4f273f">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_one_to_one.html">BinaryRelations::OneToOne</a>&lt; LeftType, RightType &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">Pair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pairs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert multiple pairs into the set. The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pairs</td><td>The pairs to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01042">1042</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>

@@ -76,6 +76,61 @@ template <typename T> int eraseFromSortedVector(std::vector<T> *vector, const T 
         return 0;
 }
 
+template <typename T>
+void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector) noexcept
+{
+    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator insertIt = insertVector->cbegin();
+
+    outVector->clear();
+    outVector->reserve(sourceVector->count() + insertVector->count());
+
+    while (sourceIt != sourceVector->cend() && insertIt != insertVector->cend())
+    {
+        if (*sourceIt == *insertIt)
+        {
+            outVector->append(*sourceIt++);
+            insertIt++;
+        }
+        else if (*sourceIt < *insertIt)
+            outVector->append(*sourceIt++);
+        else
+            outVector->append(*insertIt++);
+    }
+
+    while (sourceIt != sourceVector->cend())
+        outVector->append(*sourceIt++);
+
+    while (insertIt != insertVector->cend())
+        outVector->append(*insertIt++);
+}
+
+template <typename T>
+void eraseFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *eraseVector, std::vector<T> *outVector) noexcept
+{
+    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator eraseIt = eraseVector->cbegin();
+
+    outVector->clear();
+    outVector->reserve(std::max(sourceVector->count(), eraseVector->count()));
+
+    while (sourceIt != sourceVector->cend() && eraseIt != eraseVector->cend())
+    {
+        if (*sourceIt == *eraseIt)
+        {
+            sourceIt++;
+            eraseIt++;
+        }
+        else if (*sourceIt < *eraseIt)
+            outVector->append(*sourceIt++);
+        else
+            outVector->append(*eraseIt++);
+    }
+
+    while (sourceIt != sourceVector->cend())
+        outVector->append(*sourceIt++);
+}
+
 // ----------------------------------------------------------------------------
 
 /// @cond
@@ -206,11 +261,11 @@ public:
     /**
      @brief Insert multiple  pairs into the set.
      The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be erased.
-     @param other The OneToMany to add.
+     @param pairs The pairs to add.
      */
-    void insert(const OneToMany<LeftType, RightType>& other) noexcept
+    void insert(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        for (auto pair : pairs)
         {
             insert(pair);
         }
@@ -581,11 +636,11 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
-     @param other The OneToMany to add.
+     @param pairs The pairs to add.
      */
-    void insert(const ManyToMany<LeftType, RightType>& other) noexcept
+    void insert(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        for (auto pair : pairs)
         {
             insert(pair);
         }
@@ -982,11 +1037,11 @@ public:
     /**
      @brief Insert multiple  pairs into the set.
      The rule for one-to-one is that if the left value or the right value are part of existing pairs in the set, those relations will be erased.
-     @param other The OneToMany to add.
+     @param pairs The pairs to add.
      */
-    void insert(const OneToOne<LeftType, RightType> &other) noexcept
+    void insert(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        for (auto pair : pairs)
         {
             insert(pair);
         }

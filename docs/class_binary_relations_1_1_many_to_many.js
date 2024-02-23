@@ -23,6 +23,6 @@ var class_binary_relations_1_1_many_to_many =
     [ "findLeft", "class_binary_relations_1_1_many_to_many.html#a9e27dbf3db504a8ce50085ef40eaf888", null ],
     [ "findRight", "class_binary_relations_1_1_many_to_many.html#ab0cf77e20a26c091cab6980838b42cd5", null ],
     [ "insert", "class_binary_relations_1_1_many_to_many.html#a744635acd0b395ddfaefe9b6a77ed508", null ],
-    [ "insert", "class_binary_relations_1_1_many_to_many.html#a7e389d2f53dc030da30787aedab6681d", null ],
-    [ "insert", "class_binary_relations_1_1_many_to_many.html#a2058bb23609a3fb109769b7c312b71d1", null ]
+    [ "insert", "class_binary_relations_1_1_many_to_many.html#a2058bb23609a3fb109769b7c312b71d1", null ],
+    [ "insert", "class_binary_relations_1_1_many_to_many.html#afd42a31dfd9b156d314baa01c3586784", null ]
 ];

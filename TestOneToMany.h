@@ -96,11 +96,11 @@ UTEST(TestOneToMany, Merge)
     otm.insert(2, "cherry");
     otm.insert(3, "date");
 
-    OneToMany<int, std::string> otm2;
-    otm2.insert(3, "elderberry");
-    otm2.insert(4, "fig");
+    std::vector<OneToMany<int, std::string>::Pair> vec;
+    vec.push_back(OneToMany<int, std::string>::Pair(3, "elderberry"));
+    vec.push_back(OneToMany<int, std::string>::Pair(4, "fig"));
     
-    otm.insert(otm2);
+    otm.insert(vec);
 
     ASSERT_EQ(otm.count(), 6);
     ASSERT_TRUE(otm.contains(1, "apple"));

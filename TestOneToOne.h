@@ -81,11 +81,11 @@ UTEST(TestOneToOne, Merge)
     oto.insert(3, "cherry");
     oto.insert(4, "date");
 
-    OneToOne<int, std::string> oto2;
-    oto2.insert(4, "elderberry");
-    oto2.insert(5, "fig");
-    
-    oto.insert(oto2);
+    std::vector<OneToOne<int, std::string>::Pair> vec;
+    vec.push_back(OneToOne<int, std::string>::Pair(4, "elderberry"));
+    vec.push_back(OneToOne<int, std::string>::Pair(5, "fig"));
+
+    oto.insert(vec);
 
     ASSERT_EQ(oto.count(), 5);
     ASSERT_TRUE(oto.contains(1, "apple"));

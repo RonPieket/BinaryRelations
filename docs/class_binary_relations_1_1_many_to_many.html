@@ -122,9 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a744635acd0b395ddfaefe9b6a77ed508" id="r_a744635acd0b395ddfaefe9b6a77ed508"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a744635acd0b395ddfaefe9b6a77ed508">insert</a> (const LeftType &amp;left, const RightType &amp;right) noexcept</td></tr>
 <tr class="memdesc:a744635acd0b395ddfaefe9b6a77ed508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a pair into the set.  <br /></td></tr>
 <tr class="separator:a744635acd0b395ddfaefe9b6a77ed508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e389d2f53dc030da30787aedab6681d" id="r_a7e389d2f53dc030da30787aedab6681d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e389d2f53dc030da30787aedab6681d">insert</a> (const <a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
-<tr class="memdesc:a7e389d2f53dc030da30787aedab6681d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set.  <br /></td></tr>
-<tr class="separator:a7e389d2f53dc030da30787aedab6681d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd42a31dfd9b156d314baa01c3586784" id="r_afd42a31dfd9b156d314baa01c3586784"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd42a31dfd9b156d314baa01c3586784">insert</a> (const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a> &gt; &amp;pairs) noexcept</td></tr>
+<tr class="memdesc:afd42a31dfd9b156d314baa01c3586784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert multiple pairs into the set.  <br /></td></tr>
+<tr class="separator:afd42a31dfd9b156d314baa01c3586784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89f52dc27db12409cf92a45332be05c1" id="r_a89f52dc27db12409cf92a45332be05c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89f52dc27db12409cf92a45332be05c1">erase</a> (const <a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a> &amp;pair) noexcept</td></tr>
 <tr class="memdesc:a89f52dc27db12409cf92a45332be05c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase a pair from the set. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
 <tr class="separator:a89f52dc27db12409cf92a45332be05c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -940,45 +940,8 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 
 </div>
 </div>
-<a id="a7e389d2f53dc030da30787aedab6681d" name="a7e389d2f53dc030da30787aedab6681d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e389d2f53dc030da30787aedab6681d">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; LeftType, RightType &gt;::insert </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Insert multiple pairs into the set. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="class_binary_relations_1_1_one_to_many.html">OneToMany</a> to add. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00641">641</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
 <a id="a2058bb23609a3fb109769b7c312b71d1" name="a2058bb23609a3fb109769b7c312b71d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2058bb23609a3fb109769b7c312b71d1">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2058bb23609a3fb109769b7c312b71d1">&#9670;&#160;</a></span>insert() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1011,6 +974,43 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00599">599</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="afd42a31dfd9b156d314baa01c3586784" name="afd42a31dfd9b156d314baa01c3586784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd42a31dfd9b156d314baa01c3586784">&#9670;&#160;</a></span>insert() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; LeftType, RightType &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pairs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert multiple pairs into the set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pairs</td><td>The pairs to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00641">641</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
