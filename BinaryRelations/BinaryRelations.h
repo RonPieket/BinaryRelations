@@ -276,7 +276,8 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
-     The rule for one-to-many is that if the right value is part of an existing pair in the set, that relation will be erased.
+     This is faster than inserting the pairs one by one.
+     The rule for one-to-many is that if the right value is part of an existing pair in the set, that pair will be erased.
      @param pairs The pairs to add.
      */
     void insert(const std::vector<Pair> &pairs) noexcept
@@ -449,14 +450,57 @@ public:
     }
 
     /**
-     @brief Erase multiple pairs from the set.
-     @param other The set of pairs to erase.
+     @brief Erase multiple  pairs from the set.
+     This is faster than erasing the pairs one by one.
+     @param pairs The pairs to erase.
      */
-    void erase(const OneToMany<LeftType, RightType> &other) noexcept
+    void erase(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        if(0 == pairs.size())
+            return;
+
+        auto cmp = [](const Pair &a, const Pair &b)
         {
-            erase(pair);
+            if(a.left < b.left) return true;
+            if(b.left < a.left) return false;
+            return a.right < b.right;
+        };
+
+        std::vector<Pair> pairs_to_erase = pairs;  // Deep copy...
+        std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp); // ...so I can sort them
+
+        std::vector<RightType> right_to_erase;
+        auto end_it = pairs_to_erase.cend();
+        for (auto it = pairs_to_erase.cbegin(); it != end_it; )
+        {
+            auto r2l_it = m_RightToLeft.find(it->right);
+            if (r2l_it != m_RightToLeft.end())
+            {
+                m_RightToLeft.erase(r2l_it);
+            }
+
+            // Collect all right values that have the same left value
+            right_to_erase.clear();
+            auto left = it->left;
+            while(it != end_it && it->left == left)
+            {
+                right_to_erase.push_back(it->right);
+                it++;
+            }
+
+            // Erase them in one go
+            auto l2r_it = m_LeftToRight.find(left);
+            if (l2r_it != m_LeftToRight.end())
+            {
+                auto l2r_vec = l2r_it->second;
+                eraseFromSortedVector(l2r_vec, &right_to_erase, l2r_vec);
+                
+                if(0 == l2r_vec->size())
+                {
+                    m_LeftToRight.erase(l2r_it);
+                    delete l2r_vec;
+                }
+            }
         }
     }
 

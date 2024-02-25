@@ -277,16 +277,16 @@ Performance measurements in Xcode on an iMac M1, release build.
 ### Worst case insert
 
 The “worst case” is inserting random numbers on the right with the same left
-value. Results in milliseconds.
+value. one-to-many uses the optimized bulk insert. Results in milliseconds.
 
 |           | one-to-one | one-to-many | many-to-many |
 |-----------|------------|-------------|--------------|
-| 10        | 0.002125   | 0.004208    | 0.004541     |
-| 100       | 0.01275    | 0.031625    | 0.032417     |
-| 1,000     | 0.123      | 0.259875    | 0.316083     |
-| 10,000    | 1.21842    | 5.8155      | 6.03812      |
-| 100,000   | 9.90271    | 204.167     | 197.585      |
-| 1,000,000 | 48.9268    | 19,656.3    | 19,787.9     |
+| 10        | 0.068333   | 0.152083    | 0.067542     |
+| 100       | 0.2425     | 0.209416    | 0.450292     |
+| 1,000     | 2.20312    | 1.26733     | 4.82071      |
+| 10,000    | 17.2593    | 8.92692     | 28.9023      |
+| 100,000   | 77.019     | 46.892      | 365.9        |
+| 1,000,000 | 739.4      | 662.998     | 21,592.2     |
 
 ### Best case insert
 
