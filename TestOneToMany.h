@@ -88,27 +88,54 @@ UTEST(TestOneToMany, FindRight)
     ASSERT_EQ(count, 3);
 }
 
-UTEST(TestOneToMany, Merge)
+UTEST(TestOneToMany, BulkInsert)
 {
     OneToMany<int, std::string> otm;
     otm.insert(1, "apple");
-    otm.insert(1, "banana");
-    otm.insert(2, "cherry");
-    otm.insert(3, "date");
-
+    otm.insert(1, "apricot");
+    otm.insert(1, "avocado");
+    
+    otm.insert(2, "banana");
+    otm.insert(2, "blueberry");
+    otm.insert(2, "blackberry");
+    
+    otm.insert(3, "cherry");
+    otm.insert(3, "coconut");
+    otm.insert(3, "clementine");
+    
     std::vector<OneToMany<int, std::string>::Pair> vec;
-    vec.push_back(OneToMany<int, std::string>::Pair(3, "elderberry"));
-    vec.push_back(OneToMany<int, std::string>::Pair(4, "fig"));
+    // Add to existing left value
+    vec.push_back(OneToMany<int, std::string>::Pair(3, "crabapple"));
+    vec.push_back(OneToMany<int, std::string>::Pair(3, "cashew"));
+    // Completely new left right pairs
+    vec.push_back(OneToMany<int, std::string>::Pair(10, "date"));
+    vec.push_back(OneToMany<int, std::string>::Pair(10, "dewberry"));
+    // Existing right values, steal them
+    vec.push_back(OneToMany<int, std::string>::Pair(10, "apricot"));
+    vec.push_back(OneToMany<int, std::string>::Pair(10, "banana"));
+    vec.push_back(OneToMany<int, std::string>::Pair(20, "avocado"));
+    vec.push_back(OneToMany<int, std::string>::Pair(20, "apple"));
     
     otm.insert(vec);
+    
+    ASSERT_FALSE(otm.contains(1, "apple"));
+    ASSERT_FALSE(otm.contains(1, "apricot"));
+    ASSERT_FALSE(otm.contains(1, "avocado"));
+    ASSERT_FALSE(otm.contains(2, "banana"));
+    ASSERT_TRUE(otm.contains(2, "blueberry"));
+    ASSERT_TRUE(otm.contains(2, "blackberry"));
+    ASSERT_TRUE(otm.contains(3, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "coconut"));
+    ASSERT_TRUE(otm.contains(3, "clementine"));
 
-    ASSERT_EQ(otm.count(), 6);
-    ASSERT_TRUE(otm.contains(1, "apple"));
-    ASSERT_TRUE(otm.contains(1, "banana"));
-    ASSERT_TRUE(otm.contains(2, "cherry"));
-    ASSERT_TRUE(otm.contains(3, "date"));
-    ASSERT_TRUE(otm.contains(3, "elderberry"));
-    ASSERT_TRUE(otm.contains(4, "fig"));
+    ASSERT_TRUE(otm.contains(3, "crabapple"));
+    ASSERT_TRUE(otm.contains(3, "cashew"));
+    ASSERT_TRUE(otm.contains(10, "date"));
+    ASSERT_TRUE(otm.contains(10, "dewberry"));
+    ASSERT_TRUE(otm.contains(10, "apricot"));
+    ASSERT_TRUE(otm.contains(10, "banana"));
+    ASSERT_TRUE(otm.contains(20, "avocado"));
+    ASSERT_TRUE(otm.contains(20, "apple"));
 }
 
 UTEST(TestOneToMany, AllLeft)

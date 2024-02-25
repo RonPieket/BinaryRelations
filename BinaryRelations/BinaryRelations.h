@@ -77,58 +77,74 @@ template <typename T> int eraseFromSortedVector(std::vector<T> *vector, const T 
 }
 
 template <typename T>
-void insertIntoSortedVector(std::vector<T> *sourceVector, std::vector<T> *insertVector, std::vector<T> *outVector) noexcept
+void insertIntoSortedVector(const std::vector<T> *sourceVector, const std::vector<T> *insertVector, std::vector<T> *outVector) noexcept
 {
-    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
-    typename std::vector<T>::const_iterator insertIt = insertVector->cbegin();
-
+    typename std::vector<T>::const_iterator source_it = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator insert_it = insertVector->cbegin();
+    
     outVector->clear();
-    outVector->reserve(sourceVector->count() + insertVector->count());
-
-    while (sourceIt != sourceVector->cend() && insertIt != insertVector->cend())
+    outVector->reserve(sourceVector->size() + insertVector->size());
+    
+    while (source_it != sourceVector->cend() && insert_it != insertVector->cend())
     {
-        if (*sourceIt == *insertIt)
+        if (*source_it == *insert_it)
         {
-            outVector->append(*sourceIt++);
-            insertIt++;
+            outVector->push_back(*source_it++);
+            insert_it++;
         }
-        else if (*sourceIt < *insertIt)
-            outVector->append(*sourceIt++);
+        else if (*source_it < *insert_it)
+        {
+            outVector->push_back(*source_it++);
+        }
         else
-            outVector->append(*insertIt++);
+        {
+            outVector->push_back(*insert_it++);
+        }
     }
-
-    while (sourceIt != sourceVector->cend())
-        outVector->append(*sourceIt++);
-
-    while (insertIt != insertVector->cend())
-        outVector->append(*insertIt++);
+    
+    while (source_it != sourceVector->cend())
+    {
+        outVector->push_back(*source_it++);
+    }
+    
+    while (insert_it != insertVector->cend())
+    {
+        outVector->push_back(*insert_it++);
+    }
 }
 
 template <typename T>
-void eraseFromSortedVector(std::vector<T> *sourceVector, std::vector<T> *eraseVector, std::vector<T> *outVector) noexcept
+void eraseFromSortedVector(const std::vector<T> *sourceVector, const std::vector<T> *eraseVector, std::vector<T> *outVector) noexcept
 {
-    typename std::vector<T>::const_iterator sourceIt = sourceVector->cbegin();
-    typename std::vector<T>::const_iterator eraseIt = eraseVector->cbegin();
+    typename std::vector<T>::const_iterator source_it = sourceVector->cbegin();
+    typename std::vector<T>::const_iterator erase_it = eraseVector->cbegin();
+    typename std::vector<T>::const_iterator source_end = sourceVector->cend();
+    typename std::vector<T>::const_iterator erase_end = eraseVector->cend();
 
     outVector->clear();
-    outVector->reserve(std::max(sourceVector->count(), eraseVector->count()));
+    outVector->reserve(std::max(sourceVector->size(), eraseVector->size()));
 
-    while (sourceIt != sourceVector->cend() && eraseIt != eraseVector->cend())
+    while (source_it != source_end && erase_it != erase_end)
     {
-        if (*sourceIt == *eraseIt)
+        if (*source_it == *erase_it)
         {
-            sourceIt++;
-            eraseIt++;
+            source_it++;
+            erase_it++;
         }
-        else if (*sourceIt < *eraseIt)
-            outVector->append(*sourceIt++);
+        else if (*source_it < *erase_it)
+        {
+            outVector->push_back(*source_it++);
+        }
         else
-            outVector->append(*eraseIt++);
+        {
+            outVector->push_back(*erase_it++);
+        }
     }
 
-    while (sourceIt != sourceVector->cend())
-        outVector->append(*sourceIt++);
+    while (source_it != source_end)
+    {
+        outVector->push_back(*source_it++);
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -265,9 +281,95 @@ public:
      */
     void insert(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : pairs)
+        if(0 == pairs.size())
+            return;
+
+        auto cmp = [](const Pair &a, const Pair &b)
         {
-            insert(pair);
+            if(a.left < b.left) return true;
+            if(b.left < a.left) return false;
+            return a.right < b.right;
+        };
+
+        std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), cmp); // ...so I can sort them
+
+        // ------------------------
+        
+        std::vector<Pair> pairs_to_erase;
+        for (auto pair : pairs_to_insert)
+        {
+            auto r2l_it = m_RightToLeft.find(pair.right);
+            if (r2l_it != m_RightToLeft.end())
+            {
+                pairs_to_erase.push_back(Pair(r2l_it->second, r2l_it->first));
+                m_RightToLeft.erase(r2l_it);
+            }
+        }
+
+        if (0 != pairs_to_erase.size())
+        {
+            std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp);
+
+            std::vector<RightType> right_to_erase;
+            auto end_it = pairs_to_erase.cend();
+            for (auto it = pairs_to_erase.cbegin(); it != end_it; )
+            {
+                // Collect all right values that have the same left value
+                right_to_erase.clear();
+                auto left = it->left;
+                while(it != end_it && it->left == left)
+                {
+                    right_to_erase.push_back(it->right);
+                    it++;
+                }
+
+                // Erase them in one go
+                auto l2r_it = m_LeftToRight.find(left);
+                if (l2r_it != m_LeftToRight.end())
+                {
+                    auto l2r_vec = l2r_it->second;
+                    eraseFromSortedVector(l2r_vec, &right_to_erase, l2r_vec);
+                    
+                    if(0 == l2r_vec->size())
+                    {
+                        m_LeftToRight.erase(l2r_it);
+                        delete l2r_vec;
+                    }
+                }
+            }
+        }
+
+        // -----------------------
+
+        std::vector<RightType> right_to_insert;
+        auto it_end = pairs_to_insert.cend();
+        for (auto it = pairs_to_insert.cbegin(); it != it_end; )
+        {
+            // Collect all right values that have the same left value
+            right_to_insert.clear();
+            auto left = it->left;
+            while(it != it_end && it->left == left)
+            {
+                m_RightToLeft[it->right] = it->left;
+                right_to_insert.push_back(it->right);
+                it++;
+            }
+
+            // Insert them in one go
+            auto r2l_it = m_LeftToRight.find(left);
+            if (r2l_it != m_LeftToRight.end())
+            {
+                auto *v = r2l_it->second;
+                auto temp = *v;
+                insertIntoSortedVector(&temp, &right_to_insert, v);
+            }
+            else
+            {
+                // insert new value
+                auto l2r_vec = new std::vector<RightType>(right_to_insert);
+                m_LeftToRight[left] = l2r_vec;
+            }
         }
     }
 
