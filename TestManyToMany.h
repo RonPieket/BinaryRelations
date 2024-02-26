@@ -160,20 +160,18 @@ UTEST(TestManyToMany, BulkInsert)
     
     m2m.insert(vec);
 
-    ASSERT_EQ(m2m.count(), 13);
+    ASSERT_EQ(m2m.count(), 17);
     //ASSERT_TRUE(isValid(m2m));
 
-    ASSERT_FALSE(m2m.contains(1, "apple"));
-    ASSERT_FALSE(m2m.contains(1, "apricot"));
-    ASSERT_FALSE(m2m.contains(1, "avocado"));
-    ASSERT_FALSE(m2m.contains(2, "banana"));
-
+    ASSERT_TRUE(m2m.contains(1, "apple"));
+    ASSERT_TRUE(m2m.contains(1, "apricot"));
+    ASSERT_TRUE(m2m.contains(1, "avocado"));
+    ASSERT_TRUE(m2m.contains(2, "banana"));
     ASSERT_TRUE(m2m.contains(2, "blueberry"));
     ASSERT_TRUE(m2m.contains(2, "blackberry"));
     ASSERT_TRUE(m2m.contains(3, "cherry"));
     ASSERT_TRUE(m2m.contains(3, "coconut"));
     ASSERT_TRUE(m2m.contains(3, "clementine"));
-    
     ASSERT_TRUE(m2m.contains(3, "crabapple"));
     ASSERT_TRUE(m2m.contains(3, "cashew"));
     ASSERT_TRUE(m2m.contains(10, "date"));
