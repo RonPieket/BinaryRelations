@@ -265,9 +265,11 @@ time, or O(1). All operations on a `OneToOne` are also constant.
 Things get more complicated with `OneToMany` and `ManyToMany`. They maintain
 sorted arrays. Insertion and erasure of elements in an array involves shifting
 everything between the point of insertion/erasure and the end of the array. This
-is O(n). It sounds terrible, but in practice, at least in the context of our
-world editor, this has not been a problem. That’s probably because insert and
-erase operations are relatively infrequent when compared to lookups.
+is O(n).
+
+There is a new bulk insert/erase that will speed up insertions and erasures by
+bundling them up. (Optimized algorithm only implemented for `OneToMany`. To do
+`ManyToMany`)
 
 Performance
 -----------
@@ -277,7 +279,7 @@ Performance measurements in Xcode on an iMac M1, release build.
 ### Worst case insert
 
 The “worst case” is inserting random numbers on the right with the same left
-value. one-to-many uses the optimized bulk insert. Results in milliseconds.
+value. The one-to-many uses the optimized bulk insert. Results in milliseconds.
 
 |           | one-to-one | one-to-many | many-to-many |
 |-----------|------------|-------------|--------------|
