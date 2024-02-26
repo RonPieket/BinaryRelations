@@ -293,7 +293,7 @@ public:
         };
 
         std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
-        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), cmp); // ...so I can sort them
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), cmp); // ...so I can sort
 
         // ------------------------
         
@@ -467,24 +467,23 @@ public:
         };
 
         std::vector<Pair> pairs_to_erase = pairs;  // Deep copy...
-        std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp); // ...so I can sort them
+        std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp); // ...so I can sort
 
         std::vector<RightType> right_to_erase;
         auto end_it = pairs_to_erase.cend();
         for (auto it = pairs_to_erase.cbegin(); it != end_it; )
         {
-            auto r2l_it = m_RightToLeft.find(it->right);
-            if (r2l_it != m_RightToLeft.end())
-            {
-                m_RightToLeft.erase(r2l_it);
-            }
-
             // Collect all right values that have the same left value
             right_to_erase.clear();
             auto left = it->left;
             while(it != end_it && it->left == left)
             {
                 right_to_erase.push_back(it->right);
+                auto r2l_it = m_RightToLeft.find(it->right);
+                if (r2l_it != m_RightToLeft.end())
+                {
+                    m_RightToLeft.erase(r2l_it);
+                }
                 it++;
             }
 

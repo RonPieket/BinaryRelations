@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <unordered_set>
 #include "utest.h"
 #include "BinaryRelations/BinaryRelations.h"
 
@@ -88,6 +89,26 @@ UTEST(TestOneToMany, FindRight)
     ASSERT_EQ(count, 3);
 }
 
+template <typename LeftType, typename RightType>
+bool isValid(const OneToMany<LeftType, RightType>& otm)
+{
+    std::unordered_set<RightType> right_set;
+    right_set.insert(otm.allRight().begin(), otm.allRight().end());
+    
+    for (int left : otm.allLeft())
+    {
+        for (auto right : *otm.findRight(left))
+        {
+            auto right_it = right_set.find(right);
+            if (right_it == right_set.end())
+                return false;
+            right_set.erase(right_it);
+        }
+    }
+
+    return 0 == right_set.size();
+}
+
 UTEST(TestOneToMany, BulkInsert)
 {
     OneToMany<int, std::string> otm;
@@ -117,17 +138,21 @@ UTEST(TestOneToMany, BulkInsert)
     vec.push_back(OneToMany<int, std::string>::Pair(20, "apple"));
     
     otm.insert(vec);
-    
+
+    ASSERT_EQ(otm.count(), 13);
+    ASSERT_TRUE(isValid(otm));
+
     ASSERT_FALSE(otm.contains(1, "apple"));
     ASSERT_FALSE(otm.contains(1, "apricot"));
     ASSERT_FALSE(otm.contains(1, "avocado"));
     ASSERT_FALSE(otm.contains(2, "banana"));
+
     ASSERT_TRUE(otm.contains(2, "blueberry"));
     ASSERT_TRUE(otm.contains(2, "blackberry"));
     ASSERT_TRUE(otm.contains(3, "cherry"));
     ASSERT_TRUE(otm.contains(3, "coconut"));
     ASSERT_TRUE(otm.contains(3, "clementine"));
-
+    
     ASSERT_TRUE(otm.contains(3, "crabapple"));
     ASSERT_TRUE(otm.contains(3, "cashew"));
     ASSERT_TRUE(otm.contains(10, "date"));
@@ -136,6 +161,49 @@ UTEST(TestOneToMany, BulkInsert)
     ASSERT_TRUE(otm.contains(10, "banana"));
     ASSERT_TRUE(otm.contains(20, "avocado"));
     ASSERT_TRUE(otm.contains(20, "apple"));
+}
+
+UTEST(TestOneToMany, BulkErase)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "apricot");
+    otm.insert(1, "avocado");
+    
+    otm.insert(2, "banana");
+    otm.insert(2, "blueberry");
+    otm.insert(2, "blackberry");
+    
+    otm.insert(3, "cherry");
+    otm.insert(3, "coconut");
+    otm.insert(3, "clementine");
+    
+    std::vector<OneToMany<int, std::string>::Pair> vec;
+    // Erase all of left=1
+    vec.push_back(OneToMany<int, std::string>::Pair(1, "apple"));
+    vec.push_back(OneToMany<int, std::string>::Pair(1, "apricot"));
+    vec.push_back(OneToMany<int, std::string>::Pair(1, "avocado"));
+    // Erase some of left=2
+    vec.push_back(OneToMany<int, std::string>::Pair(2, "banana"));
+    vec.push_back(OneToMany<int, std::string>::Pair(2, "blueberry"));
+    // This pair is not in the set
+    vec.push_back(OneToMany<int, std::string>::Pair(1000, "zucchini"));
+
+    otm.erase(vec);
+
+    ASSERT_EQ(otm.count(), 4);
+    ASSERT_TRUE(isValid(otm));
+
+    ASSERT_FALSE(otm.contains(1, "apple"));
+    ASSERT_FALSE(otm.contains(1, "apricot"));
+    ASSERT_FALSE(otm.contains(1, "avocado"));
+    ASSERT_FALSE(otm.contains(2, "banana"));
+    ASSERT_FALSE(otm.contains(2, "blueberry"));
+
+    ASSERT_TRUE(otm.contains(2, "blackberry"));
+    ASSERT_TRUE(otm.contains(3, "cherry"));
+    ASSERT_TRUE(otm.contains(3, "coconut"));
+    ASSERT_TRUE(otm.contains(3, "clementine"));
 }
 
 UTEST(TestOneToMany, AllLeft)
