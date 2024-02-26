@@ -252,13 +252,14 @@ Naming of template specializations</h1>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time, or O(1). All operations on a <code>OneToOne</code> are also constant.</p>
-<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and erasure of elements in an array involves shifting everything between the point of insertion/erasure and the end of the array. This is O(n). It sounds terrible, but in practice, at least in the context of our world editor, this has not been a problem. That’s probably because insert and erase operations are relatively infrequent when compared to lookups.</p>
+<p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and erasure of elements in an array involves shifting everything between the point of insertion/erasure and the end of the array. This is O(n).</p>
+<p>There is a new bulk insert/erase that will speed up insertions and erasures by bundling them up. (Optimized algorithm only implemented for <code>OneToMany</code>. To do <code>ManyToMany</code>)</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Performance</h1>
 <p>Performance measurements in Xcode on an iMac M1, release build.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 Worst case insert</h2>
-<p>The “worst case” is inserting random numbers on the right with the same left value. one-to-many uses the optimized bulk insert. Results in milliseconds.</p>
+<p>The “worst case” is inserting random numbers on the right with the same left value. The one-to-many uses the optimized bulk insert. Results in milliseconds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">one-to-one   </th><th class="markdownTableHeadNone">one-to-many   </th><th class="markdownTableHeadNone">many-to-many    </th></tr>
@@ -316,8 +317,6 @@ Lookup</h2>
 <h2><a class="anchor" id="autotoc_md14"></a>
 Thoughts on performance</h2>
 <p><code>std::unordered_map</code> is not the fastest hash map. I’m aware of faster ones, but all those I have found have a license that is more restrictive than the MIT license.</p>
-<p>The array insert and erase operations, which require shifting half the array on average, are definitely a performance liability. This can be optimized, at the cost complexity.</p>
-<p>Performance of this tech has not been an issue in our tools, but there is plenty of room for improvement.</p>
 <h1><a class="anchor" id="autotoc_md15"></a>
 How it works</h1>
 <p>This section is for those who want to venture into the code.</p>
