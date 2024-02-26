@@ -137,9 +137,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7686e13e0e4be81439bff464c5e793a1" id="r_a7686e13e0e4be81439bff464c5e793a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7686e13e0e4be81439bff464c5e793a1">eraseRight</a> (const RightType &amp;right) noexcept</td></tr>
 <tr class="memdesc:a7686e13e0e4be81439bff464c5e793a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase the pair with the given right value. If there is no matching pair in the set, nothing happens.  <br /></td></tr>
 <tr class="separator:a7686e13e0e4be81439bff464c5e793a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ecec9154d191d992b0590a720a98cb" id="r_a08ecec9154d191d992b0590a720a98cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08ecec9154d191d992b0590a720a98cb">erase</a> (const <a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a>&lt; LeftType, RightType &gt; &amp;other) noexcept</td></tr>
-<tr class="memdesc:a08ecec9154d191d992b0590a720a98cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase multiple pairs from the set.  <br /></td></tr>
-<tr class="separator:a08ecec9154d191d992b0590a720a98cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b025306292f944299845b296e296c8c" id="r_a6b025306292f944299845b296e296c8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b025306292f944299845b296e296c8c">erase</a> (const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a> &gt; &amp;pairs) noexcept</td></tr>
+<tr class="memdesc:a6b025306292f944299845b296e296c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase multiple pairs from the set. This is faster than erasing the pairs one by one.  <br /></td></tr>
+<tr class="separator:a6b025306292f944299845b296e296c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8a5d3252ae26eecc3d6ce44484dea81" id="r_ac8a5d3252ae26eecc3d6ce44484dea81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8a5d3252ae26eecc3d6ce44484dea81">clear</a> () noexcept</td></tr>
 <tr class="memdesc:ac8a5d3252ae26eecc3d6ce44484dea81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase all pairs from the set.  <br /></td></tr>
 <tr class="separator:ac8a5d3252ae26eecc3d6ce44484dea81"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,7 +252,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>List all left elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>A helper object to iterate over left elements using range-based-for. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01119">1119</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01190">1190</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -284,7 +284,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>List all right elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>A helper object to iterate over right elements using range-based-for. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01128">1128</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01199">1199</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -316,7 +316,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>Required member to get range-based-for. </p>
 <dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_many_to_many_1_1_iterator.html" title="A range-based-for compatible iterator.">Iterator</a> set to the first pair in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01181">1181</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01252">1252</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +347,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 
 <p>Erase all pairs from the set. </p>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00995">995</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01066">1066</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -389,7 +389,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01015">1015</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01086">1086</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -426,7 +426,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01005">1005</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01076">1076</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -463,7 +463,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01042">1042</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01113">1113</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -500,7 +500,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01051">1051</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01122">1122</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +532,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>Count the number of pairs in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of pairs in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01110">1110</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01181">1181</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -564,7 +564,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>Count the number of left values in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of left values in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01092">1092</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01163">1163</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -596,7 +596,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>Count the number of right values in the set. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of right values in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01101">1101</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01172">1172</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -628,7 +628,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 <p>Required member to get range-based-for. </p>
 <dl class="section return"><dt>Returns</dt><dd>an <a class="el" href="class_binary_relations_1_1_many_to_many_1_1_iterator.html" title="A range-based-for compatible iterator.">Iterator</a> set to one after the last pair in the set. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01198">1198</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01269">1269</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -674,45 +674,8 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 
 </div>
 </div>
-<a id="a08ecec9154d191d992b0590a720a98cb" name="a08ecec9154d191d992b0590a720a98cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ecec9154d191d992b0590a720a98cb">&#9670;&#160;</a></span>erase() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename LeftType , typename RightType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; LeftType, RightType &gt;::erase </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_binary_relations_1_1_many_to_many.html">ManyToMany</a>&lt; LeftType, RightType &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Erase multiple pairs from the set. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The set of pairs to erase. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00984">984</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
-
-</div>
-</div>
 <a id="a89f52dc27db12409cf92a45332be05c1" name="a89f52dc27db12409cf92a45332be05c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89f52dc27db12409cf92a45332be05c1">&#9670;&#160;</a></span>erase() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f52dc27db12409cf92a45332be05c1">&#9670;&#160;</a></span>erase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,6 +708,43 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00882">882</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+
+</div>
+</div>
+<a id="a6b025306292f944299845b296e296c8c" name="a6b025306292f944299845b296e296c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b025306292f944299845b296e296c8c">&#9670;&#160;</a></span>erase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LeftType , typename RightType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_binary_relations_1_1_many_to_many.html">BinaryRelations::ManyToMany</a>&lt; LeftType, RightType &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">Pair</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pairs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase multiple pairs from the set. This is faster than erasing the pairs one by one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pairs</td><td>The pairs to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l00985">985</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -856,7 +856,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The vector of left values. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01079">1079</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01150">1150</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
@@ -894,7 +894,7 @@ template&lt;typename LeftType , typename RightType &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The vector of right values. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01063">1063</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_binary_relations_8h_source.html#l01134">1134</a> of file <a class="el" href="_binary_relations_8h_source.html">BinaryRelations.h</a>.</p>
 
 </div>
 </div>
