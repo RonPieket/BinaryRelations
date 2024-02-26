@@ -258,22 +258,22 @@ Performance</h1>
 <p>Performance measurements in Xcode on an iMac M1, release build.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 Worst case insert</h2>
-<p>The “worst case” is inserting random numbers on the right with the same left value. Results in milliseconds.</p>
+<p>The “worst case” is inserting random numbers on the right with the same left value. one-to-many uses the optimized bulk insert. Results in milliseconds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">one-to-one   </th><th class="markdownTableHeadNone">one-to-many   </th><th class="markdownTableHeadNone">many-to-many    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">0.002125   </td><td class="markdownTableBodyNone">0.004208   </td><td class="markdownTableBodyNone">0.004541    </td></tr>
+<td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">0.068333   </td><td class="markdownTableBodyNone">0.152083   </td><td class="markdownTableBodyNone">0.067542    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">100   </td><td class="markdownTableBodyNone">0.01275   </td><td class="markdownTableBodyNone">0.031625   </td><td class="markdownTableBodyNone">0.032417    </td></tr>
+<td class="markdownTableBodyNone">100   </td><td class="markdownTableBodyNone">0.2425   </td><td class="markdownTableBodyNone">0.209416   </td><td class="markdownTableBodyNone">0.450292    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1,000   </td><td class="markdownTableBodyNone">0.123   </td><td class="markdownTableBodyNone">0.259875   </td><td class="markdownTableBodyNone">0.316083    </td></tr>
+<td class="markdownTableBodyNone">1,000   </td><td class="markdownTableBodyNone">2.20312   </td><td class="markdownTableBodyNone">1.26733   </td><td class="markdownTableBodyNone">4.82071    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">10,000   </td><td class="markdownTableBodyNone">1.21842   </td><td class="markdownTableBodyNone">5.8155   </td><td class="markdownTableBodyNone">6.03812    </td></tr>
+<td class="markdownTableBodyNone">10,000   </td><td class="markdownTableBodyNone">17.2593   </td><td class="markdownTableBodyNone">8.92692   </td><td class="markdownTableBodyNone">28.9023    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">100,000   </td><td class="markdownTableBodyNone">9.90271   </td><td class="markdownTableBodyNone">204.167   </td><td class="markdownTableBodyNone">197.585    </td></tr>
+<td class="markdownTableBodyNone">100,000   </td><td class="markdownTableBodyNone">77.019   </td><td class="markdownTableBodyNone">46.892   </td><td class="markdownTableBodyNone">365.9    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">48.9268   </td><td class="markdownTableBodyNone">19,656.3   </td><td class="markdownTableBodyNone">19,787.9   </td></tr>
+<td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">739.4   </td><td class="markdownTableBodyNone">662.998   </td><td class="markdownTableBodyNone">21,592.2   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Best case insert</h2>
