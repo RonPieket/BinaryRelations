@@ -146,13 +146,10 @@ UTEST(TestManyToMany, BulkInsert)
     m2m.insert(3, "clementine");
     
     std::vector<ManyToMany<int, std::string>::Pair> vec;
-    // Add to existing left value
     vec.push_back(ManyToMany<int, std::string>::Pair(3, "crabapple"));
     vec.push_back(ManyToMany<int, std::string>::Pair(3, "cashew"));
-    // Completely new left right pairs
     vec.push_back(ManyToMany<int, std::string>::Pair(10, "date"));
     vec.push_back(ManyToMany<int, std::string>::Pair(10, "dewberry"));
-    // Existing right values, steal them
     vec.push_back(ManyToMany<int, std::string>::Pair(10, "apricot"));
     vec.push_back(ManyToMany<int, std::string>::Pair(10, "banana"));
     vec.push_back(ManyToMany<int, std::string>::Pair(20, "avocado"));
@@ -182,46 +179,46 @@ UTEST(TestManyToMany, BulkInsert)
     ASSERT_TRUE(m2m.contains(20, "apple"));
 }
 
-//UTEST(TestManyToMany, BulkErase)
-//{
-//    ManyToMany<int, std::string> mtm;
-//    mtm.insert(1, "apple");
-//    mtm.insert(1, "apricot");
-//    mtm.insert(1, "avocado");
-//    
-//    mtm.insert(2, "banana");
-//    mtm.insert(2, "blueberry");
-//    mtm.insert(2, "blackberry");
-//    
-//    mtm.insert(3, "cherry");
-//    mtm.insert(3, "coconut");
-//    mtm.insert(3, "clementine");
-//    
-//    std::vector<ManyToMany<int, std::string>::Pair> vec;
-//    // Erase all of left=1
-//    vec.push_back(ManyToMany<int, std::string>::Pair(1, "apple"));
-//    vec.push_back(ManyToMany<int, std::string>::Pair(1, "apricot"));
-//    vec.push_back(ManyToMany<int, std::string>::Pair(1, "avocado"));
-//    // Erase some of left=2
-//    vec.push_back(ManyToMany<int, std::string>::Pair(2, "banana"));
-//    vec.push_back(ManyToMany<int, std::string>::Pair(2, "blueberry"));
-//    // This pair is not in the set
-//    vec.push_back(ManyToMany<int, std::string>::Pair(1000, "zucchini"));
-//
-//    mtm.erase(vec);
-//
-//    ASSERT_EQ(mtm.count(), 4);
-//    //ASSERT_TRUE(isValid(mtm));
-//
-//    ASSERT_FALSE(mtm.contains(1, "apple"));
-//    ASSERT_FALSE(mtm.contains(1, "apricot"));
-//    ASSERT_FALSE(mtm.contains(1, "avocado"));
-//    ASSERT_FALSE(mtm.contains(2, "banana"));
-//    ASSERT_FALSE(mtm.contains(2, "blueberry"));
-//
-//    ASSERT_TRUE(mtm.contains(2, "blackberry"));
-//    ASSERT_TRUE(mtm.contains(3, "cherry"));
-//    ASSERT_TRUE(mtm.contains(3, "coconut"));
-//    ASSERT_TRUE(mtm.contains(3, "clementine"));
-//}
+UTEST(TestManyToMany, BulkErase)
+{
+    ManyToMany<int, std::string> mtm;
+    mtm.insert(1, "apple");
+    mtm.insert(1, "apricot");
+    mtm.insert(1, "avocado");
+    
+    mtm.insert(2, "banana");
+    mtm.insert(2, "blueberry");
+    mtm.insert(2, "blackberry");
+    
+    mtm.insert(3, "cherry");
+    mtm.insert(3, "coconut");
+    mtm.insert(3, "clementine");
+    
+    std::vector<ManyToMany<int, std::string>::Pair> vec;
+    // Erase all of left=1
+    vec.push_back(ManyToMany<int, std::string>::Pair(1, "apple"));
+    vec.push_back(ManyToMany<int, std::string>::Pair(1, "apricot"));
+    vec.push_back(ManyToMany<int, std::string>::Pair(1, "avocado"));
+    // Erase some of left=2
+    vec.push_back(ManyToMany<int, std::string>::Pair(2, "banana"));
+    vec.push_back(ManyToMany<int, std::string>::Pair(2, "blueberry"));
+    // This pair is not in the set
+    vec.push_back(ManyToMany<int, std::string>::Pair(1000, "zucchini"));
+
+    mtm.erase(vec);
+
+    ASSERT_EQ(mtm.count(), 4);
+    //ASSERT_TRUE(isValid(mtm));
+
+    ASSERT_FALSE(mtm.contains(1, "apple"));
+    ASSERT_FALSE(mtm.contains(1, "apricot"));
+    ASSERT_FALSE(mtm.contains(1, "avocado"));
+    ASSERT_FALSE(mtm.contains(2, "banana"));
+    ASSERT_FALSE(mtm.contains(2, "blueberry"));
+
+    ASSERT_TRUE(mtm.contains(2, "blackberry"));
+    ASSERT_TRUE(mtm.contains(3, "cherry"));
+    ASSERT_TRUE(mtm.contains(3, "coconut"));
+    ASSERT_TRUE(mtm.contains(3, "clementine"));
+}
 

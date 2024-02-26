@@ -978,14 +978,85 @@ public:
     }
 
     /**
-     @brief Erase multiple pairs from the set.
-     @param other The set of pairs to erase.
+     @brief Erase multiple  pairs from the set.
+     This is faster than erasing the pairs one by one.
+     @param pairs The pairs to erase.
      */
-    void erase(const ManyToMany<LeftType, RightType>& other) noexcept
+    void erase(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        if(0 == pairs.size())
+            return;
+
+        auto compare_left_then_right = [](const Pair &a, const Pair &b)
         {
-            erase(pair);
+            if(a.left < b.left) return true;
+            if(b.left < a.left) return false;
+            return a.right < b.right;
+        };
+
+        auto compare_right_then_left = [](const Pair &a, const Pair &b)
+        {
+            if(a.right < b.right) return true;
+            if(b.right < a.right) return false;
+            return a.left < b.left;
+        };
+
+        std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
+
+        // ------------------------
+
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
+
+        std::vector<RightType> right_to_insert;
+        auto it_end = pairs_to_insert.cend();
+        for (auto it = pairs_to_insert.cbegin(); it != it_end; )
+        {
+            // Collect all right values that have the same left value
+            right_to_insert.clear();
+            auto left = it->left;
+            while(it != it_end && it->left == left)
+            {
+                right_to_insert.push_back(it->right);
+                it++;
+            }
+
+            // Erase them in one go
+            auto l2r_it = m_LeftToRight.find(left);
+            if (l2r_it != m_LeftToRight.end())
+            {
+                auto l2r_vec = l2r_it->second;
+                auto temp = *l2r_vec;
+                m_Count -= l2r_vec->size();
+                eraseFromSortedVector(&temp, &right_to_insert, l2r_vec);
+                m_Count += l2r_vec->size();
+            }
+        }
+
+        // ------------------------
+
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_right_then_left);
+
+        std::vector<LeftType> left_to_insert;
+        it_end = pairs_to_insert.cend();
+        for (auto it = pairs_to_insert.cbegin(); it != it_end; )
+        {
+            // Collect all right values that have the same left value
+            left_to_insert.clear();
+            auto right = it->right;
+            while(it != it_end && it->right == right)
+            {
+                left_to_insert.push_back(it->left);
+                it++;
+            }
+
+            // Erase them in one go
+            auto r2l_it = m_RightToLeft.find(right);
+            if (r2l_it != m_RightToLeft.end())
+            {
+                auto r2l_vec = r2l_it->second;
+                auto temp = *r2l_vec;
+                eraseFromSortedVector(&temp, &left_to_insert, r2l_vec);
+            }
         }
     }
 
@@ -1338,12 +1409,13 @@ public:
     }
 
     /**
-     @brief Erase multiple pairs from the set.
-     @param other The set of pairs to erase.
+     @brief Erase multiple  pairs from the set.
+     This is equivalent to erasing the pairs one by one.
+     @param pairs The pairs to erase.
      */
-    void erase(const OneToOne<LeftType, RightType> &other) noexcept
+    void erase(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : other)
+        for (auto pair : pairs)
         {
             erase( pair);
         }
