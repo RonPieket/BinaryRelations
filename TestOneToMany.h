@@ -109,6 +109,44 @@ bool isValid(const OneToMany<LeftType, RightType>& otm)
     return 0 == right_set.size();
 }
 
+UTEST(TestOneToMany, AllLeft)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(1, "cherry");
+    otm.insert(2, "date");
+    otm.insert(3, "elderberry");
+
+    int count = 0;
+    for (auto p : otm.allLeft())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 3);
+}
+
+UTEST(TestOneToMany, AllRight)
+{
+    OneToMany<int, std::string> otm;
+    otm.insert(1, "apple");
+    otm.insert(1, "banana");
+    otm.insert(1, "cherry");
+    otm.insert(2, "date");
+    otm.insert(3, "elderberry");
+
+    int count = 0;
+    for (auto p : otm.allRight())
+    {
+        (void)p; // Shut up compiler
+        count += 1;
+    }
+
+    ASSERT_EQ(count, 5);
+}
+
 UTEST(TestOneToMany, BulkInsert)
 {
     OneToMany<int, std::string> otm;
@@ -206,40 +244,3 @@ UTEST(TestOneToMany, BulkErase)
     ASSERT_TRUE(otm.contains(3, "clementine"));
 }
 
-UTEST(TestOneToMany, AllLeft)
-{
-    OneToMany<int, std::string> otm;
-    otm.insert(1, "apple");
-    otm.insert(1, "banana");
-    otm.insert(1, "cherry");
-    otm.insert(2, "date");
-    otm.insert(3, "elderberry");
-
-    int count = 0;
-    for (auto p : otm.allLeft())
-    {
-        (void)p; // Shut up compiler
-        count += 1;
-    }
-
-    ASSERT_EQ(count, 3);
-}
-
-UTEST(TestOneToMany, AllRight)
-{
-    OneToMany<int, std::string> otm;
-    otm.insert(1, "apple");
-    otm.insert(1, "banana");
-    otm.insert(1, "cherry");
-    otm.insert(2, "date");
-    otm.insert(3, "elderberry");
-
-    int count = 0;
-    for (auto p : otm.allRight())
-    {
-        (void)p; // Shut up compiler
-        count += 1;
-    }
-
-    ASSERT_EQ(count, 5);
-}

@@ -285,7 +285,7 @@ public:
         if(0 == pairs.size())
             return;
 
-        auto cmp = [](const Pair &a, const Pair &b)
+        auto compare_left_then_right = [](const Pair &a, const Pair &b)
         {
             if(a.left < b.left) return true;
             if(b.left < a.left) return false;
@@ -293,7 +293,7 @@ public:
         };
 
         std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
-        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), cmp); // ...so I can sort
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
 
         // ------------------------
         
@@ -310,7 +310,7 @@ public:
 
         if (0 != pairs_to_erase.size())
         {
-            std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp);
+            std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), compare_left_then_right);
 
             std::vector<RightType> right_to_erase;
             auto end_it = pairs_to_erase.cend();
@@ -358,12 +358,12 @@ public:
             }
 
             // Insert them in one go
-            auto r2l_it = m_LeftToRight.find(left);
-            if (r2l_it != m_LeftToRight.end())
+            auto l2r_it = m_LeftToRight.find(left);
+            if (l2r_it != m_LeftToRight.end())
             {
-                auto *v = r2l_it->second;
-                auto temp = *v;
-                insertIntoSortedVector(&temp, &right_to_insert, v);
+                auto l2r_vec = l2r_it->second;
+                auto temp = *l2r_vec;   // Deep copy
+                insertIntoSortedVector(&temp, &right_to_insert, l2r_vec);
             }
             else
             {
@@ -459,7 +459,7 @@ public:
         if(0 == pairs.size())
             return;
 
-        auto cmp = [](const Pair &a, const Pair &b)
+        auto compare_left_then_right = [](const Pair &a, const Pair &b)
         {
             if(a.left < b.left) return true;
             if(b.left < a.left) return false;
@@ -467,7 +467,7 @@ public:
         };
 
         std::vector<Pair> pairs_to_erase = pairs;  // Deep copy...
-        std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), cmp); // ...so I can sort
+        std::sort(pairs_to_erase.begin(), pairs_to_erase.end(), compare_left_then_right); // ...so I can sort
 
         std::vector<RightType> right_to_erase;
         auto end_it = pairs_to_erase.cend();
@@ -785,9 +785,92 @@ public:
      */
     void insert(const std::vector<Pair> &pairs) noexcept
     {
-        for (auto pair : pairs)
+        if(0 == pairs.size())
+            return;
+
+        auto compare_left_then_right = [](const Pair &a, const Pair &b)
         {
-            insert(pair);
+            if(a.left < b.left) return true;
+            if(b.left < a.left) return false;
+            return a.right < b.right;
+        };
+
+        auto compare_right_then_left = [](const Pair &a, const Pair &b)
+        {
+            if(a.right < b.right) return true;
+            if(b.right < a.right) return false;
+            return a.left < b.left;
+        };
+
+        std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
+
+        // ------------------------
+
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
+
+        std::vector<RightType> right_to_insert;
+        auto it_end = pairs_to_insert.cend();
+        for (auto it = pairs_to_insert.cbegin(); it != it_end; )
+        {
+            // Collect all right values that have the same left value
+            right_to_insert.clear();
+            auto left = it->left;
+            while(it != it_end && it->left == left)
+            {
+                right_to_insert.push_back(it->right);
+                it++;
+            }
+
+            // Insert them in one go
+            auto l2r_it = m_LeftToRight.find(left);
+            if (l2r_it != m_LeftToRight.end())
+            {
+                auto l2r_vec = l2r_it->second;
+                auto temp = *l2r_vec;
+                m_Count -= l2r_vec->size();
+                insertIntoSortedVector(&temp, &right_to_insert, l2r_vec);
+                m_Count += l2r_vec->size();
+            }
+            else
+            {
+                // insert new value
+                auto l2r_vec = new std::vector<RightType>(right_to_insert);
+                m_LeftToRight[left] = l2r_vec;
+                m_Count += l2r_vec->size();
+            }
+        }
+
+        // ------------------------
+
+        std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_right_then_left);
+
+        std::vector<LeftType> left_to_insert;
+        it_end = pairs_to_insert.cend();
+        for (auto it = pairs_to_insert.cbegin(); it != it_end; )
+        {
+            // Collect all right values that have the same left value
+            left_to_insert.clear();
+            auto right = it->right;
+            while(it != it_end && it->right == right)
+            {
+                left_to_insert.push_back(it->left);
+                it++;
+            }
+
+            // Insert them in one go
+            auto r2l_it = m_RightToLeft.find(right);
+            if (r2l_it != m_RightToLeft.end())
+            {
+                auto r2l_vec = r2l_it->second;
+                auto temp = *r2l_vec;
+                insertIntoSortedVector(&temp, &left_to_insert, r2l_vec);
+            }
+            else
+            {
+                // insert new value
+                auto r2l_vec = new std::vector<LeftType>(left_to_insert);
+                m_RightToLeft[right] = r2l_vec;
+            }
         }
     }
 
