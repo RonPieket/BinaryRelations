@@ -324,13 +324,6 @@ Results microseconds.
 all those I have found have a license that is more restrictive than the MIT
 license.
 
-The array insert and erase operations, which require shifting half the array on
-average, are definitely a performance liability. This can be optimized, at the
-cost complexity.
-
-Performance of this tech has not been an issue in our tools, but there is plenty
-of room for improvement.
-
 How it works
 ------------
 
