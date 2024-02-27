@@ -295,8 +295,6 @@ public:
         std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
         std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
 
-        // ------------------------
-        
         std::vector<Pair> pairs_to_erase;
         for (auto pair : pairs_to_insert)
         {
@@ -340,8 +338,6 @@ public:
                 }
             }
         }
-
-        // -----------------------
 
         std::vector<RightType> right_to_insert;
         auto it_end = pairs_to_insert.cend();
@@ -781,6 +777,7 @@ public:
 
     /**
      @brief Insert multiple  pairs into the set.
+     This is faster than inserting the pairs one by one.
      @param pairs The pairs to add.
      */
     void insert(const std::vector<Pair> &pairs) noexcept
@@ -803,9 +800,6 @@ public:
         };
 
         std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
-
-        // ------------------------
-
         std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
 
         std::vector<RightType> right_to_insert;
@@ -839,8 +833,6 @@ public:
                 m_Count += l2r_vec->size();
             }
         }
-
-        // ------------------------
 
         std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_right_then_left);
 
@@ -1002,9 +994,6 @@ public:
         };
 
         std::vector<Pair> pairs_to_insert = pairs;  // Deep copy...
-
-        // ------------------------
-
         std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_left_then_right); // ...so I can sort
 
         std::vector<RightType> right_to_insert;
@@ -1031,8 +1020,6 @@ public:
                 m_Count += l2r_vec->size();
             }
         }
-
-        // ------------------------
 
         std::sort(pairs_to_insert.begin(), pairs_to_insert.end(), compare_right_then_left);
 
