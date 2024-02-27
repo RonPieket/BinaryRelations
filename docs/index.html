@@ -253,7 +253,7 @@ Naming of template specializations</h1>
 Efficiency</h1>
 <p>The efficiency for lookup such as <code>FindLeft()</code> and <code>FindRight()</code> is constant time, or O(1). All operations on a <code>OneToOne</code> are also constant.</p>
 <p>Things get more complicated with <code>OneToMany</code> and <code>ManyToMany</code>. They maintain sorted arrays. Insertion and erasure of elements in an array involves shifting everything between the point of insertion/erasure and the end of the array. This is O(n).</p>
-<p>There is a new bulk insert/erase that will speed up insertions and erasures by bundling them up. (Optimized algorithm only implemented for <code>OneToMany</code>. To do <code>ManyToMany</code>)</p>
+<p>There is a new bulk insert/erase that will speed up insertions and erasures by bundling them up.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Performance</h1>
 <p>Performance measurements in Xcode on an iMac M1, release build.</p>
@@ -264,17 +264,17 @@ Insert</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">one-to-one   </th><th class="markdownTableHeadNone">one-to-many   </th><th class="markdownTableHeadNone">many-to-many    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">0.09675   </td><td class="markdownTableBodyNone">0.025583   </td><td class="markdownTableBodyNone">0.032292    </td></tr>
+<td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">0.001875   </td><td class="markdownTableBodyNone">0.00225   </td><td class="markdownTableBodyNone">0.003    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">100   </td><td class="markdownTableBodyNone">0.245417   </td><td class="markdownTableBodyNone">0.157959   </td><td class="markdownTableBodyNone">0.180417    </td></tr>
+<td class="markdownTableBodyNone">100   </td><td class="markdownTableBodyNone">0.008333   </td><td class="markdownTableBodyNone">0.011   </td><td class="markdownTableBodyNone">0.017833    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1,000   </td><td class="markdownTableBodyNone">2.04304   </td><td class="markdownTableBodyNone">1.06521   </td><td class="markdownTableBodyNone">1.58233    </td></tr>
+<td class="markdownTableBodyNone">1,000   </td><td class="markdownTableBodyNone">0.078292   </td><td class="markdownTableBodyNone">0.097208   </td><td class="markdownTableBodyNone">0.130792    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">10,000   </td><td class="markdownTableBodyNone">15.3651   </td><td class="markdownTableBodyNone">7.81887   </td><td class="markdownTableBodyNone">10.4605    </td></tr>
+<td class="markdownTableBodyNone">10,000   </td><td class="markdownTableBodyNone">0.780334   </td><td class="markdownTableBodyNone">2.27113   </td><td class="markdownTableBodyNone">2.63937    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">100,000   </td><td class="markdownTableBodyNone">83.5547   </td><td class="markdownTableBodyNone">49.4451   </td><td class="markdownTableBodyNone">76.5453    </td></tr>
+<td class="markdownTableBodyNone">100,000   </td><td class="markdownTableBodyNone">13.2366   </td><td class="markdownTableBodyNone">18.0005   </td><td class="markdownTableBodyNone">18.4522    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">764.227   </td><td class="markdownTableBodyNone">665.519   </td><td class="markdownTableBodyNone">933.844   </td></tr>
+<td class="markdownTableBodyNone">1,000,000   </td><td class="markdownTableBodyNone">62.1115   </td><td class="markdownTableBodyNone">199.653   </td><td class="markdownTableBodyNone">268.983   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Lookup</h2>

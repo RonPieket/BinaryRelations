@@ -337,7 +337,7 @@ $(function(){initNavTree('_test_many_to_many_8h_source.html',''); initResizable(
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    std::vector&lt;OneToMany&lt;int, int&gt;::Pair&gt; pairs;</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    {</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">OneToMany&lt;int, int&gt;::Pair</a>(rand(), rand()));</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_one_to_many_1_1_pair.html">OneToMany&lt;int, int&gt;::Pair</a>(1, rand()));</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    }</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    rel.<a class="code hl_function" href="class_binary_relations_1_1_one_to_many.html#af2c4342782a6118da072aa07d54919a6">insert</a>(pairs);</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    steady_clock::time_point t2 = steady_clock::now();</div>
@@ -352,7 +352,7 @@ $(function(){initNavTree('_test_many_to_many_8h_source.html',''); initResizable(
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    std::vector&lt;OneToOne&lt;int, int&gt;::Pair&gt; pairs;</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">OneToOne&lt;int, int&gt;::Pair</a>(rand(), rand()));</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_one_to_one_1_1_pair.html">OneToOne&lt;int, int&gt;::Pair</a>(1, rand()));</div>
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    rel.<a class="code hl_function" href="class_binary_relations_1_1_one_to_one.html#a3fb6ce8ac8dd6f0a2e6231a33cba1b6d">insert</a>(pairs);</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    steady_clock::time_point t2 = steady_clock::now();</div>
@@ -368,7 +368,7 @@ $(function(){initNavTree('_test_many_to_many_8h_source.html',''); initResizable(
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    std::vector&lt;ManyToMany&lt;int, int&gt;::Pair&gt; pairs;</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    {</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">ManyToMany&lt;int, int&gt;::Pair</a>(rand(), rand()));</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        pairs.push_back(<a class="code hl_struct" href="struct_binary_relations_1_1_many_to_many_1_1_pair.html">ManyToMany&lt;int, int&gt;::Pair</a>(1, rand()));</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    rel.<a class="code hl_function" href="class_binary_relations_1_1_many_to_many.html#a2058bb23609a3fb109769b7c312b71d1">insert</a>(pairs);</div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    steady_clock::time_point t2 = steady_clock::now();</div>
