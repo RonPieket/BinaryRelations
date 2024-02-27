@@ -276,33 +276,19 @@ Performance
 
 Performance measurements in Xcode on an iMac M1, release build.
 
-### Worst case insert
+### Insert
 
-The “worst case” is inserting random numbers on the right with the same left
-value. The one-to-many uses the optimized bulk insert. Results in milliseconds.
-
-|           | one-to-one | one-to-many | many-to-many |
-|-----------|------------|-------------|--------------|
-| 10        | 0.068333   | 0.152083    | 0.067542     |
-| 100       | 0.2425     | 0.209416    | 0.450292     |
-| 1,000     | 2.20312    | 1.26733     | 4.82071      |
-| 10,000    | 17.2593    | 8.92692     | 28.9023      |
-| 100,000   | 77.019     | 46.892      | 365.9        |
-| 1,000,000 | 739.4      | 662.998     | 21,592.2     |
-
-### Best case insert
-
-The “best case” is inserting random numbers on both the left and right. Results
-in milliseconds.
+The worst case is inserting random numbers on the right with the same left
+value. This test uses the optimized bulk insert. Results in milliseconds.
 
 |           | one-to-one | one-to-many | many-to-many |
 |-----------|------------|-------------|--------------|
-| 10        | 0.005542   | 0.005625    | 0.00575      |
-| 100       | 0.03325    | 0.042167    | 0.039875     |
-| 1,000     | 0.25875    | 0.306125    | 0.354167     |
-| 10,000    | 2.37317    | 2.64029     | 3.25633      |
-| 100,000   | 20.2791    | 18.3426     | 30.7384      |
-| 1,000,000 | 454.936    | 601.014     | 780.828      |
+| 10        | 0.09675    | 0.025583    | 0.032292     |
+| 100       | 0.245417   | 0.157959    | 0.180417     |
+| 1,000     | 2.04304    | 1.06521     | 1.58233      |
+| 10,000    | 15.3651    | 7.81887     | 10.4605      |
+| 100,000   | 83.5547    | 49.4451     | 76.5453      |
+| 1,000,000 | 764.227    | 665.519     | 933.844      |
 
 ### Lookup
 
