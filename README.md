@@ -268,8 +268,7 @@ everything between the point of insertion/erasure and the end of the array. This
 is O(n).
 
 There is a new bulk insert/erase that will speed up insertions and erasures by
-bundling them up. (Optimized algorithm only implemented for `OneToMany`. To do
-`ManyToMany`)
+bundling them up.
 
 Performance
 -----------
@@ -283,12 +282,12 @@ value. This test uses the optimized bulk insert. Results in milliseconds.
 
 |           | one-to-one | one-to-many | many-to-many |
 |-----------|------------|-------------|--------------|
-| 10        | 0.09675    | 0.025583    | 0.032292     |
-| 100       | 0.245417   | 0.157959    | 0.180417     |
-| 1,000     | 2.04304    | 1.06521     | 1.58233      |
-| 10,000    | 15.3651    | 7.81887     | 10.4605      |
-| 100,000   | 83.5547    | 49.4451     | 76.5453      |
-| 1,000,000 | 764.227    | 665.519     | 933.844      |
+| 10        | 0.001875   | 0.00225     | 0.003        |
+| 100       | 0.008333   | 0.011       | 0.017833     |
+| 1,000     | 0.078292   | 0.097208    | 0.130792     |
+| 10,000    | 0.780334   | 2.27113     | 2.63937      |
+| 100,000   | 13.2366    | 18.0005     | 18.4522      |
+| 1,000,000 | 62.1115    | 199.653     | 268.983      |
 
 ### Lookup
 
